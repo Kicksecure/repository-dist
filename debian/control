@@ -1,0 +1,31 @@
+## This file is part of Whonix.
+## Copyright (C) 2012 - 2014 Patrick Schleizer <adrelanos@riseup.net>
+## See the file COPYING for copying conditions.
+
+Source: whonix-repository
+Section: misc
+Priority: optional
+Maintainer: Patrick Schleizer <adrelanos@riseup.net>
+Build-Depends: debhelper (>= 8), faketime, git
+Homepage: https://www.whonix.org/wiki/Whonix-APT-Repository
+Vcs-Browser: https://github.com/Whonix/whonix-repository
+Vcs-Git: https://github.com/Whonix/whonix-repository.git
+Standards-Version: 3.9.4
+
+Package: whonix-repository
+Architecture: all
+Depends: ${misc:Depends}
+Description: Whonix APT Repository Tool
+ This tool can always be used to enable either Whonix's stable, testers or
+ developers repository or to disable Whonix's repository.
+ .
+ Whonix's APT Repository is not enabled by default. Some users prefer this for
+ trust/security reasons.
+ .
+ On first boot of Whonix, the Whonix Repository Tool gets automatically started
+ by whonixsetup. The user is free to either leave Whonix's repository disabled
+ or to configure it as desired.
+ .
+ Technically speaking, this tool creates or deletes
+ /etc/sources.list.d/whonix.list and adds or deletes Whonix's signing key from
+ apt-key.
