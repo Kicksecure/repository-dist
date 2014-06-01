@@ -14,7 +14,7 @@ Standards-Version: 3.9.4
 
 Package: whonix-repository
 Architecture: all
-Depends: ${misc:Depends}
+Depends: dialog, ${misc:Depends}
 Description: Whonix APT Repository Tool
  This tool can always be used to enable either Whonix's stable, testers or
  developers repository or to disable Whonix's repository.
