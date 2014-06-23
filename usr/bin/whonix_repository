@@ -410,7 +410,7 @@ write_config() {
    trap "error_handler" ERR
 
    if [ "$WHONIX_APT_REPOSITORY_DISTRUST_ENV" = "1" ]; then
-      echo "INFO $0: Environment variable WHONIX_APT_REPOSITORY_DISTRUST_ENV is set to 1, revoking all Whonix apt keys in /usr/share/whonix/keys/whonix-keys.d/* and /usr/share/whonix/keys/whonix-keys-revoked.d/*..."
+      echo "INFO $0: Environment variable WHONIX_APT_REPOSITORY_DISTRUST_ENV is set to 1, revoking all Whonix apt keys in /usr/share/whonix/whonix-keys.d/* and /usr/share/whonix/whonix-keys-revoked.d/*..."
       disable="1"
    fi
 
@@ -510,17 +510,17 @@ main_function() {
    fi
 
    if [ "$disable" = "1" ]; then
-      echo "INFO $0: Revoking all Whonix apt keys in /usr/share/whonix/keys/whonix-keys.d/*..."
-      revoke_keys "/usr/share/whonix/keys/whonix-keys.d/"
-      echo "INFO $0: Revoking all Whonix apt keys in /usr/share/whonix/keys/whonix-keys-revoked.d/*..."
-      revoke_keys "/usr/share/whonix/keys/whonix-keys-revoked.d/"
+      echo "INFO $0: Revoking all Whonix apt keys in /usr/share/whonix/whonix-keys.d/*..."
+      revoke_keys "/usr/share/whonix/whonix-keys.d/"
+      echo "INFO $0: Revoking all Whonix apt keys in /usr/share/whonix/whonix-keys-revoked.d/*..."
+      revoke_keys "/usr/share/whonix/whonix-keys-revoked.d/"
       echo "INFO $0: Revoked all Whonix apt keys. Feel free to manually verify using \"sudo apt-key finger\". Showing output of \"apt-key finger\"..."
       echo " "
    else
       echo "INFO $0: Adding all Whonix apt keys in /usr/share/whonix/keys/whonix-keys/*..."
-      add_keys "/usr/share/whonix/keys/whonix-keys.d/"
-      echo "INFO $0: Revoking all Whonix apt keys in /usr/share/whonix/keys/whonix-keys-revoked.d/*..."
-      revoke_keys "/usr/share/whonix/keys/whonix-keys-revoked.d/"
+      add_keys "/usr/share/whonix/whonix-keys.d/"
+      echo "INFO $0: Revoking all Whonix apt keys in /usr/share/whonix/whonix-keys-revoked.d/*..."
+      revoke_keys "/usr/share/whonix/whonix-keys-revoked.d/"
    fi
 
    apt-key finger
