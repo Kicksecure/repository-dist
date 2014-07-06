@@ -120,6 +120,15 @@ read_config() {
             true "skip $i"
             continue
          fi
+         bash_n_exit_code="0"
+         bash_n_output="$(bash -n "$i" 2>&1)" || { bash_n_exit_code="$?" ; true; };
+         if [ ! "$bash_n_exit_code" = "0" ]; then
+            echo "Invalid config file: $i
+bash_n_exit_code: $bash_n_exit_code
+bash_n_output:
+$bash_n_output" >&2
+            exit 1
+         fi
          source "$i"
       fi
    done
@@ -136,6 +145,15 @@ read_config() {
          if ( echo "$i" | grep -q ".dpkg-" ); then
             true "skip $i"
             continue
+         fi
+         bash_n_exit_code="0"
+         bash_n_output="$(bash -n "$i" 2>&1)" || { bash_n_exit_code="$?" ; true; };
+         if [ ! "$bash_n_exit_code" = "0" ]; then
+            echo "Invalid config file: $i
+bash_n_exit_code: $bash_n_exit_code
+bash_n_output:
+$bash_n_output" >&2
+            exit 1
          fi
          source "$i"
       fi
