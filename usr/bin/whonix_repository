@@ -307,6 +307,10 @@ revoke_keys() {
                error "ERROR $BASH_SOURCE: Unexpected apt-key return code: $apt_key_exit_code. Please report this Whonix Bug!"
             fi
    done
+
+   if [ -d "$gpg_tmp" ]; then
+      rm --recursive "$gpg_tmp"
+   fi
 }
 
 gui() {
