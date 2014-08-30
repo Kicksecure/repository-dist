@@ -193,7 +193,7 @@ man $SCRIPTNAME"
            -c | --codename)
                codename="$2"
                if [ "$codename" = "" ]; then
-                  echo "ERROR: codename may not be empty! You most likely want to use stable, testers or developers as codename."
+                  echo "ERROR: codename may not be empty! You most likely want to use stable, wheezy, jessie, testers or developers as codename."
                   exit 1
                fi
                shift 2
@@ -403,7 +403,7 @@ You can always start the Whonix Repository Tool again by running:
    fi
 
    if [ "$dialog_output" = "1" ]; then
-      codename="stable"
+      codename="wheezy"
    elif [ "$dialog_output" = "2" ]; then
       codename="testers"
    elif [ "$dialog_output" = "3" ]; then
@@ -424,7 +424,7 @@ parse_variables() {
 
       if [ "$codename" = "" ]; then
          true "INFO $BASH_SOURCE: No distribution defined, defaulting to ${under}stable${reset} apt repository."
-         codename="stable"
+         codename="wheezy"
       fi
 }
 
