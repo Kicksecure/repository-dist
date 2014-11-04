@@ -417,18 +417,18 @@ You can always start the Whonix Repository Tool again by running:
 }
 
 parse_variables() {
-      if [ ! "$WHONIX_APT_REPOSITORY_DISTRIBUTION_ENV" = "" ]; then
-         echo "INFO $BASH_SOURCE: WHONIX_APT_REPOSITORY_DISTRIBUTION_ENV is set, using ${under}${WHONIX_APT_REPOSITORY_DISTRIBUTION_ENV}${reset} apt repository."
-         codename="$WHONIX_APT_REPOSITORY_DISTRIBUTION_ENV"
-      elif [ ! "$WHONIX_APT_REPOSITORY_DISTRIBUTION_CONFIG" = "" ]; then
-         echo "INFO $BASH_SOURCE: WHONIX_APT_REPOSITORY_DISTRIBUTION_CONFIG is set in /etc/whonix.d or $root_whonix_d_folder configuration folder, using ${under}${WHONIX_APT_REPOSITORY_DISTRIBUTION_CONFIG}${reset} apt repository."
-         codename="$WHONIX_APT_REPOSITORY_DISTRIBUTION_CONFIG"
-      fi
+   if [ ! "$WHONIX_APT_REPOSITORY_DISTRIBUTION_ENV" = "" ]; then
+      echo "INFO $BASH_SOURCE: WHONIX_APT_REPOSITORY_DISTRIBUTION_ENV is set, using ${under}${WHONIX_APT_REPOSITORY_DISTRIBUTION_ENV}${reset} apt repository."
+      codename="$WHONIX_APT_REPOSITORY_DISTRIBUTION_ENV"
+   elif [ ! "$WHONIX_APT_REPOSITORY_DISTRIBUTION_CONFIG" = "" ]; then
+      echo "INFO $BASH_SOURCE: WHONIX_APT_REPOSITORY_DISTRIBUTION_CONFIG is set in /etc/whonix.d or $root_whonix_d_folder configuration folder, using ${under}${WHONIX_APT_REPOSITORY_DISTRIBUTION_CONFIG}${reset} apt repository."
+      codename="$WHONIX_APT_REPOSITORY_DISTRIBUTION_CONFIG"
+   fi
 
-      if [ "$codename" = "" ]; then
-         true "INFO $BASH_SOURCE: No distribution defined, defaulting to ${under}stable${reset} apt repository."
-         codename="wheezy"
-      fi
+   if [ "$codename" = "" ]; then
+      true "INFO $BASH_SOURCE: No distribution defined, defaulting to ${under}stable${reset} apt repository."
+      codename="wheezy"
+   fi
 }
 
 write_config() {
