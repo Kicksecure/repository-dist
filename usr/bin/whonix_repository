@@ -547,6 +547,9 @@ main_function() {
       add_keys "/usr/share/whonix/whonix-keys.d/"
       echo "INFO $BASH_SOURCE: Revoking all Whonix apt keys in /usr/share/whonix/whonix-keys-revoked.d/*..."
       revoke_keys "/usr/share/whonix/whonix-keys-revoked.d/"
+      echo "INFO $BASH_SOURCE: Added all Whonix apt keys from /usr/share/whonix/keys/whonix-keys/* and \
+revoked all Whonix apt keys from /usr/share/whonix/whonix-keys-revoked.d/*. \
+Feel free to manually verify using \"sudo apt-key finger\". Showing output of \"apt-key finger\"..."
       echo " "
    fi
 
