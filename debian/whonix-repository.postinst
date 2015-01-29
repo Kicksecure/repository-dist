@@ -21,8 +21,12 @@ case "$1" in
       true "INFO: Configuring $DPKG_MAINTSCRIPT_PACKAGE..."
 
       if type -t enable_echo ; then
-         ## provided by pre.bsh
-         enable_echo
+         ## Not trying to enable echo, if DEBDEBUG is set to 1, because then
+         ## echo is already enabled.
+         if [ ! "$DEBDEBUG" = "1" ]; then
+            ## provided by pre.bsh
+            enable_echo
+         fi
       fi
 
       ## {{ 70_whonix_apt_key
