@@ -20,6 +20,11 @@ case "$1" in
    configure)
       true "INFO: Configuring $DPKG_MAINTSCRIPT_PACKAGE..."
 
+      if type -t enable_echo ; then
+         ## provided by pre.bsh
+         enable_echo
+      fi
+
       ## {{ 70_whonix_apt_key
 
       ## Debugging.
