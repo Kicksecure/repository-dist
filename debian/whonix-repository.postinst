@@ -42,9 +42,9 @@ case "$1" in
          ## can choose there.
          echo "INFO $BASH_SOURCE: WHONIX_APT_REPOSITORY_DISTRIBUTION_ENV is set to 0, enabling Whonix APT Repository.."
          if [ -o xtrace ]; then
-            bash -x /usr/bin/whonix_repository --enable
+            bash -x whonix_repository --enable
          else
-            /usr/bin/whonix_repository --enable
+            whonix_repository --enable
          fi
          exit 0
       fi
@@ -57,9 +57,9 @@ case "$1" in
       ## /usr/share/whonix/whonix-keys-revoked.d/ (if there are any) and delete
       ## /etc/apt/sources.list.d/whonix.list (if it exists).
       if [ -o xtrace ]; then
-         bash -x /usr/bin/whonix_repository --just
+         bash -x whonix_repository --just
       else
-         /usr/bin/whonix_repository --just
+         whonix_repository --just
       fi
 
       ## }} 70_whonix_apt_key
