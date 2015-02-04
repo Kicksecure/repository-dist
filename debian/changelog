@@ -1,3 +1,9 @@
+whonix-repository (3:1.0-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Patrick Schleizer <adrelanos@riseup.net>  Wed, 04 Feb 2015 00:53:01 +0000
+
 whonix-repository (3:0.9-1) unstable; urgency=low
 
   * New upstream version.
