@@ -203,6 +203,14 @@ man $SCRIPTNAME"
                fi
                shift 2
                ;;
+           -r | --repository)
+               repository="$2"
+               if [ "$repository" = "" ]; then
+                  echo "ERROR: repository may not be empty! You most likely want to use stable, testers or developers as repository."
+                  exit 1
+               fi
+               shift 2
+               ;;
            -d | --gui)
                gui="1"
                shift
@@ -408,17 +416,25 @@ You can always start the Whonix Repository Tool again by running:
    fi
 
    if [ "$dialog_output" = "1" ]; then
-      codename="$codename_default_stable"
+      repository="$codename_default_stable"
    elif [ "$dialog_output" = "2" ]; then
-      codename="testers"
+      repository="testers"
    elif [ "$dialog_output" = "3" ]; then
-      codename="developers"
+      repository="developers"
    else
       error "Invalid menu action. Please report this bug!"
    fi
 }
 
 parse_variables() {
+   if [ "$repository" = "stable" ]; then
+      codename="$codename_default_stable"
+   elif [ "$repository" = "testers" ]; then
+      codename="testers"
+   elif [ "$repository" = "developers" ]; then
+      codename="developers"
+   fi
+
    if [ ! "$WHONIX_APT_REPOSITORY_DISTRIBUTION_ENV" = "" ]; then
       echo "INFO $BASH_SOURCE: WHONIX_APT_REPOSITORY_DISTRIBUTION_ENV is set, using ${under}${WHONIX_APT_REPOSITORY_DISTRIBUTION_ENV}${reset} apt repository."
       codename="$WHONIX_APT_REPOSITORY_DISTRIBUTION_ENV"

@@ -44,6 +44,12 @@ Default distribution (version of Whonix) is stable.
 
   * --codename <codename>
 
+    Advanced users option. Specific literal code names.
+    Chose either the stable, testers or developers version of Whonix. Only
+    useful in combination with `--enable`.
+
+  * --repository <codename>
+
     Chose either the stable, testers or developers version of Whonix. Only
     useful in combination with `--enable`.
 
@@ -106,7 +112,7 @@ Read the comments in `/etc/whonix.d/30_aptrepository_default`.
 
 `sudo whonix_repository --gui`
 
-`sudo whonix_repository --enable --codename stable`
+`sudo whonix_repository --enable --repository stable`
 
 `sudo whonix_repository --enable --verbose`
 
