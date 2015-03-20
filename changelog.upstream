@@ -1,3 +1,33 @@
+commit 3ad1a999dcf93cbe6e197ee8da116af8edf66e33
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Mar 19 12:15:26 2015 +0000
+
+    refactoring
+
+commit 27c8f77e4cb96e6fcf2dfad4dd34f183ae77fe7b
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Mar 19 12:11:11 2015 +0000
+
+    implemented --repository to fix "whonix-setup-wizard repository - code names issue - stable vs wheezy" - https://phabricator.whonix.org/T232
+
+commit 18cc260948770986daf17d85b26553536aa604c2
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Mar 19 11:57:21 2015 +0000
+
+    refactoring
+
+commit c76ec53402962c5648645e215c57963858ac92a4
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Feb 6 04:26:02 2015 +0000
+
+    maintainer script output
+
+commit 15162bc26291ca9ececb1412546e13805c60219f
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Feb 4 00:56:46 2015 +0000
+
+    bumped changelog version
+
 commit 28f6bf917be98092735a09b5f3f14d4d235623d8
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Feb 4 00:45:08 2015 +0000
