@@ -87,7 +87,7 @@ preparation() {
 
    codename_default_stable="wheezy"
    ## Fallback.
-   [ -n "$WHONIX_APT_REPOSITORY_BASEURI" ] || WHONIX_APT_REPOSITORY_BASEURI="http://sourceforge.net/projects/whonixdevelopermetafiles/files/internal/"
+   [ -n "$WHONIX_APT_REPOSITORY_BASEURI" ] || WHONIX_APT_REPOSITORY_BASEURI="http://mirror.whonix.de/whonixdevelopermetafiles/internal/"
 }
 
 root_check() {
