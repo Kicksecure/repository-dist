@@ -86,6 +86,8 @@ preparation() {
    } 2>/dev/null ||:
 
    codename_default_stable="wheezy"
+   ## Fallback.
+   [ -n "$WHONIX_APT_REPOSITORY_BASEURI" ] || WHONIX_APT_REPOSITORY_BASEURI="http://sourceforge.net/projects/whonixdevelopermetafiles/files/internal/"
 }
 
 root_check() {
@@ -585,11 +587,11 @@ Feel free to manually verify using \"sudo apt-key finger\". Showing output of \"
 ## Run:
 ##    sudo whonix_repository
 
-deb http://sourceforge.net/projects/whonixdevelopermetafiles/files/internal/ $codename main
+deb $WHONIX_APT_REPOSITORY_BASEURI $codename main
 
 ## Leaving source line disabled by default to safe some time, it's not useful
 ## anyway, since it's better to get the source code from the git repository.
-#deb-src http://sourceforge.net/projects/whonixdevelopermetafiles/files/internal/ $codename main
+#deb-src $WHONIX_APT_REPOSITORY_BASEURI $codename main
 
 ## End of /etc/apt/sources.list.d/whonix.list
 " > "/etc/apt/sources.list.d/whonix.list"
