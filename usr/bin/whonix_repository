@@ -207,6 +207,14 @@ man $SCRIPTNAME"
                fi
                shift 2
                ;;
+           -b | --baseuri)
+               WHONIX_APT_REPOSITORY_BASEURI="$2"
+               if [ "$WHONIX_APT_REPOSITORY_BASEURI" = "" ]; then
+                  echo "ERROR: WHONIX_APT_REPOSITORY_BASEURI may not be empty!"
+                  exit 1
+               fi
+               shift 2
+               ;;
            -d | --gui)
                gui="1"
                shift
