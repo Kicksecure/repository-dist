@@ -1,3 +1,51 @@
+commit 21475cb81882d598c63503ba4d21ef386572ce51
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Apr 4 17:35:30 2015 +0000
+
+    add WHONIX_APT_REPOSITORY_BASEURI to auto generated configuration file
+
+commit 5577a3dda1577362c0475d368a3bea2f53ba4a0e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Apr 4 17:31:48 2015 +0000
+
+    made baseuri (WHONIX_APT_REPOSITORY_BASEURI) configurable through --baseuri command line parameter
+
+commit fa4621e7b54b8114d4b33ad6c4ce473de0a0abd9
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Apr 4 17:28:16 2015 +0000
+
+    moved Whonix APT Repository default baseuri from http://sourceforge.net/projects/whonixdevelopermetafiles/files/internal/ to http://mirror.whonix.de/whonixdevelopermetafiles/internal/
+
+commit 3d7dbd91f53a516292e11b24181e1daae380e862
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Apr 4 17:23:23 2015 +0000
+
+    refactoring - https://phabricator.whonix.org/T54
+
+commit 20ed8bd9346c1310fda477a006cb8aafacfd41ec
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Apr 2 18:41:43 2015 +0000
+
+    added genmkfile to Build-Depends
+
+commit 5484e6acaee4ad2c27c431512faee6f2ba4fdd83
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Apr 2 17:47:01 2015 +0000
+
+    updated debian/rules for makefile generic to version 1.5
+
+commit 1ceefaeb65e5e6d34d1c39b7b021e1afed2ccec8
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Apr 2 17:24:57 2015 +0000
+
+    updated makefile generic to version 1.5
+
+commit 9ab154c6bbbc76d8a11c643bdaeb46ad2d0bf643
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Mar 24 17:37:13 2015 +0000
+
+    bumped changelog version
+
 commit d3278475d87a0d881446f380f6ef14ed33c0e708
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Mar 24 17:27:03 2015 +0000
