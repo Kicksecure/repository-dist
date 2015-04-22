@@ -85,7 +85,7 @@ preparation() {
        back=$'\b'
    } 2>/dev/null ||:
 
-   codename_default_stable="wheezy"
+   codename_default_stable="jessie"
    ## Fallback.
    [ -n "$WHONIX_APT_REPOSITORY_BASEURI" ] || WHONIX_APT_REPOSITORY_BASEURI="http://mirror.whonix.de/whonixdevelopermetafiles/internal/"
 }
