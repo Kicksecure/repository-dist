@@ -1,3 +1,15 @@
+commit e8ed98b658559f6b4194bf90365183d2d3db05ec
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Apr 22 15:51:03 2015 +0000
+
+    changed release codename from wheezy to jessie - https://phabricator.whonix.org/T270
+
+commit 6bbd626eae06456cc386bec3fd5029dc67b9809c
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Apr 7 17:43:15 2015 +0000
+
+    bumped changelog version
+
 commit 21475cb81882d598c63503ba4d21ef386572ce51
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Apr 4 17:35:30 2015 +0000
