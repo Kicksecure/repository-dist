@@ -29,40 +29,21 @@ case "$1" in
          fi
       fi
 
-      ## {{ 70_whonix_apt_key
-
-      ## Debugging.
-      true "UWT_DEV_PASSTHROUGH: $UWT_DEV_PASSTHROUGH"
-
-      if [ "$WHONIX_APT_REPOSITORY_DISTRUST_ENV" = "0" ]; then
+      if [ "$WHONIX_APT_REPOSITORY_OPTS" = "" ]; then
+         echo "Variable WHONIX_APT_REPOSITORY_OPTS is empty, not calling whonix_repository tool."
+      else
          ## This is not the case by default.
          ## We are no longer enabling Whonix's APT Repository by default, neither for
-         ## redistributable builds not for builds from source code. The
+         ## redistributable builds nor for builds from source code. In non-Qubes-Whonix the
          ## whonix_repository tool gets auto started once Whonix starts so the user
          ## can choose there.
-         echo "INFO $BASH_SOURCE: WHONIX_APT_REPOSITORY_DISTRIBUTION_ENV is set to 0, enabling Whonix APT Repository.."
          if [ -o xtrace ]; then
-            bash -x whonix_repository --enable
+            bash -x whonix_repository $WHONIX_APT_REPOSITORY_OPTS
          else
-            whonix_repository --enable
+            whonix_repository $WHONIX_APT_REPOSITORY_OPTS
          fi
          exit 0
       fi
-
-      ## Just honor existing /etc/whonix.d and /root/.whonix.d config folders.
-      ## Default Whonix APT Repository related configs have only comments. If neither
-      ## WHONIX_APT_REPOSITORY_DISTRUST_ENV nor WHONIX_APT_REPOSITORY_DISTRUST_CONFIG
-      ## are set to 0, then the whonix_repository tool will revoke all keys in
-      ## /usr/share/whonix/whonix-keys.d/ and in
-      ## /usr/share/whonix/whonix-keys-revoked.d/ (if there are any) and delete
-      ## /etc/apt/sources.list.d/whonix.list (if it exists).
-      if [ -o xtrace ]; then
-         bash -x whonix_repository --just
-      else
-         whonix_repository --just
-      fi
-
-      ## }} 70_whonix_apt_key
 
       true "INFO: End configuring $DPKG_MAINTSCRIPT_PACKAGE."
 
