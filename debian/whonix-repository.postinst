@@ -30,7 +30,7 @@ case "$1" in
       fi
 
       if [ "$WHONIX_APT_REPOSITORY_OPTS" = "" ]; then
-         echo "Variable WHONIX_APT_REPOSITORY_OPTS is empty, not calling whonix_repository tool."
+         true "Variable WHONIX_APT_REPOSITORY_OPTS is empty, not calling whonix_repository tool."
       else
          ## This is not the case by default.
          ## We are no longer enabling Whonix's APT Repository by default, neither for
