@@ -38,9 +38,9 @@ case "$1" in
          ## whonix_repository tool gets auto started once Whonix starts so the user
          ## can choose there.
          if [ -o xtrace ]; then
-            bash -x whonix_repository $WHONIX_APT_REPOSITORY_OPTS
+            bash -x whonix_repository --enable --repository $WHONIX_APT_REPOSITORY_OPTS
          else
-            whonix_repository $WHONIX_APT_REPOSITORY_OPTS
+            whonix_repository --enable --repository $WHONIX_APT_REPOSITORY_OPTS
          fi
          exit 0
       fi
