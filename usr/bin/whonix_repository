@@ -78,7 +78,7 @@ preparation() {
 
    [ -n "$codename_default_stable" ] || codename_default_stable="jessie"
    ## Fallback.
-   [ -n "$WHONIX_APT_REPOSITORY_BASEURI" ] || WHONIX_APT_REPOSITORY_BASEURI="http://mirror.whonix.de/whonixdevelopermetafiles/internal/"
+   [ -n "$WHONIX_APT_REPOSITORY_BASEURI" ] || WHONIX_APT_REPOSITORY_BASEURI="http://www.whonix.org/download/whonixdevelopermetafiles/internal/"
 }
 
 root_check() {
