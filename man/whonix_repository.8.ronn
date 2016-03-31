@@ -44,7 +44,7 @@ Enables or disables Whonix apt repository.
 
   * --repository <codename>
 
-    Chose either the stable, testers or developers version of Whonix. Only
+    Chose either the stable, stable-proposed-updates, testers or developers version of Whonix. Only
     useful in combination with `--enable`.
 
   * --verbose

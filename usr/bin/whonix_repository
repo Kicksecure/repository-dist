@@ -130,7 +130,7 @@ man $SCRIPTNAME"
            -c | --codename)
                codename="$2"
                if [ "$codename" = "" ]; then
-                  echo "ERROR: codename may not be empty! You most likely want to use $codename_default_stable, testers or developers as codename."
+                  echo "ERROR: codename may not be empty! You most likely want to use $codename_default_stable, ${codename_default_stable}-proposed-updates, testers or developers as codename."
                   exit 1
                fi
                shift 2
@@ -138,7 +138,7 @@ man $SCRIPTNAME"
            -r | --repository)
                repository="$2"
                if [ "$repository" = "" ]; then
-                  echo "ERROR: repository may not be empty! You most likely want to use stable, testers or developers as repository."
+                  echo "ERROR: repository may not be empty! You most likely want to use stable, stable-proposed-updates, testers or developers as repository."
                   exit 1
                fi
                shift 2
@@ -256,12 +256,14 @@ parse_variables() {
    if [ "$codename" = "" ]; then
       if [ "$repository" = "stable" ]; then
          codename="$codename_default_stable"
+      elif [ "$repository" = "stable-proposed-updates" ]; then
+         codename="${codename_default_stable}-proposed-updates"
       elif [ "$repository" = "testers" ]; then
          codename="testers"
       elif [ "$repository" = "developers" ]; then
          codename="developers"
       else
-         echo "ERROR: --repository must be either stable, testers or developers."
+         echo "ERROR: --repository must be either stable, stable-proposed-updates, testers or developers."
          exit 1
       fi
    fi
