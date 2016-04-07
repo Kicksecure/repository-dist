@@ -1,3 +1,25 @@
+commit dbfb7a99856386dd7d087f645cbf8375345c0e7c
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Mar 31 00:42:53 2016 +0000
+
+    implemented stable-proposed-updates
+    
+    https://phabricator.whonix.org/T200
+
+commit 44c23f1669ee447b99e873fa94dd970ff94baa47
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Mar 21 13:52:52 2016 +0100
+
+    move to whonix.org repository
+    
+    https://phabricator.whonix.org/T475
+
+commit 1b5808dd9c0d1258e8d3f7a2bf5f3fdcfe93b3c6
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Oct 22 23:12:44 2015 +0000
+
+    bumped changelog version
+
 commit 15149be8ba155cf4e45708efe25a5d98e16da13e
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Sep 5 14:44:35 2015 +0000
