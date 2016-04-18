@@ -42,7 +42,13 @@ case "$1" in
          else
             whonix_repository --enable --repository $WHONIX_APT_REPOSITORY_OPTS
          fi
-         exit 0
+      fi
+
+      ## Update existing keys. Only already added ones.
+      if [ -o xtrace ]; then
+         bash -x whonix_repository --refresh-keys
+      else
+         whonix_repository --refresh-keys
       fi
 
       true "INFO: End configuring $DPKG_MAINTSCRIPT_PACKAGE."

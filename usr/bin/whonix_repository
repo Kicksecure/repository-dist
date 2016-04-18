@@ -127,6 +127,10 @@ man $SCRIPTNAME"
                disable="1"
                shift
                ;;
+           --refresh-keys)
+               refresh_keys="1"
+               shift
+               ;;
            -c | --codename)
                codename="$2"
                if [ "$codename" = "" ]; then
@@ -187,7 +191,7 @@ add_keys() {
    done
 }
 
-revoke_keys() {
+revoke_or_refresh_keys() {
    gpg_tmp="$(mktemp --directory)"
 
    rm --recursive --force "$gpg_tmp"
@@ -228,18 +232,30 @@ revoke_keys() {
             ## apt-key del requires the 7 trailing chars of a fingerprint.
             local fingerprint_trailing_seven
             fingerprint_trailing_seven="${fingerprint:(-8)}"
-            echo "INFO $BASH_SOURCE: Removing revoked key with fingerprint $fingerprint (fingerprint_trailing_seven: $fingerprint_trailing_seven)..."
             local apt_key_exit_code
             apt_key_exit_code="0"
-            apt-key del "$fingerprint_trailing_seven" || { apt_key_exit_code="$?" ; true; };
-            if [ "$apt_key_exit_code" = "0" ]; then
-               true "INFO $BASH_SOURCE: apt-key returned 0."
-            elif [ "$apt_key_exit_code" = "2" ]; then
-               ## For Ubuntu / CI compatibility.
-               ## Ubuntu uses a different version of apt(-key).
-               true "INFO $BASH_SOURCE: apt-key returned 2. (Key not removed, because not there. Probably already removed or never existed.)"
+            if [ "$disable" = "1" ]; then
+               echo "INFO $BASH_SOURCE: Removing revoked key with fingerprint $fingerprint (fingerprint_trailing_seven: $fingerprint_trailing_seven)..."
+               apt-key del "$fingerprint_trailing_seven" || { apt_key_exit_code="$?" ; true; };
+               if [ "$apt_key_exit_code" = "0" ]; then
+                  true "INFO $BASH_SOURCE: apt-key returned 0."
+               elif [ "$apt_key_exit_code" = "2" ]; then
+                  ## For Ubuntu / CI compatibility.
+                  ## Ubuntu uses a different version of apt(-key).
+                  true "INFO $BASH_SOURCE: apt-key returned 2. (Key not removed, because not there. Probably already removed or never existed.)"
+               else
+                  error "ERROR $BASH_SOURCE: Unexpected apt-key return code: $apt_key_exit_code. Please report this Whonix Bug!"
+               fi
+            elif [ "$refresh_keys" = "1" ]; then
+               apt-key adv --fingerprint "$fingerprint" || { apt_key_exit_code="$?" ; true; };
+               if [ "$apt_key_exit_code" = "0" ]; then
+                  true "INFO $BASH_SOURCE: apt-key returned 0. Updating keys."
+                  add_keys "/usr/share/whonix/whonix-keys.d/"
+               else
+                  true "INFO $BASH_SOURCE: apt-key returned $apt_key_exit_code. Not updating keys."
+               fi
             else
-               error "ERROR $BASH_SOURCE: Unexpected apt-key return code: $apt_key_exit_code. Please report this Whonix Bug!"
+               error "Neither disable nor refresh_keys."
             fi
    done
 
@@ -252,6 +268,10 @@ parse_variables() {
    if [ "$disable" = "1" ]; then
       return 0
    fi
+   if [ "$refresh_keys" = "1" ]; then
+      return 0
+   fi
+
 
    if [ "$codename" = "" ]; then
       if [ "$repository" = "stable" ]; then
@@ -278,20 +298,22 @@ main_function() {
 
    if [ "$disable" = "1" ]; then
       echo "INFO $BASH_SOURCE: Revoking all Whonix apt keys in /usr/share/whonix/whonix-keys.d/*..."
-      revoke_keys "/usr/share/whonix/whonix-keys.d/"
+      revoke_or_refresh_keys "/usr/share/whonix/whonix-keys.d/"
       echo "INFO $BASH_SOURCE: Revoking all Whonix apt keys in /usr/share/whonix/whonix-keys-revoked.d/*..."
-      revoke_keys "/usr/share/whonix/whonix-keys-revoked.d/"
+      revoke_or_refresh_keys "/usr/share/whonix/whonix-keys-revoked.d/"
       echo "INFO $BASH_SOURCE: Revoked all Whonix apt keys. Feel free to manually verify using \"sudo apt-key finger\". Showing output of \"apt-key finger\"..."
       echo " "
    elif [ "$enable" = "1" ]; then
       echo "INFO $BASH_SOURCE: Adding all Whonix apt keys in /usr/share/whonix/keys/whonix-keys/*..."
       add_keys "/usr/share/whonix/whonix-keys.d/"
       echo "INFO $BASH_SOURCE: Revoking all Whonix apt keys in /usr/share/whonix/whonix-keys-revoked.d/*..."
-      revoke_keys "/usr/share/whonix/whonix-keys-revoked.d/"
+      revoke_or_refresh_keys "/usr/share/whonix/whonix-keys-revoked.d/"
       echo "INFO $BASH_SOURCE: Added all Whonix apt keys from /usr/share/whonix/keys/whonix-keys/* and \
 revoked all Whonix apt keys from /usr/share/whonix/whonix-keys-revoked.d/*. \
 Feel free to manually verify using \"sudo apt-key finger\". Showing output of \"apt-key finger\"..."
       echo " "
+   elif [ "$refresh_keys" = "1" ]; then
+      revoke_or_refresh_keys "/usr/share/whonix/whonix-keys.d/"
    else
       echo "ERROR: You must use either --enable or --disable."
       exit 1
@@ -307,6 +329,8 @@ Feel free to manually verify using \"sudo apt-key finger\". Showing output of \"
       else
          echo "INFO $BASH_SOURCE: Ok, /etc/apt/sources.list.d/whonix.list does not exist."
       fi
+   elif [ "$refresh_key" = "1" ]; then
+      true
    else
       echo "INFO $BASH_SOURCE: Using distribution ${under}$codename${reset} (version of Whonix) as apt repository."
       echo "INFO $BASH_SOURCE: Creating /etc/apt/sources.list.d/whonix.list..."
