@@ -329,7 +329,7 @@ Feel free to manually verify using \"sudo apt-key finger\". Showing output of \"
       else
          echo "INFO $BASH_SOURCE: Ok, /etc/apt/sources.list.d/whonix.list does not exist."
       fi
-   elif [ "$refresh_key" = "1" ]; then
+   elif [ "$refresh_keys" = "1" ]; then
       true
    else
       echo "INFO $BASH_SOURCE: Using distribution ${under}$codename${reset} (version of Whonix) as apt repository."
