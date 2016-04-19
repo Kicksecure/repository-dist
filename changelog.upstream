@@ -1,3 +1,29 @@
+commit 04ba12a77526191ec507fd25dbcd1dba641b2123
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Apr 18 21:25:55 2016 +0000
+
+    update signing key during upgrading
+    
+    postinst: removed extrartenous 'exit 0'
+
+commit d253d364332ca70a422d0aabbfe75caee865bcff
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Apr 18 19:30:33 2016 +0200
+
+    extended Whonix signing key
+
+commit 4477d2971fa351b0135dbb5a80838efadacea06e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Apr 14 23:12:43 2016 +0000
+
+    update, Recommends: whonix-repository-wizard -> whonix-setup-wizard
+
+commit 6bcc8f24588fdfe239fa901ba1e02602ad6b8778
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Apr 7 22:54:59 2016 +0000
+
+    bumped changelog version
+
 commit dbfb7a99856386dd7d087f645cbf8375345c0e7c
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Mar 31 00:42:53 2016 +0000
