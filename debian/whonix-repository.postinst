@@ -40,6 +40,7 @@ case "$1" in
          if [ -o xtrace ]; then
             bash -x whonix_repository --enable --repository $WHONIX_APT_REPOSITORY_OPTS
          else
+            echo "$DPKG_MAINTSCRIPT_PACKAGE $DPKG_MAINTSCRIPT_NAME Running: whonix_repository --enable --repository $WHONIX_APT_REPOSITORY_OPTS"
             whonix_repository --enable --repository $WHONIX_APT_REPOSITORY_OPTS
          fi
       fi
@@ -48,6 +49,7 @@ case "$1" in
       if [ -o xtrace ]; then
          bash -x whonix_repository --refresh-keys
       else
+         echo "$DPKG_MAINTSCRIPT_PACKAGE $DPKG_MAINTSCRIPT_NAME Running: whonix_repository --refresh-keys"
          whonix_repository --refresh-keys
       fi
 
