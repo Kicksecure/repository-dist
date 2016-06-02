@@ -33,7 +33,11 @@ error_handler() {
 
 trap "error_handler" ERR
 
-preparation() {
+colors() {
+   if [ "$TERM" = "" ]; then
+      return 0
+   fi
+
    ## Thanks to:
    ## http://mywiki.wooledge.org/BashFAQ/037
    ## Variables for terminal requests.
@@ -75,6 +79,10 @@ preparation() {
                    tput ac; tput ae;         } )   # Drawing characters
        back=$'\b'
    } 2>/dev/null ||:
+}
+
+preparation() {
+   colors
 
    [ -n "$codename_default_stable" ] || codename_default_stable="jessie"
    ## Fallback.
