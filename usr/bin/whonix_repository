@@ -86,7 +86,9 @@ preparation() {
 
    [ -n "$codename_default_stable" ] || codename_default_stable="jessie"
    ## Fallback.
-   [ -n "$WHONIX_APT_REPOSITORY_BASEURI" ] || WHONIX_APT_REPOSITORY_BASEURI="http://www.whonix.org/download/whonixdevelopermetafiles/internal/"
+   [ -n "$WHONIX_APT_REPOSITORY_BASEURI" ] || WHONIX_APT_REPOSITORY_BASEURI="\
+http://deb.whonix.org
+http://deb.kkkkkkkkkk63ava6.onion"
 }
 
 root_check() {
@@ -358,15 +360,21 @@ Feel free to manually verify using \"sudo apt-key finger\". Showing output of \"
 ## version or use developers version), please use the whonix_repository tool.
 ## Run:
 ##    sudo whonix_repository
+" > "/etc/apt/sources.list.d/whonix.list"
 
-deb $WHONIX_APT_REPOSITORY_BASEURI $codename main
+   for baseuri in $WHONIX_APT_REPOSITORY_BASEURI; do
+      echo "\
+deb $baseuri $codename main
+#deb-src $baseuri $codename main
+" >> "/etc/apt/sources.list.d/whonix.list"
+   done
 
+      echo "\
 ## Leaving source line disabled by default to safe some time, it's not useful
 ## anyway, since it's better to get the source code from the git repository.
-#deb-src $WHONIX_APT_REPOSITORY_BASEURI $codename main
 
 ## End of /etc/apt/sources.list.d/whonix.list
-" > "/etc/apt/sources.list.d/whonix.list"
+" >> "/etc/apt/sources.list.d/whonix.list"
 
       cat "/etc/apt/sources.list.d/whonix.list"
       echo "INFO $BASH_SOURCE: Done, created /etc/apt/sources.list.d/whonix.list."
