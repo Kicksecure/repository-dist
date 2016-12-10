@@ -1,3 +1,31 @@
+commit ce17ce4aeb5befc816dc78c04f083f878ac462d4
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Nov 21 17:44:16 2016 +0000
+
+    readme
+
+commit 231198f47005c03b93ad425918b3134c13184329
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Aug 19 00:24:24 2016 +0000
+
+    additionally add Whonix onion deb repository
+    
+    support multi lined WHONIX_APT_REPOSITORY_BASEURI
+
+commit 460757e78d0f3036d205b19b99a6f06ee40962cf
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Jun 2 11:53:31 2016 +0000
+
+    do not use tput if variable TERM is empty
+    
+    https://phabricator.whonix.org/T505
+
+commit d8618a037be58e58dab7fe21b745bb22267aaf1f
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Apr 19 22:03:03 2016 +0000
+
+    bumped changelog version
+
 commit 37c6ec8850f331193c1d3f44fde5b887434d3301
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Apr 19 21:59:09 2016 +0000
