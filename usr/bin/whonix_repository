@@ -293,7 +293,21 @@ parse_variables() {
       elif [ "$repository" = "developers" ]; then
          codename="developers"
       else
-         echo "ERROR: --repository must be either stable, stable-proposed-updates, testers or developers."
+         echo "ERROR: No option given. Usage examples:
+
+sudo whonix_repository --enable --repository stable
+
+sudo whonix_repository --verbose --enable --repository stable
+
+sudo whonix_repository --enable --codename jessie
+
+sudo whonix_repository --disable
+
+sudo whonix_repository --disable --verbose
+
+See also:
+
+man whonix_repository"
          exit 1
       fi
    fi
