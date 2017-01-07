@@ -270,6 +270,8 @@ revoke_or_refresh_keys() {
    done
 
    if [ -d "$gpg_tmp" ]; then
+      ## Debugging.
+      ls -la "$gpg_tmp" || true
       rm --recursive "$gpg_tmp"
    fi
 }
