@@ -34,7 +34,7 @@ case "$1" in
       else
          ## This is not the case by default.
          ## We are no longer enabling Whonix's APT Repository by default, neither for
-         ## redistributable builds nor for builds from source code. In non-Qubes-Whonix the
+         ## redistributable builds nor for builds from source code. In Non-Qubes-Whonix the
          ## whonix_repository tool gets auto started once Whonix starts so the user
          ## can choose there.
          if [ -o xtrace ]; then
