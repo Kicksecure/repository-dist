@@ -14,7 +14,7 @@ Standards-Version: 3.9.6
 
 Package: whonix-repository
 Architecture: all
-Depends: gpg, ${misc:Depends}
+Depends: gnupg, ${misc:Depends}
 Recommends: whonix-setup-wizard
 Description: Whonix APT Repository Tool
  This tool can always be used to enable either Whonix's stable, testers or

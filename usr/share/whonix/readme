@@ -27,19 +27,3 @@ whonix-news-keys.d
 - Not required to have a -revoked.d folder, because keys in the
   whonix-news-keys.d folder are only temporarily added to a temporary gpg
   verification folder every time whonixcheck verifies Whonix News.
-
-whonix-keys.d
-=============
-- When Whonix's APT repository has been enabled (in /etc/whonix.d/ or in
-  /root/.whonix.d/) (using the whonix_repository tool), then:
-  keys in whonix-keys.d folder will be added next time the whonix_repository
-  tool runs.
-- When Whonix's APT repository has been disabled (in /etc/whonix.d/ or in
-  /root/.whonix.d/) (using the whonix_repository tool), then:
-  keys in whonix-keys.d folder will be revoked next time the whonix_repository
-  tool runs.
-
-whonix-keys-revoked.d
-=====================
-- Keys in this folder will be revoked next time the whonix_repository tool
-  runs.

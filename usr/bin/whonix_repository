@@ -82,13 +82,14 @@ colors() {
 }
 
 preparation() {
-   colors
-
    [ -n "$codename_default_stable" ] || codename_default_stable="jessie"
    ## Fallback.
    [ -n "$WHONIX_APT_REPOSITORY_BASEURI" ] || WHONIX_APT_REPOSITORY_BASEURI="\
 http://deb.whonix.org
 http://deb.kkkkkkkkkk63ava6.onion"
+
+   [ -n "$apt_source_key" ] || apt_source_key="/usr/share/whonix-repository/whonix.asc"
+   [ -n "$apt_target_key" ] || apt_target_key="/etc/apt/trusted.gpg.d/whonix.gpg"
 }
 
 root_check() {
@@ -101,12 +102,7 @@ root_check() {
 }
 
 sanity_tests() {
-   command -v clear >/dev/null
-   command -v apt-key >/dev/null
    command -v id >/dev/null
-   command -v mkdir >/dev/null
-   command -v mktemp >/dev/null
-   command -v awk >/dev/null
 }
 
 parse_cmd_options() {
@@ -184,95 +180,41 @@ man $SCRIPTNAME"
 }
 
 add_keys() {
-   local key
+   echo "INFO $BASH_SOURCE: Copying Whonix from $apt_source_key to $apt_target_key."
 
-   for key in "$1"*; do
-      local filename
-      filename="$(basename "$key")"
-      if [ "$filename" = "placeholder" ]; then
-         continue
-      fi
-      if [ "$filename" = "*" ]; then
-         ## Folder is empty.
-         continue
-      fi
-      echo "INFO $BASH_SOURCE: Adding key: $key..."
-      apt-key add "$key" #>/dev/null 2>/dev/null
-   done
-}
-
-revoke_or_refresh_keys() {
    gpg_tmp="$(mktemp --directory)"
 
    rm --recursive --force "$gpg_tmp"
    mkdir --parents "$gpg_tmp"
    chmod 700 "$gpg_tmp"
 
-   local key
+   gpg \
+      --ignore-time-conflict \
+      --no-options \
+      --no-default-keyring \
+      --homedir "$gpg_tmp" \
+      --quiet \
+      --import "$apt_source_key"
 
-   for key in "$1"*; do
-      filename="$(basename "$key")"
-      if [ "$filename" = "placeholder" ]; then
-         continue
-      fi
-      if [ "$filename" = "*" ]; then
-         ## Folder is empty.
-         continue
-      fi
-      gpg \
-         --no-options \
-         --homedir "$gpg_tmp" \
-         --no-default-keyring \
-         --import "$key" \
-         2>/dev/null
-   done
-
-   local fingerprint
-
-   for fingerprint in $(\
-      gpg \
-         --no-options \
-         --homedir "$gpg_tmp" \
-         --no-default-keyring \
-         --with-colons \
-         --fingerprint \
-         2>/dev/null \
-         | awk -F: '$1 == "fpr" {print $10;}' \
-         ); do
-            ## apt-key del requires the 7 trailing chars of a fingerprint.
-            local fingerprint_trailing_seven
-            fingerprint_trailing_seven="${fingerprint:(-8)}"
-            local apt_key_exit_code
-            apt_key_exit_code="0"
-            if [ "$disable" = "1" ]; then
-               echo "INFO $BASH_SOURCE: Removing revoked key with fingerprint $fingerprint (fingerprint_trailing_seven: $fingerprint_trailing_seven)..."
-               apt-key del "$fingerprint_trailing_seven" || { apt_key_exit_code="$?" ; true; };
-               if [ "$apt_key_exit_code" = "0" ]; then
-                  true "INFO $BASH_SOURCE: apt-key returned 0."
-               elif [ "$apt_key_exit_code" = "2" ]; then
-                  ## For Ubuntu / CI compatibility.
-                  ## Ubuntu uses a different version of apt(-key).
-                  true "INFO $BASH_SOURCE: apt-key returned 2. (Key not removed, because not there. Probably already removed or never existed.)"
-               else
-                  error "ERROR $BASH_SOURCE: Unexpected apt-key return code: $apt_key_exit_code. Please report this Whonix Bug!"
-               fi
-            elif [ "$refresh_keys" = "1" ]; then
-               apt-key adv --fingerprint "$fingerprint" || { apt_key_exit_code="$?" ; true; };
-               if [ "$apt_key_exit_code" = "0" ]; then
-                  true "INFO $BASH_SOURCE: apt-key returned 0. Updating keys."
-                  add_keys "/usr/share/whonix/whonix-keys.d/"
-               else
-                  true "INFO $BASH_SOURCE: apt-key returned $apt_key_exit_code. Not updating keys."
-               fi
-            else
-               error "Neither disable nor refresh_keys."
-            fi
-   done
+   cp "$gpg_tmp/pubring.gpg" "$apt_target_key"
 
    if [ -d "$gpg_tmp" ]; then
       ## Debugging.
-      ls -la "$gpg_tmp" || true
+      #ls -la "$gpg_tmp" || true
       rm --recursive "$gpg_tmp" || true
+   fi
+
+   echo "INFO $BASH_SOURCE: Done, copied from $apt_source_key to $apt_target_key."
+}
+
+remove_keys() {
+   echo "INFO $BASH_SOURCE: Deleting $apt_target_key..."
+   if [ -f "$apt_target_key" ]; then
+      rm "$apt_target_key"
+      ! test -e "$apt_target_key"
+      echo "INFO $BASH_SOURCE: Done, deleted $apt_target_key."
+   else
+      echo "INFO $BASH_SOURCE: $apt_target_key does not exist, ok."
    fi
 }
 
@@ -283,7 +225,6 @@ parse_variables() {
    if [ "$refresh_keys" = "1" ]; then
       return 0
    fi
-
 
    if [ "$codename" = "" ]; then
       if [ "$repository" = "stable" ]; then
@@ -315,45 +256,31 @@ man whonix_repository"
    fi
 }
 
-main_function() {
-   root_check
-   sanity_tests
-   preparation
-   parse_cmd_options ${1+"$@"}
-   parse_variables
-
+enable_disable_refresh_keys() {
    if [ "$disable" = "1" ]; then
-      echo "INFO $BASH_SOURCE: Revoking all Whonix apt keys in /usr/share/whonix/whonix-keys.d/*..."
-      revoke_or_refresh_keys "/usr/share/whonix/whonix-keys.d/"
-      echo "INFO $BASH_SOURCE: Revoking all Whonix apt keys in /usr/share/whonix/whonix-keys-revoked.d/*..."
-      revoke_or_refresh_keys "/usr/share/whonix/whonix-keys-revoked.d/"
-      echo "INFO $BASH_SOURCE: Revoked all Whonix apt keys. Feel free to manually verify using \"sudo apt-key finger\". Showing output of \"apt-key finger\"..."
-      echo " "
+      remove_keys
    elif [ "$enable" = "1" ]; then
-      echo "INFO $BASH_SOURCE: Adding all Whonix apt keys in /usr/share/whonix/keys/whonix-keys/*..."
-      add_keys "/usr/share/whonix/whonix-keys.d/"
-      echo "INFO $BASH_SOURCE: Revoking all Whonix apt keys in /usr/share/whonix/whonix-keys-revoked.d/*..."
-      revoke_or_refresh_keys "/usr/share/whonix/whonix-keys-revoked.d/"
-      echo "INFO $BASH_SOURCE: Added all Whonix apt keys from /usr/share/whonix/keys/whonix-keys/* and \
-revoked all Whonix apt keys from /usr/share/whonix/whonix-keys-revoked.d/*. \
-Feel free to manually verify using \"sudo apt-key finger\". Showing output of \"apt-key finger\"..."
-      echo " "
+      add_keys
    elif [ "$refresh_keys" = "1" ]; then
-      revoke_or_refresh_keys "/usr/share/whonix/whonix-keys.d/"
+      if [ -e "$apt_target_key" ]; then
+         add_keys
+      else
+         echo "INFO $BASH_SOURCE: $apt_target_key does not exist. Doing nothing, ok."
+      fi
    else
-      echo "ERROR: You must use either --enable or --disable."
+      echo "ERROR: You must use either --enable, --refresh-keys or --disable."
       exit 1
    fi
+}
 
-   apt-key finger
-
+sources_list_generator() {
    if [ "$disable" = "1" ]; then
       if [ -f "/etc/apt/sources.list.d/whonix.list" ]; then
          echo "INFO $BASH_SOURCE: Deleting Whonix apt repository /etc/apt/sources.list.d/whonix.list..."
          rm --force "/etc/apt/sources.list.d/whonix.list"
          echo "INFO $BASH_SOURCE: Done, deleted /etc/apt/sources.list.d/whonix.list."
       else
-         echo "INFO $BASH_SOURCE: Ok, /etc/apt/sources.list.d/whonix.list does not exist."
+         echo "INFO $BASH_SOURCE: /etc/apt/sources.list.d/whonix.list does not exist, ok."
       fi
    elif [ "$refresh_keys" = "1" ]; then
       true
@@ -395,7 +322,17 @@ deb $baseuri $codename main
       cat "/etc/apt/sources.list.d/whonix.list"
       echo "INFO $BASH_SOURCE: Done, created /etc/apt/sources.list.d/whonix.list."
    fi
+}
 
+main_function() {
+   root_check
+   sanity_tests
+   colors
+   preparation
+   parse_cmd_options ${1+"$@"}
+   parse_variables
+   enable_disable_refresh_keys
+   sources_list_generator
    sync
 }
 
