@@ -179,14 +179,26 @@ man $SCRIPTNAME"
    ## will remain in the "$@" positional parameters.
 }
 
-add_keys() {
-   echo "INFO $BASH_SOURCE: Copying Whonix from $apt_source_key to $apt_target_key."
-
+gpg_tmp_create() {
    gpg_tmp="$(mktemp --directory)"
 
    rm --recursive --force "$gpg_tmp"
    mkdir --parents "$gpg_tmp"
    chmod 700 "$gpg_tmp"
+}
+
+gpg_tmp_delete() {
+   if [ -d "$gpg_tmp" ]; then
+      ## Debugging.
+      #ls -la "$gpg_tmp" || true
+      rm --recursive "$gpg_tmp" || true
+   fi
+}
+
+add_keys() {
+   echo "INFO $BASH_SOURCE: Copying Whonix from $apt_source_key to $apt_target_key..."
+
+   gpg_tmp_create
 
    gpg \
       --ignore-time-conflict \
@@ -197,24 +209,69 @@ add_keys() {
       --import "$apt_source_key"
 
    cp "$gpg_tmp/pubring.gpg" "$apt_target_key"
+   test -f "$apt_target_key"
 
-   if [ -d "$gpg_tmp" ]; then
-      ## Debugging.
-      #ls -la "$gpg_tmp" || true
-      rm --recursive "$gpg_tmp" || true
-   fi
+   gpg_tmp_delete
 
-   echo "INFO $BASH_SOURCE: Done, copied from $apt_source_key to $apt_target_key."
+   echo "INFO $BASH_SOURCE: Done."
+}
+
+remove_legacy() {
+   echo "INFO $BASH_SOURCE: Removing legacy key entry 2EEACCDA from /etc/apt/trusted.gpg..."
+   APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=true \
+      apt-key del "2EEACCDA" || true
+   echo "INFO $BASH_SOURCE: Done."
 }
 
 remove_keys() {
    echo "INFO $BASH_SOURCE: Deleting $apt_target_key..."
+
+   if legacy_test ; then
+      true "legacy found"
+      remove_legacy
+   else
+      true "no legacy found"
+   fi
+
    if [ -f "$apt_target_key" ]; then
       rm "$apt_target_key"
       ! test -e "$apt_target_key"
-      echo "INFO $BASH_SOURCE: Done, deleted $apt_target_key."
+      echo "INFO $BASH_SOURCE: Done."
    else
       echo "INFO $BASH_SOURCE: $apt_target_key does not exist, ok."
+   fi
+}
+
+legacy_test() {
+   gpg_tmp_create
+   if gpg \
+      --ignore-time-conflict \
+      --no-options \
+      --no-default-keyring \
+      --homedir "$gpg_tmp" \
+      --quiet \
+      --with-fingerprint /etc/apt/trusted.gpg | \
+      grep -q "916B 8D99 C38E AF5E 8ADC  7A2A 8D66 066A 2EEA CCDA" ; then
+      gpg_tmp_delete
+      return 0
+   else
+      gpg_tmp_delete
+      return 1
+   fi
+}
+
+refresh_keys() {
+   if legacy_test ; then
+      legacy_add=true
+      remove_legacy
+   else
+      true "INFO $BASH_SOURCE: Legacy did not exist. Doing nothing, ok."
+   fi
+
+   if [ -e "$apt_target_key" ] || [ "$legacy_add" = "true" ]; then
+      add_keys
+   else
+      echo "INFO $BASH_SOURCE: $apt_target_key does not exist. Doing nothing, ok."
    fi
 }
 
@@ -258,15 +315,12 @@ man whonix_repository"
 
 enable_disable_refresh_keys() {
    if [ "$disable" = "1" ]; then
+      remove_legacy
       remove_keys
    elif [ "$enable" = "1" ]; then
       add_keys
    elif [ "$refresh_keys" = "1" ]; then
-      if [ -e "$apt_target_key" ]; then
-         add_keys
-      else
-         echo "INFO $BASH_SOURCE: $apt_target_key does not exist. Doing nothing, ok."
-      fi
+      refresh_keys
    else
       echo "ERROR: You must use either --enable, --refresh-keys or --disable."
       exit 1
@@ -278,7 +332,7 @@ sources_list_generator() {
       if [ -f "/etc/apt/sources.list.d/whonix.list" ]; then
          echo "INFO $BASH_SOURCE: Deleting Whonix apt repository /etc/apt/sources.list.d/whonix.list..."
          rm --force "/etc/apt/sources.list.d/whonix.list"
-         echo "INFO $BASH_SOURCE: Done, deleted /etc/apt/sources.list.d/whonix.list."
+         echo "INFO $BASH_SOURCE: Done."
       else
          echo "INFO $BASH_SOURCE: /etc/apt/sources.list.d/whonix.list does not exist, ok."
       fi
@@ -320,7 +374,7 @@ deb $baseuri $codename main
 " >> "/etc/apt/sources.list.d/whonix.list"
 
       cat "/etc/apt/sources.list.d/whonix.list"
-      echo "INFO $BASH_SOURCE: Done, created /etc/apt/sources.list.d/whonix.list."
+      echo "INFO $BASH_SOURCE: Done."
    fi
 }
 
