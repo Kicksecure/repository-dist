@@ -1,3 +1,82 @@
+commit 93caaa8d2137eae0557d895aa1223434252c06cf
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Jan 9 06:44:29 2017 +0000
+
+    Migration from Whonix 13 jessie to stretch.
+    
+    Removing legacy key entry 2EEACCDA from /etc/apt/trusted.gpg.
+    
+    Readd as /etc/apt/trusted.gpg.d/whonix.gpg.
+    
+    https://forums.whonix.org/t/updating-whonix-from-jessie-to-stretch-migration-to-gnome-shell-port-to-gnome-ish-applications
+
+commit 0be9e499d6308167de04bf7f89bc27d1753c7417
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Jan 9 05:26:15 2017 +0000
+
+    fix for Debian stretch
+    no longer used apt-key (since apt-key warns against use in maintainer scripts)
+    refactoring
+    output
+    update patrick.asc (fix, new rather than old key
+    fix dependency, gpg -> gnupg
+
+commit b35f3ee94facc3c30c8588b30b10331b21e2d98a
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 7 22:33:46 2017 +0000
+
+    rename patrick.asc -> whonix.asc
+
+commit d617f1f8a38593e972cf6135d30cba3f22455283
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 7 22:20:47 2017 +0000
+
+    fail open in case gpg_tmp folder deletion fails
+    
+    It fails in Debian stretch for a unknown reason.
+    Failing open because deletion of that temp folder is not that important.
+    (Will be deleted after reboot anyhow.)
+
+commit 4017462c186ff714e9d4bf6add0999639be2f788
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 7 22:20:29 2017 +0000
+
+    debugging
+
+commit 4aad275d5942bf2060c94e0e8d93023f256ac297
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 7 22:19:39 2017 +0000
+
+    depend on gpg since stretch requires that
+
+commit bdd3e265529e43bd65d78d15938b7af60bd3cf54
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 7 22:10:06 2017 +0000
+
+    minor
+
+commit 01fb4752b34406dda757f1d0d924e29451075294
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 7 22:07:37 2017 +0000
+
+    update patrick.asc (more signatures only)
+
+commit a348952a419084c85d217a73ce27df7987d42980
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Dec 31 16:46:38 2016 +0000
+
+    show more useful error message when no option is given
+    
+    Thanks to TNT_BOM_BOM for the suggestion!
+    
+    https://forums.whonix.org/t/sudo-whonix-repository-doesnt-work
+
+commit 780a47d0a1356b28258fc98b92496f9bfc890124
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Dec 10 02:41:31 2016 +0000
+
+    bumped changelog version
+
 commit ce17ce4aeb5befc816dc78c04f083f878ac462d4
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Nov 21 17:44:16 2016 +0000
