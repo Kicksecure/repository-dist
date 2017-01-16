@@ -6,7 +6,7 @@ Source: whonix-repository
 Section: misc
 Priority: optional
 Maintainer: Patrick Schleizer <adrelanos@riseup.net>
-Build-Depends: debhelper (>= 9), faketime, genmkfile
+Build-Depends: debhelper (>= 9), faketime, genmkfile, ruby-ronn
 Homepage: https://www.whonix.org/wiki/Whonix-APT-Repository
 Vcs-Browser: https://github.com/Whonix/whonix-repository
 Vcs-Git: https://github.com/Whonix/whonix-repository.git
