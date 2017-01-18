@@ -260,6 +260,7 @@ legacy_test() {
       --no-default-keyring \
       --homedir "$gpg_tmp" \
       --quiet \
+      --keyid-format long \
       --with-fingerprint /etc/apt/trusted.gpg | \
       grep -q "916B 8D99 C38E AF5E 8ADC  7A2A 8D66 066A 2EEA CCDA" ; then
          gpg_tmp_delete
