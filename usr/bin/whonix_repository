@@ -86,7 +86,7 @@ preparation() {
    ## Fallback.
    [ -n "$WHONIX_APT_REPOSITORY_BASEURI" ] || WHONIX_APT_REPOSITORY_BASEURI="\
 http://deb.whonix.org
-http://deb.kkkkkkkkkk63ava6.onion"
+tor+http://deb.kkkkkkkkkk63ava6.onion"
 
    [ -n "$apt_source_key" ] || apt_source_key="/usr/share/whonix-repository/whonix.asc"
    [ -n "$apt_target_key" ] || apt_target_key="/etc/apt/trusted.gpg.d/whonix.gpg"
