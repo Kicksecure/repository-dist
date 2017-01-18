@@ -200,13 +200,23 @@ add_keys() {
 
    gpg_tmp_create
 
-   gpg \
+   ## Creates keybox kbx file.
+   gpg2 \
       --ignore-time-conflict \
       --no-options \
       --no-default-keyring \
       --homedir "$gpg_tmp" \
       --quiet \
       --import "$apt_source_key"
+
+   ## Create keyring gpg file.
+   gpg2 \
+      --ignore-time-conflict \
+      --no-options \
+      --no-default-keyring \
+      --homedir "$gpg_tmp" \
+      --quiet \
+      --export > "$gpg_tmp/pubring.gpg"
 
    cp "$gpg_tmp/pubring.gpg" "$apt_target_key"
    test -f "$apt_target_key"
@@ -244,7 +254,7 @@ remove_keys() {
 
 legacy_test() {
    gpg_tmp_create
-   if gpg \
+   if gpg2 \
       --ignore-time-conflict \
       --no-options \
       --no-default-keyring \
@@ -252,8 +262,8 @@ legacy_test() {
       --quiet \
       --with-fingerprint /etc/apt/trusted.gpg | \
       grep -q "916B 8D99 C38E AF5E 8ADC  7A2A 8D66 066A 2EEA CCDA" ; then
-      gpg_tmp_delete
-      return 0
+         gpg_tmp_delete
+         return 0
    else
       gpg_tmp_delete
       return 1
