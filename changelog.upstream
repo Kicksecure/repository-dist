@@ -1,3 +1,15 @@
+commit 1a25dca9dcee0cb2481a3543e0b10c075d8649a3
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jan 20 18:37:07 2017 +0100
+
+    fix, depend on gnupg2 rather than gnupg
+
+commit 4edb80c52c53634bd4ba53edf6b44f04b217a879
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Jan 18 14:35:04 2017 +0000
+
+    bumped changelog version
+
 commit 825381b0e98d63cd51f4fa642b49bf8f90d4b82d
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Jan 18 14:18:50 2017 +0000
