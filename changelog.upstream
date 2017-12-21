@@ -1,3 +1,33 @@
+commit fec35f538359a40520b6d9adc75efeccfb82a0c5
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Dec 21 14:49:47 2017 +0000
+
+    jessie -> stretch
+
+commit a77ae5b392f35549bd7c232e73f00d37dc631853
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Dec 21 14:48:49 2017 +0000
+
+    fix
+
+commit 57623696d68d2075c1de193a0b023ee82222d1b6
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Dec 21 14:46:50 2017 +0000
+
+    developers -> stretch-developers
+
+commit e9f8304b1599049f400bec2217ca4ebe0b108740
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Dec 21 14:45:43 2017 +0000
+
+    testers -> stretch-testers
+
+commit dc4199705c0fa9fe73fcf123548fe3f4aa2a9b8f
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Mar 6 16:20:46 2017 +0000
+
+    bumped changelog version
+
 commit 8c15171884a2cdae31429bc8cde7f02078c5f436
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Mar 6 14:52:16 2017 +0000
