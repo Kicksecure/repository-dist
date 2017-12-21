@@ -82,7 +82,7 @@ colors() {
 }
 
 preparation() {
-   [ -n "$codename_default_stable" ] || codename_default_stable="jessie"
+   [ -n "$codename_default_stable" ] || codename_default_stable="stretch"
    ## Fallback.
    [ -n "$WHONIX_APT_REPOSITORY_BASEURI" ] || WHONIX_APT_REPOSITORY_BASEURI="\
 http://deb.whonix.org
@@ -310,7 +310,7 @@ sudo whonix_repository --enable --repository stable
 
 sudo whonix_repository --verbose --enable --repository stable
 
-sudo whonix_repository --enable --codename jessie
+sudo whonix_repository --enable --codename $codename_default_stable
 
 sudo whonix_repository --disable
 
