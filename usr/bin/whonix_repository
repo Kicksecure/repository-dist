@@ -140,7 +140,7 @@ man $SCRIPTNAME"
            -c | --codename)
                codename="$2"
                if [ "$codename" = "" ]; then
-                  echo "ERROR: codename may not be empty! You most likely want to use $codename_default_stable, ${codename_default_stable}-proposed-updates, testers or developers as codename."
+                  echo "ERROR: codename may not be empty! You most likely want to use $codename_default_stable, ${codename_default_stable}-proposed-updates, ${codename_default_stable}-testers or developers as codename."
                   exit 1
                fi
                shift 2
@@ -299,8 +299,8 @@ parse_variables() {
          codename="$codename_default_stable"
       elif [ "$repository" = "stable-proposed-updates" ]; then
          codename="${codename_default_stable}-proposed-updates"
-      elif [ "$repository" = "testers" ]; then
-         codename="testers"
+      elif [ "$repository" = "${codename_default_stable}-testers" ]; then
+         codename="${codename_default_stable}-testers"
       elif [ "$repository" = "developers" ]; then
          codename="developers"
       else
