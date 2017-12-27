@@ -1,3 +1,15 @@
+commit 4bd06053eb619b6091dff0c991fe5e9d4b48c5f1
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Dec 27 19:18:20 2017 +0100
+
+    auto detect codename_default_stable
+
+commit ef423fd0d04cd9f5fe3a827e584843cbebdb6d18
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Dec 21 14:53:19 2017 +0000
+
+    bumped changelog version
+
 commit fec35f538359a40520b6d9adc75efeccfb82a0c5
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Dec 21 14:49:47 2017 +0000
