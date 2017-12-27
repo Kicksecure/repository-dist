@@ -82,7 +82,7 @@ colors() {
 }
 
 preparation() {
-   [ -n "$codename_default_stable" ] || codename_default_stable="stretch"
+   [ -n "$codename_default_stable" ] || codename_default_stable="$(lsb_release --short --codename)"
    ## Fallback.
    [ -n "$WHONIX_APT_REPOSITORY_BASEURI" ] || WHONIX_APT_REPOSITORY_BASEURI="\
 http://deb.whonix.org
