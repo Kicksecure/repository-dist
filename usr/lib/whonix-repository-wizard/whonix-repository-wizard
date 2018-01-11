@@ -1,0 +1,17 @@
+#!/usr/bin/python3 -u
+
+## This file is part of Whonix.
+## Copyright (C) 2012 - 2014 Patrick Schleizer <adrelanos@riseup.net>
+## See the file COPYING for copying conditions.
+
+from subprocess import call
+import distutils.spawn
+
+command = 'xhost +local:root'
+call(command, shell = True)
+
+whonix_repository_wizard = distutils.spawn.find_executable("whonix-repository-wizard")
+
+if not whonix_repository_wizard == "":
+    command = 'kdesudo %s' % (whonix_repository_wizard)
+    call(command, shell=True)
