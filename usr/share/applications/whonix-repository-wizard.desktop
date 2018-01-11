@@ -1,0 +1,13 @@
+## This file is part of Whonix.
+## Copyright (C) 2012 - 2014 Patrick Schleizer <adrelanos@riseup.net>
+## See the file COPYING for copying conditions.
+
+[Desktop Entry]
+Type=Application
+Terminal=false
+Exec=/usr/lib/whonix-repository-wizard/whonix-repository-wizard
+Name=Whonix Repository Wizard
+GenericName=Whonix Repository Wizard
+Comment=Whonix Repository Wizard
+Categories=System
+Icon=/usr/share/icons/anon-icon-pack/whonixlock.png
