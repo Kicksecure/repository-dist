@@ -20,7 +20,7 @@ class whonix_repository_wizard(QWizard):
     def __init__(self):
         super(whonix_repository_wizard, self).__init__()
 
-        self.resize(470, 310)
+        self.resize(500, 330)
         self.setWindowTitle('Whonix Repository Wizard')
         icon = "/usr/share/icons/anon-icon-pack/whonix.ico"
         self.setWindowIcon(QtGui.QIcon(icon))
@@ -70,10 +70,10 @@ class whonix_repository_wizard(QWizard):
         self.enable_text.setGeometry(QtCore.QRect(10, 10, 445, 150))
         self.enable_text.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
         self.enable_text.setWordWrap(True)
-        self.enable_group.setGeometry(QtCore.QRect(10, 180, 445, 60))
-        self.enable_button.setGeometry(QtCore.QRect(30, 10, 400, 21))
+        self.enable_group.setGeometry(QtCore.QRect(10, 170, 445, 70))
+        self.enable_button.setGeometry(QtCore.QRect(30, 22, 400, 21))
         self.enable_button.setChecked(True)
-        self.disable_button.setGeometry(QtCore.QRect(30, 30, 300, 21))
+        self.disable_button.setGeometry(QtCore.QRect(30, 42, 300, 21))
 
         self.repo_text = QLabel(self.page_repos)
         self.repo_text.setGeometry(QtCore.QRect(10, 10, 430, 140))
