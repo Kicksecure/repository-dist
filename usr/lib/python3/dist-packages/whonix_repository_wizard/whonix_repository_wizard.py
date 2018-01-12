@@ -80,7 +80,7 @@ class whonix_repository_wizard(QWizard):
         self.repo_text.setGeometry(QtCore.QRect(10, 10, 430, 140))
         self.repo_text.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
         self.repo_text.setWordWrap(True)
-        self.repo_group.setGeometry(QtCore.QRect(10, 150, 445, 90))
+        self.repo_group.setGeometry(QtCore.QRect(10, 150, 445, 105))
         self.repo1.setGeometry(QtCore.QRect(30, 20, 300, 21))
         self.repo1.setChecked(True)
         self.repo2.setGeometry(QtCore.QRect(30, 40, 300, 21))
