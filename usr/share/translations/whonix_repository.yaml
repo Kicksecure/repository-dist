@@ -1,0 +1,37 @@
+not_root:
+  icon: Critical
+  button: Ok
+  position: center
+  en:
+    title: Root privileges required
+    message:
+      <p><B>ERROR. This must be run as root!</B></p>
+      <p>Use a root file manager or "kdesudo" in a terminal.</p>
+
+whonix_repository:
+  en:
+    enabletext:
+      <p><B>Automatically install updates from the Whonix team?</B></p>
+      <p>Whonix News (via whonixcheck) will notify you of available updates.</p>
+      <p>When you run</p><blockquote>sudo apt-get dist-upgrade</blockquote>
+      <p>updates from the Whonix team will be AUTOMATICALLY downloaded and installed, along with updates from the Debian team.
+      Please read <a href=https://www.whonix.org/wiki/Trust>https://www.whonix.org/wiki/Trust</a> to understand the risks.</p>
+    repotext:
+      <p>Which Whonix Repository would you like to receive updates from?<p>
+      <p>Most users should select the Stable repository.</p>
+    enablebutton_text:
+      Yes. Automatically install updates from the Whonix team.
+    disablebutton_text:
+      No. I will manually update from source code.
+    finish_enabled:
+      <p>You will not receive updates from the Whonix team.</p>
+      <p>You can always start the Whonix Repository Tool again by running</p>
+      <blockquote>Start Menu -> Applications -> System -> Whonix Repository.</blockquote>
+    finish_disabed:
+      <p>Updates from the Whonix team will be automatically installed when you upgrade.
+      <p>You can always start the Whonix Repository Tool again by running</p>
+      <blockquote>Start Menu -> Applications -> System -> Whonix Repository.</blockquote>
+    finish_failed:
+      <p>Please report this Whonix bug!</p>
+      <p>You can always start the Whonix Repository Tool again by running</p>
+      <blockquote>Start Menu -> Applications -> System -> Whonix Repository.</blockquote>
