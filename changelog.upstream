@@ -1,8 +1,85 @@
+commit 405cf2b7648b737c8d62172aa60259acbbb6139f
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jan 12 15:47:04 2018 +0000
+
+    delete no longer required etc/sudoers.d/whonix-repository-wizard
+
+commit ab26015ce7ae9d0b422316d50a97831a0676ba42
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jan 12 15:46:43 2018 +0000
+
+    fix path
+
+commit 483015c1080877455cacd6222621f9a7b2316f58
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jan 12 15:46:06 2018 +0000
+
+    update for whonix-repository-wizard
+
+commit 29a9f2c89c389513f737291dece8aca58ffda131
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jan 12 15:42:21 2018 +0000
+
+    import usr/lib/whonix-repository/whonix-repository-wizard
+
+commit 2c6ee97b53fc131884ac6a03ea6f510bb4e67295
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jan 12 15:31:41 2018 +0000
+
+    renamed:    usr/share/applications/whonix_repository.desktop -> usr/share/applications/whonix-repository-wizard.desktop
+    
+    to avoid package conflicts during Whonix 13 -> 14 upgrade
+
+commit 3a5ca900206ee9fa19495530b692a9135cc88f76
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jan 12 15:17:49 2018 +0000
+
+    adjust path
+
+commit 30c8f32b114c977be3dc35bf39470bd8d4336405
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jan 12 15:16:55 2018 +0000
+
+    import usr/share/applications/whonix_repository.desktop
+    
+    from whonix-setup-wizard
+
+commit ea3bba700035b9478835836699eeec181c101d04
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jan 12 14:59:08 2018 +0000
+
+    add stable-proposed-updates repository
+
+commit 632d5c2cf42c8b6b81e2942a303f010a62d640a2
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jan 12 14:54:59 2018 +0000
+
+    use --repository rather than --codename
+
+commit 0923b12a144cc67fd513feaea3ced3fd13de9aa0
+Merge: e17521d b5353ae
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jan 12 14:51:04 2018 +0000
+
+    Merge remote-tracking branch 'troubadoour/master'
+
+commit e17521d98ab1e929b171c778b22b1e133bc9c26d
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 6 15:08:14 2018 +0000
+
+    bumped changelog version
+
 commit 0379352ba2a9956c7843d3ac24ed190ce43f52a6
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Jan 6 15:10:54 2018 +0100
 
     add missing dependency lsb-release
+
+commit b5353aeb391bad37a18a4b6a64b033e8ae8f23fc
+Author: troubadoour <trobador@riseup.net>
+Date:   Tue Jan 2 21:48:03 2018 +0000
+
+    add whonix-repository-wizard
 
 commit a186e5710828afe0252a54b16d642e710e356463
 Author: Patrick Schleizer <adrelanos@riseup.net>
