@@ -55,6 +55,7 @@ class whonix_repository_wizard(QWizard):
         self.repo1 = QRadioButton(self.repo_group)
         self.repo2 = QRadioButton(self.repo_group)
         self.repo3 = QRadioButton(self.repo_group)
+        self.repo4 = QRadioButton(self.repo_group)
         self.addPage(self.page_repos)
 
         self.page_finish = QWizardPage()
@@ -84,6 +85,7 @@ class whonix_repository_wizard(QWizard):
         self.repo1.setChecked(True)
         self.repo2.setGeometry(QtCore.QRect(30, 40, 300, 21))
         self.repo3.setGeometry(QtCore.QRect(30, 60, 300, 21))
+        self.repo4.setGeometry(QtCore.QRect(30, 80, 300, 21))
 
         self.finish_text.setGeometry(QtCore.QRect(10, 10, 445, 140))
         self.finish_text.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
@@ -109,8 +111,9 @@ class whonix_repository_wizard(QWizard):
 
         self.repo_group.setTitle("Repository")
         self.repo1.setText("Whonix Stable Repository")
-        self.repo2.setText("Whonix Testers Repository")
-        self.repo3.setText("Whonix Developers Repository")
+        self.repo2.setText("Whonix Stable Proposed Updates Repository")
+        self.repo3.setText("Whonix Testers Repository")
+        self.repo4.setText("Whonix Developers Repository")
 
         self.button(QWizard.BackButton).clicked.connect(self.BackButton_clicked)
 
@@ -155,9 +158,12 @@ class whonix_repository_wizard(QWizard):
                 repository = ' --repository stable'
 
             elif self.repo2.isChecked():
-                repository = ' --repository testers'
+                repository = ' --repository stable-proposed-updates'
 
             elif self.repo3.isChecked():
+                repository = ' --repository testers'
+
+            elif self.repo4.isChecked():
                 repository = ' --repository developers'
 
             if self.one_shot:
