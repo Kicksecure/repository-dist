@@ -12,7 +12,7 @@ import distutils.spawn
 command = 'xhost +local:root'
 call(command, shell = True)
 
-whonix_setup_wizard = distutils.spawn.find_executable("whonix-setup-wizard")
-if not whonix_setup_wizard == "":
-    command = 'kdesudo {} repository'.format(whonix_setup_wizard)
+whonix_repository_wizard = distutils.spawn.find_executable("whonix-repository-wizard")
+if not whonix_repository_wizard == "":
+    command = 'kdesudo {} repository'.format(whonix_repository_wizard)
     call(command, shell=True)
