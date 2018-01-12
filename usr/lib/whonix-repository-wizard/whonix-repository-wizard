@@ -5,6 +5,8 @@
 ## See the file COPYING for copying conditions.
 
 from subprocess import call
+import sys, os
+import time
 import distutils.spawn
 
 command = 'xhost +local:root'
