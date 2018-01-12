@@ -152,16 +152,16 @@ class whonix_repository_wizard(QWizard):
 
         elif self.currentId() == 2:
             if self.repo1.isChecked():
-                codename = ' --codename stable'
+                repository = ' --repository stable'
 
             elif self.repo2.isChecked():
-                codename = ' --codename testers'
+                repository = ' --repository testers'
 
             elif self.repo3.isChecked():
-                codename = ' --codename developers'
+                repository = ' --repository developers'
 
             if self.one_shot:
-                command = 'whonix_repository --enable' + codename
+                command = 'whonix_repository --enable' + repository
 
                 QApplication.setOverrideCursor(QCursor(Qt.WaitCursor))
                 exit_code = call(command, shell=True)
