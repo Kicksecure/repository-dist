@@ -7,13 +7,15 @@
 from subprocess import call
 import sys, os
 import time
-import distutils.spawn
+import shutil
 
 command = 'xhost +local:root'
 call(command, shell = True)
 
-whonix_repository_wizard = distutils.spawn.find_executable("whonix-repository-wizard")
+whonix_repository_wizard = shutil.which("whonix-repository-wizard")
+if whonix_repository_wizard == None:
+    print('ERROR: whonix-repository-wizard not found! Exiting.')
+    sys.exit(1)
 
-if not whonix_repository_wizard == "":
-    command = 'kdesudo {}'.format(whonix_repository_wizard)
-    call(command, shell=True)
+command = 'kdesudo {}'.format(whonix_repository_wizard)
+call(command, shell=True)
