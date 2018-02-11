@@ -1,7 +1,6 @@
 #!/bin/bash
 
-## This file is part of Whonix.
-## Copyright (C) 2012 - 2014 Patrick Schleizer <adrelanos@riseup.net>
+## Copyright (C) 2012 - 2018 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
 ## See the file COPYING for copying conditions.
 
 #set -x
@@ -85,8 +84,8 @@ preparation() {
    [ -n "$codename_default_stable" ] || codename_default_stable="$(lsb_release --short --codename)"
    ## Fallback.
    [ -n "$WHONIX_APT_REPOSITORY_BASEURI" ] || WHONIX_APT_REPOSITORY_BASEURI="\
-http://deb.whonix.org
-tor+http://deb.kkkkkkkkkk63ava6.onion"
+tor+http://deb.dds6qkxpwdeubwucdiaord2xgbbeyds25rbsgr73tbfpqpt4a6vjwsyd.onion
+http://deb.whonix.org"
 
    [ -n "$apt_source_key" ] || apt_source_key="/usr/share/whonix-repository/whonix.asc"
    [ -n "$apt_target_key" ] || apt_target_key="/etc/apt/trusted.gpg.d/whonix.gpg"
@@ -354,8 +353,7 @@ sources_list_generator() {
       echo "INFO $BASH_SOURCE: Creating /etc/apt/sources.list.d/whonix.list..."
 
       echo "\
-## This file is part of Whonix.
-## Copyright (C) 2012 - 2014 Patrick Schleizer <adrelanos@riseup.net>
+## Copyright (C) 2012 - 2018 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
 ## See the file COPYING for copying conditions.
 
 ## Whonix /etc/apt/sources.list.d/whonix.list

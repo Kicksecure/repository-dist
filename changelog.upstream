@@ -1,3 +1,107 @@
+commit be0f206b8add95612ea67b9e19cd673a28b24ef0
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Feb 10 14:41:21 2018 +0100
+
+    fix, swap http and onion sources so onion sources are primary and http fallback
+
+commit 9679dddda457fde6a44a6f88cbe78b1ad6348035
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Feb 1 15:36:56 2018 +0000
+
+    bumped changelog version
+
+commit 31750db77420d91d4283ffe6186e849bfc5ca1a0
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Jan 29 15:50:58 2018 +0000
+
+    readme
+
+commit 399e0104a7fb7a3b81e38f9e3ab9639fadcdd309
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Jan 29 15:39:06 2018 +0000
+
+    update copyright
+
+commit a12413f520ffb51f07d0d9f2a79d28b113f91f20
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Jan 29 15:22:15 2018 +0000
+
+    update copyright
+
+commit faaa3748aeb4da7e65e6ba6f23bccfd5e95b7399
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Jan 29 15:15:27 2018 +0000
+
+    update copyright
+
+commit 094422bd8836ae945150f413911ea9f3114d5bde
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Jan 29 15:09:52 2018 +0000
+
+    update copyright
+
+commit 435ef3ee224613525cb775ac0c634ebb3a895bb7
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jan 21 13:44:37 2018 +0000
+
+    bumped changelog version
+
+commit 70e7d00a6935a6f50a9470fbd55d916140775374
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jan 21 13:42:17 2018 +0000
+
+    move to v3 onion
+
+commit a47f2f6bc4eb85a863d646c0885e9943927e2b89
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Jan 18 17:34:16 2018 +0000
+
+    bumped changelog version
+
+commit 18eada6f464c3591ba259048f5a80d35aa9506ec
+Merge: 181ab20 56bf63b
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jan 12 22:18:22 2018 +0000
+
+    Merge remote-tracking branch 'troubadoour/master'
+
+commit 56bf63b0b713806a06fc0e02b7de5e13d2592005
+Author: troubadoour <trobador@riseup.net>
+Date:   Fri Jan 12 21:57:17 2018 +0000
+
+    change size of group box page 2
+
+commit 181ab20990b40fff0c7bc77d338ccceb937adfae
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jan 12 21:40:35 2018 +0000
+
+    fix path
+
+commit 436f2b0be87916708a13d49b2621c5c58ccb6cc0
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jan 12 21:38:59 2018 +0000
+
+    remove duplicate file
+
+commit 8c47859da0205a278a48c66d0bda5d46a820d8e4
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jan 12 21:37:33 2018 +0000
+
+    merge files
+
+commit d64a0735dc775f7302863604add1c6b549d36945
+Merge: 663645d cf0aecd
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jan 12 21:34:45 2018 +0000
+
+    Merge remote-tracking branch 'troubadoour/master'
+
+commit 663645d933138c9853414200e29c785a3f315c68
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jan 12 20:14:02 2018 +0000
+
+    bumped changelog version
+
 commit 405cf2b7648b737c8d62172aa60259acbbb6139f
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Jan 12 15:47:04 2018 +0000
@@ -62,6 +166,26 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Jan 12 14:51:04 2018 +0000
 
     Merge remote-tracking branch 'troubadoour/master'
+
+commit cf0aecd8c4f87f6bfa8a652d71a943514caa2c05
+Author: troubadoour <trobador@riseup.net>
+Date:   Thu Jan 11 22:02:01 2018 +0000
+
+    GUI improvements
+    window width, position of group box in first page
+
+commit 2fbfcb4e60b7d56c2b27311ccc9a0ecfb3b46a81
+Author: troubadoour <trobador@riseup.net>
+Date:   Thu Jan 11 21:24:18 2018 +0000
+
+    add usr/share/applications/whonix-repository-wizard.desktopX
+
+commit 32fb2114b54e2f6ba392a3dc00825cf78fd28cc4
+Author: troubadoour <trobador@riseup.net>
+Date:   Thu Jan 11 20:47:55 2018 +0000
+
+    add usr/lib/whonix-repository-wizard/whonix-repository-wizard
+    implements "xhost +local:root" for virtualbox/kvm
 
 commit e17521d98ab1e929b171c778b22b1e133bc9c26d
 Author: Patrick Schleizer <adrelanos@riseup.net>
