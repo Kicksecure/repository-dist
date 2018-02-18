@@ -1,3 +1,41 @@
+commit 77fe16247c47e7e1d4c895294ee3bc996527d842
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Feb 11 19:27:08 2018 +0000
+
+    fix
+
+commit 4c4758636a192aa4df2f455e838b2f68e49434a0
+Merge: 49d62f8 c5071e9
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Feb 11 20:18:13 2018 +0100
+
+    Merge remote-tracking branch 'irykoon/master'
+
+commit c5071e91e67b3b02b1a4e1815af62ffa52d1f190
+Merge: d3add88 49d62f8
+Author: irykoon <irykoon@gmail.com>
+Date:   Sun Feb 11 18:11:27 2018 +0000
+
+    Merge branch 'master' of https://github.com/Whonix/whonix-repository
+
+commit d3add889bb341cfc59173219f8011d14fef53d2e
+Author: irykoon <irykoon@gmail.com>
+Date:   Sun Feb 11 18:07:01 2018 +0000
+
+    Using shutil.which to find executable instead
+
+commit 35f9778f1d00422388a1e68640ea30e6a43cab6a
+Author: irykoon <irykoon@gmail.com>
+Date:   Sun Feb 11 18:00:16 2018 +0000
+
+    Switch to Python3 style formatting
+
+commit 49d62f8c726295c9f541ae2eaa84dd7fb73801da
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Feb 10 13:54:24 2018 +0000
+
+    bumped changelog version
+
 commit be0f206b8add95612ea67b9e19cd673a28b24ef0
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Feb 10 14:41:21 2018 +0100
