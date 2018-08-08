@@ -329,19 +329,19 @@ sources_list_generator() {
       echo "INFO $BASH_SOURCE: Creating /etc/apt/sources.list.d/whonix.list..."
 
       echo "\
-## Copyright (C) 2012 - 2018 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
-## See the file COPYING for copying conditions.
+# Copyright (C) 2012 - 2018 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
+# See the file COPYING for copying conditions.
 
-## Whonix /etc/apt/sources.list.d/whonix.list
+# Whonix /etc/apt/sources.list.d/whonix.list
 
-## This file has been automatically created by /usr/bin/whonix_repository.
-## If you make manual changes to it, your changes get lost next time you run
-## the whonix_repository tool.
-## You can conveniently manage this file, using the whonix_repository tool.
-## For any modifications (delete this file, use stable version, use testers
-## version or use developers version), please use the whonix_repository tool.
-## Run:
-##    sudo whonix_repository
+# This file has been automatically created by /usr/bin/whonix_repository.
+# If you make manual changes to it, your changes get lost next time you run
+# the whonix_repository tool.
+# You can conveniently manage this file, using the whonix_repository tool.
+# For any modifications (delete this file, use stable version, use testers
+# version or use developers version), please use the whonix_repository tool.
+# Run:
+#    sudo whonix_repository
 " > "/etc/apt/sources.list.d/whonix.list"
 
    for baseuri in $WHONIX_APT_REPOSITORY_BASEURI; do
@@ -352,10 +352,10 @@ deb $baseuri $codename main
    done
 
       echo "\
-## Leaving source line disabled by default to safe some time, it's not useful
-## anyway, since it's better to get the source code from the git repository.
+# Leaving source line disabled by default to safe some time, it's not useful
+# anyway, since it's better to get the source code from the git repository.
 
-## End of /etc/apt/sources.list.d/whonix.list
+# End of /etc/apt/sources.list.d/whonix.list
 " >> "/etc/apt/sources.list.d/whonix.list"
 
       cat "/etc/apt/sources.list.d/whonix.list"
