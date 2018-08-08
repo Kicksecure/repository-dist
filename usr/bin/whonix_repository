@@ -195,33 +195,9 @@ gpg_tmp_delete() {
 }
 
 add_keys() {
-   echo "INFO $BASH_SOURCE: Copying Whonix from $apt_source_key to $apt_target_key..."
-
-   gpg_tmp_create
-
-   ## Creates keybox kbx file.
-   gpg2 \
-      --ignore-time-conflict \
-      --no-options \
-      --no-default-keyring \
-      --homedir "$gpg_tmp" \
-      --quiet \
-      --import "$apt_source_key"
-
-   ## Create keyring gpg file.
-   gpg2 \
-      --ignore-time-conflict \
-      --no-options \
-      --no-default-keyring \
-      --homedir "$gpg_tmp" \
-      --quiet \
-      --export > "$gpg_tmp/pubring.gpg"
-
-   cp "$gpg_tmp/pubring.gpg" "$apt_target_key"
+   echo "INFO $BASH_SOURCE: Running 'apt-key --keyring "$apt_target_key" add "$apt_source_key"'..."
+   apt-key --keyring "$apt_target_key" add "$apt_source_key"
    test -f "$apt_target_key"
-
-   gpg_tmp_delete
-
    echo "INFO $BASH_SOURCE: Done."
 }
 
