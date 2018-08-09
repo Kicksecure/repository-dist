@@ -1,3 +1,28 @@
+commit e6de603931735647aa69ab97202a8eb01589a42b
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Aug 8 10:26:21 2018 +0000
+
+    fix mime type
+
+commit 24f6479ec1c7015aa50aa2caf1a6d66aec28f429
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Aug 8 10:24:22 2018 +0000
+
+    code simplification, use apt-key rather than custom code for adding gpg key
+    
+    from /usr/share/whonix-repository/whonix.asc
+    to /etc/apt/trusted.gpg.d/whonix.gpg
+    
+    by using
+    
+    apt-key --keyring "$apt_target_key" add "$apt_source_key"
+
+commit 07d70e7a4395538b453a7264fbb0697309691a0c
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Feb 18 14:09:04 2018 +0000
+
+    bumped changelog version
+
 commit 77fe16247c47e7e1d4c895294ee3bc996527d842
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Feb 11 19:27:08 2018 +0000
