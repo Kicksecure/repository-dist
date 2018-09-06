@@ -346,8 +346,8 @@ sources_list_generator() {
 
    for baseuri in $WHONIX_APT_REPOSITORY_BASEURI; do
       echo "\
-deb $baseuri $codename main
-#deb-src $baseuri $codename main
+deb $baseuri $codename main contrib non-free
+#deb-src $baseuri $codename main contrib non-free
 " >> "/etc/apt/sources.list.d/whonix.list"
    done
 
