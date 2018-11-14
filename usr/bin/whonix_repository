@@ -360,6 +360,9 @@ deb $baseuri $codename main contrib non-free
 
       cat "/etc/apt/sources.list.d/whonix.list"
       echo "INFO $BASH_SOURCE: Done."
+
+      mkdir -p /var/cache/whonix-setup-wizard/status-files || true
+      touch /var/cache/whonix-setup-wizard/status-files/whonix_repository.done || true
    fi
 }
 
