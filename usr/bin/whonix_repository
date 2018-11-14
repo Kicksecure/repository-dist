@@ -344,12 +344,12 @@ sources_list_generator() {
 #    sudo whonix_repository
 " > "/etc/apt/sources.list.d/whonix.list"
 
-   for baseuri in $WHONIX_APT_REPOSITORY_BASEURI; do
-      echo "\
+      for baseuri in $WHONIX_APT_REPOSITORY_BASEURI; do
+         echo "\
 deb $baseuri $codename main contrib non-free
 #deb-src $baseuri $codename main contrib non-free
 " >> "/etc/apt/sources.list.d/whonix.list"
-   done
+      done
 
       echo "\
 # Leaving source line disabled by default to safe some time, it's not useful
