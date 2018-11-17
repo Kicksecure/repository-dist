@@ -89,6 +89,9 @@ http://deb.whonix.org"
 
    [ -n "$apt_source_key" ] || apt_source_key="/usr/share/whonix-repository/whonix.asc"
    [ -n "$apt_target_key" ] || apt_target_key="/etc/apt/trusted.gpg.d/whonix.gpg"
+
+   APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=true
+   export APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE
 }
 
 root_check() {
@@ -203,8 +206,7 @@ add_keys() {
 
 remove_legacy() {
    echo "INFO $BASH_SOURCE: Removing legacy key entry 2EEACCDA from /etc/apt/trusted.gpg..."
-   APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=true \
-      apt-key del "2EEACCDA" || true
+   apt-key del "2EEACCDA" || true
    echo "INFO $BASH_SOURCE: Done."
 }
 
