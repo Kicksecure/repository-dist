@@ -90,6 +90,18 @@ http://deb.whonix.org"
    [ -n "$apt_source_key" ] || apt_source_key="/usr/share/whonix-repository/whonix.asc"
    [ -n "$apt_target_key" ] || apt_target_key="/etc/apt/trusted.gpg.d/whonix.gpg"
 
+   ## silence "warning: apt-key should not be used in scripts"
+   ## https://forums.whonix.org/t/warning-apt-key-should-not-be-used-in-scripts/6342
+   ## apt-key does not explain why it is bad to use apt-key in maintainer scripts.
+   ## Looks more than a Debian policy reason. Debian implements apt-keys differently.
+   ## Debian ships binary gpg files in folder '/etc/apt/trusted.gpg.d/'. The effort
+   ## to create apt keys for folder '/etc/apt/trusted.gpg.d/' is high.
+   ## In Whonix, it's different. Enabling Whonix repository is optional. Whonix
+   ## Repository Tool can be used to enable or disable Whonix repository. Whonix
+   ## ships Whonix signing key as asc, as file /usr/share/whonix-repository/whonix.asc.
+   ## That '.asc' file is "less binary" than a '.gpg' file. apt-key seems perfectly
+   ## capable of converting the '.asc' to '.gpg' and to copy it to folder
+   ## folder '/etc/apt/trusted.gpg.d/'. Therefore disabling this warning is justified.
    APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=true
    export APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE
 }
