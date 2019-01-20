@@ -1,3 +1,25 @@
+commit 903f0893182ecdbebd6eacd483f373940573e4bc
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jan 20 06:13:02 2019 +0000
+
+    enable https by default
+    
+    https://phabricator.whonix.org/T721
+
+commit f04391c5ad438732c5a9ae886b926530e277e9cd
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 19 23:58:50 2019 -0500
+
+    disable onions by default due to unreliability
+    
+    https://forums.whonix.org/t/disable-onions-by-default-due-to-unreliability/6650
+
+commit f390451c65741318dea50c19d4edba560e3d77c4
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Nov 28 06:33:49 2018 +0000
+
+    bumped changelog version
+
 commit adf533cf58a88dace455e19efcc28c832d4188b8
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Nov 17 13:08:13 2018 +0000
