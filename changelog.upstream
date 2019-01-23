@@ -1,3 +1,15 @@
+commit b6d91da9f41dfd4c05d3f0a15f443362b734a71e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Jan 23 04:53:19 2019 +0000
+
+    fix; hardcode WHONIX_APT_REPOSITORY_BASEURI --baseuri
+
+commit 09e785cd958c140801f348cc4de6fd2a248445c2
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jan 20 06:15:16 2019 +0000
+
+    bumped changelog version
+
 commit 903f0893182ecdbebd6eacd483f373940573e4bc
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Jan 20 06:13:02 2019 +0000
