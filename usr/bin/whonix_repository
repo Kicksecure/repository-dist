@@ -83,9 +83,10 @@ colors() {
 preparation() {
    [ -n "$codename_default_stable" ] || codename_default_stable="$(lsb_release --short --codename)"
    ## Fallback.
-   [ -n "$WHONIX_APT_REPOSITORY_BASEURI" ] || WHONIX_APT_REPOSITORY_BASEURI="\
-#tor+http://deb.dds6qkxpwdeubwucdiaord2xgbbeyds25rbsgr73tbfpqpt4a6vjwsyd.onion
-https://deb.whonix.org"
+   ## TODO
+#    [ -n "$WHONIX_APT_REPOSITORY_BASEURI" ] || WHONIX_APT_REPOSITORY_BASEURI="\
+# tor+http://deb.dds6qkxpwdeubwucdiaord2xgbbeyds25rbsgr73tbfpqpt4a6vjwsyd.onion
+# https://deb.whonix.org"
 
    [ -n "$apt_source_key" ] || apt_source_key="/usr/share/whonix-repository/whonix.asc"
    [ -n "$apt_target_key" ] || apt_target_key="/etc/apt/trusted.gpg.d/whonix.gpg"
@@ -167,14 +168,15 @@ man $SCRIPTNAME"
                fi
                shift 2
                ;;
-           -b | --baseuri)
-               WHONIX_APT_REPOSITORY_BASEURI="$2"
-               if [ "$WHONIX_APT_REPOSITORY_BASEURI" = "" ]; then
-                  echo "ERROR: WHONIX_APT_REPOSITORY_BASEURI may not be empty!"
-                  exit 1
-               fi
-               shift 2
-               ;;
+            ## TODO
+#            -b | --baseuri)
+#                WHONIX_APT_REPOSITORY_BASEURI="$2"
+#                if [ "$WHONIX_APT_REPOSITORY_BASEURI" = "" ]; then
+#                   echo "ERROR: WHONIX_APT_REPOSITORY_BASEURI may not be empty!"
+#                   exit 1
+#                fi
+#                shift 2
+#                ;;
            --)
                shift
                break
@@ -358,12 +360,15 @@ sources_list_generator() {
 #    sudo whonix_repository
 " > "/etc/apt/sources.list.d/whonix.list"
 
-      for baseuri in $WHONIX_APT_REPOSITORY_BASEURI; do
+      #for baseuri in $WHONIX_APT_REPOSITORY_BASEURI; do
          echo "\
-deb $baseuri $codename main contrib non-free
-#deb-src $baseuri $codename main contrib non-free
+#deb tor+http://deb.dds6qkxpwdeubwucdiaord2xgbbeyds25rbsgr73tbfpqpt4a6vjwsyd.onion $codename main contrib non-free
+#deb-src tor+http://deb.dds6qkxpwdeubwucdiaord2xgbbeyds25rbsgr73tbfpqpt4a6vjwsyd.onion $codename main contrib non-free
+
+deb https://deb.whonix.org $codename main contrib non-free
+#deb-src https://deb.whonix.org $codename main contrib non-free
 " >> "/etc/apt/sources.list.d/whonix.list"
-      done
+      #done
 
       echo "\
 # Leaving source line disabled by default to safe some time, it's not useful
