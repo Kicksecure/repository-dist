@@ -218,21 +218,8 @@ add_keys() {
    echo "INFO $BASH_SOURCE: Done."
 }
 
-remove_legacy() {
-   echo "INFO $BASH_SOURCE: Removing legacy key entry 2EEACCDA from /etc/apt/trusted.gpg..."
-   apt-key del "2EEACCDA" || true
-   echo "INFO $BASH_SOURCE: Done."
-}
-
 remove_keys() {
    echo "INFO $BASH_SOURCE: Deleting $apt_target_key..."
-
-   if legacy_test ; then
-      true "legacy found"
-      remove_legacy
-   else
-      true "no legacy found"
-   fi
 
    if [ -f "$apt_target_key" ]; then
       rm "$apt_target_key"
@@ -243,34 +230,8 @@ remove_keys() {
    fi
 }
 
-legacy_test() {
-   gpg_tmp_create
-   if gpg2 \
-      --ignore-time-conflict \
-      --no-options \
-      --no-default-keyring \
-      --homedir "$gpg_tmp" \
-      --quiet \
-      --keyid-format long \
-      --with-fingerprint /etc/apt/trusted.gpg | \
-      grep -q "916B 8D99 C38E AF5E 8ADC  7A2A 8D66 066A 2EEA CCDA" ; then
-         gpg_tmp_delete
-         return 0
-   else
-      gpg_tmp_delete
-      return 1
-   fi
-}
-
 refresh_keys() {
-   if legacy_test ; then
-      legacy_add=true
-      remove_legacy
-   else
-      true "INFO $BASH_SOURCE: Legacy did not exist. Doing nothing, ok."
-   fi
-
-   if [ -e "$apt_target_key" ] || [ "$legacy_add" = "true" ]; then
+   if [ -e "$apt_target_key" ]; then
       add_keys
    else
       echo "INFO $BASH_SOURCE: $apt_target_key does not exist. Doing nothing, ok."
@@ -317,7 +278,6 @@ man whonix_repository"
 
 enable_disable_refresh_keys() {
    if [ "$disable" = "1" ]; then
-      remove_legacy
       remove_keys
    elif [ "$enable" = "1" ]; then
       add_keys
