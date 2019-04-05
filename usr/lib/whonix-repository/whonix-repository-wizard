@@ -16,5 +16,5 @@ if whonix_repository_wizard == None:
 command = 'xhost +local:root'
 call(command, shell = True)
 
-command = 'kdesudo {}'.format(whonix_repository_wizard)
+command = 'gksudo {}'.format(whonix_repository_wizard)
 call(command, shell=True)
