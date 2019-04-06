@@ -1,3 +1,9 @@
+whonix-repository (3:5.0-1) unstable; urgency=medium
+
+  * New upstream version (local package).
+
+ -- Patrick Schleizer <adrelanos@riseup.net>  Sat, 06 Apr 2019 12:25:28 +0000
+
 whonix-repository (3:4.9-1) unstable; urgency=medium
 
   * New upstream version (local package).

@@ -1,3 +1,45 @@
+commit 03f6172ca86d6390168ab891ea0cc633fdaaf387
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Apr 6 10:53:30 2019 +0000
+
+    sudo
+
+commit 5a9b2e962fbdfcad56b3e685cea66d106b229f1c
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Apr 6 10:21:17 2019 +0000
+
+    sudo
+
+commit 8a863bc59853fef670e8c072685825f895a1b49d
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Apr 5 17:03:50 2019 -0400
+
+    gksudo
+
+commit 44abc135c65078df5406fc61e78a81c4ee20a3fc
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Apr 5 13:38:01 2019 -0400
+
+    remove obsolete readme to fix lintian warning
+
+commit fd3abd93c8297efae402b71e82afaa65595b8442
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Apr 4 05:51:11 2019 -0400
+
+    port to debian buster
+
+commit 0445bec0b6ef158b9f3751574a618dc0b419f82e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Apr 3 18:06:15 2019 -0400
+
+    readme
+
+commit dba4b1b20d0323c504c96b293a12c53c7fcfda86
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Mar 29 10:15:54 2019 +0000
+
+    bumped changelog version
+
 commit 5872e836139ba3403fca1437367644b34154e9f0
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Mar 29 09:03:22 2019 +0000
