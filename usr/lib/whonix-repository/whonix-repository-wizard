@@ -4,17 +4,6 @@
 ## See the file COPYING for copying conditions.
 
 from subprocess import call
-import sys, os
-import time
-import shutil
 
-whonix_repository_wizard = shutil.which("whonix-repository-wizard")
-if whonix_repository_wizard == None:
-    print('ERROR: whonix-repository-wizard not found! Exiting.')
-    sys.exit(1)
-
-command = 'xhost +local:root'
-call(command, shell = True)
-
-command = 'sudo --set-home {}'.format(whonix_repository_wizard)
+command = 'pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY /usr/bin/whonix-repository-wizard'
 call(command, shell=True)
