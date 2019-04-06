@@ -201,7 +201,7 @@ def main():
 
     # root check.
     if os.getuid() != 0:
-        print('ERROR: This must be run as root!\nUse "gksudo".')
+        print('ERROR: This must be run as root!\nUse "sudo --set-home".')
         not_root = gui_message(common.tr_file, 'not_root')
         sys.exit(1)
 
