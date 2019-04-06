@@ -1,3 +1,15 @@
+commit 039a98513216b9c1e070bc196bb5fe93d1b35840
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Apr 6 12:47:56 2019 +0000
+
+    error out in case auto detected codename is "n/a"
+
+commit 0f16fd56a6bfc3aa5dbc192975821277ebfbc5b9
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Apr 6 12:25:28 2019 +0000
+
+    bumped changelog version
+
 commit 03f6172ca86d6390168ab891ea0cc633fdaaf387
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Apr 6 10:53:30 2019 +0000
