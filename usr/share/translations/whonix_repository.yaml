@@ -26,12 +26,12 @@ whonix_repository:
     finish_enabled:
       <p>You will not receive updates from the Whonix team.</p>
       <p>You can always start the Whonix Repository Tool again by running</p>
-      <blockquote>Start Menu -> Applications -> System -> Whonix Repository.</blockquote>
+      <blockquote>Start Menu -> System -> Whonix Repository.</blockquote>
     finish_disabed:
       <p>Updates from the Whonix team will be automatically installed when you upgrade.
       <p>You can always start the Whonix Repository Tool again by running</p>
-      <blockquote>Start Menu -> Applications -> System -> Whonix Repository.</blockquote>
+      <blockquote>Start Menu -> System -> Whonix Repository.</blockquote>
     finish_failed:
       <p>Please report this Whonix bug!</p>
       <p>You can always start the Whonix Repository Tool again by running</p>
-      <blockquote>Start Menu -> Applications -> System -> Whonix Repository.</blockquote>
+      <blockquote>Start Menu -> System -> Whonix Repository.</blockquote>
