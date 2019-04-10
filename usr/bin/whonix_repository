@@ -275,6 +275,19 @@ man whonix_repository"
       fi
    fi
 
+   ## If codename could not be set using lsb_release above, try to acquire it
+   ## from /etc/debian_version.
+   if [ "$codename" = "n/a" ]; then
+      if cat /etc/debian_version | grep -q "/sid" ; then
+         codename="$(cat /etc/debian_version)"
+         ## example codename:
+         ## buster/sid
+         codename="${codename/%"/sid"}"
+         ## example codename:
+         ## buster
+      fi
+   fi
+
    if [ "$codename" = "n/a" ]; then
       echo "ERROR: Autodetected codename $codename is invalid!"
       echo 'Above codename_default_stable="$(lsb_release --short --codename)" might
