@@ -81,7 +81,6 @@ colors() {
 }
 
 preparation() {
-   [ -n "$codename_default_stable" ] || codename_default_stable="$(lsb_release --short --codename)"
    ## Fallback.
    ## TODO
 #    [ -n "$WHONIX_APT_REPOSITORY_BASEURI" ] || WHONIX_APT_REPOSITORY_BASEURI="\
@@ -155,7 +154,7 @@ man $SCRIPTNAME"
            -c | --codename)
                codename="$2"
                if [ "$codename" = "" ]; then
-                  echo "ERROR: codename may not be empty! You most likely want to use $codename_default_stable, ${codename_default_stable}-proposed-updates, ${codename_default_stable}-testers or ${codename_default_stable}-developers as codename."
+                  echo "ERROR: codename may not be empty!"
                   exit 1
                fi
                shift 2
@@ -246,6 +245,24 @@ parse_variables() {
       return 0
    fi
 
+   [ -n "$codename_default_stable" ] || codename_default_stable="$(lsb_release --short --codename)"
+
+   ## If codename_default_stable could not be set using lsb_release above, try to acquire it
+   ## from /etc/debian_version.
+   if [ "$codename_default_stable" = "n/a" ]; then
+      if cat /etc/debian_version | grep -q "/sid" ; then
+         codename_default_stable="$(cat /etc/debian_version)"
+         ## example codename_default_stable:
+         ## buster/sid
+         codename_default_stable="${codename_default_stable/%"/sid"}"
+         ## example codename_default_stable:
+         ## buster
+
+         ## Just in case.
+         codename_default_stable="${codename_default_stable//[[:space:]]}"
+      fi
+   fi
+
    if [ "$codename" = "" ]; then
       if [ "$repository" = "stable" ]; then
          codename="$codename_default_stable"
@@ -275,17 +292,11 @@ man whonix_repository"
       fi
    fi
 
-   ## If codename could not be set using lsb_release above, try to acquire it
-   ## from /etc/debian_version.
-   if [ "$codename" = "n/a" ]; then
-      if cat /etc/debian_version | grep -q "/sid" ; then
-         codename="$(cat /etc/debian_version)"
-         ## example codename:
-         ## buster/sid
-         codename="${codename/%"/sid"}"
-         ## example codename:
-         ## buster
-      fi
+   codename_old="$codename"
+   codename="${codename//[[:space:]]}"
+
+   if [ ! "$codename_old" = "$codename" ]; then
+      echo "INFO: Removed white spaces from codename ${under}$codename_old${reset} and set to codename ${under}$codename${reset}."
    fi
 }
 
@@ -324,9 +335,7 @@ disable_refresh_create() {
 
 sources_list_generator() {
    if echo "$codename" | grep -q -i "n/a" ; then
-      echo "ERROR: Autodetected codename ${under}$codename{reset} is invalid!"
-      echo 'Above codename_default_stable="$(lsb_release --short --codename)" might
-have had output "n/a". This apparently happens when a Debian release is still unreleased.'
+      echo "ERROR: Autodetected codename ${under}$codename${reset} is invalid!"
       echo 'Please set codename explicitly using:'
       echo '--codename'
       exit 1
