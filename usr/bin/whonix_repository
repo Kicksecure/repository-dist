@@ -162,7 +162,7 @@ man $SCRIPTNAME"
            -r | --repository)
                repository="$2"
                if [ "$repository" = "" ]; then
-                  echo "ERROR: repository may not be empty! You most likely want to use stable, stable-proposed-updates, testers or developers as repository."
+                  echo "ERROR: repository may not be empty! You most likely want to use ${under}stable${reset}, ${under}stable-proposed-update${reset}, ${under}testers${reset} or ${under}developers${reset} as repository."
                   exit 1
                fi
                shift 2
@@ -211,21 +211,21 @@ gpg_tmp_delete() {
 }
 
 add_keys() {
-   echo "INFO $BASH_SOURCE: Running 'apt-key --keyring "$apt_target_key" add "$apt_source_key"'..."
+   echo "INFO $BASH_SOURCE: Running ${under}apt-key --keyring "$apt_target_key" add "$apt_source_key"${reset}..."
    apt-key --keyring "$apt_target_key" add "$apt_source_key"
    test -f "$apt_target_key"
    echo "INFO $BASH_SOURCE: Done."
 }
 
 remove_keys() {
-   echo "INFO $BASH_SOURCE: Deleting $apt_target_key..."
+   echo "INFO $BASH_SOURCE: Deleting ${under}$apt_target_key${reset}..."
 
    if [ -f "$apt_target_key" ]; then
       rm "$apt_target_key"
       ! test -e "$apt_target_key"
       echo "INFO $BASH_SOURCE: Done."
    else
-      echo "INFO $BASH_SOURCE: $apt_target_key does not exist, ok."
+      echo "INFO $BASH_SOURCE: ${under}$apt_target_key${reset} does not exist, ok."
    fi
 }
 
@@ -233,7 +233,7 @@ refresh_keys() {
    if [ -e "$apt_target_key" ]; then
       add_keys
    else
-      echo "INFO $BASH_SOURCE: $apt_target_key does not exist. Doing nothing, ok."
+      echo "INFO $BASH_SOURCE: ${under}$apt_target_key${reset} does not exist. Doing nothing, ok."
    fi
 }
 
@@ -313,7 +313,7 @@ enable_disable_refresh_keys() {
    elif [ "$refresh_keys" = "1" ]; then
       refresh_keys
    else
-      echo "ERROR: You must use either --enable, --refresh-keys or --disable."
+      echo "ERROR: You must use either ${under}--enable${reset}, ${under}--refresh-keys${reset} or ${under}--disable${reset}."
       exit 1
    fi
 }
@@ -321,11 +321,11 @@ enable_disable_refresh_keys() {
 disable_refresh_create() {
    if [ "$disable" = "1" ]; then
       if [ -f "/etc/apt/sources.list.d/whonix.list" ]; then
-         echo "INFO $BASH_SOURCE: Deleting Whonix apt repository /etc/apt/sources.list.d/whonix.list..."
+         echo "INFO $BASH_SOURCE: Deleting Whonix apt repository ${under}/etc/apt/sources.list.d/whonix.list${reset}..."
          rm --force "/etc/apt/sources.list.d/whonix.list"
          echo "INFO $BASH_SOURCE: Done."
       else
-         echo "INFO $BASH_SOURCE: /etc/apt/sources.list.d/whonix.list does not exist, ok."
+         echo "INFO $BASH_SOURCE: ${under}/etc/apt/sources.list.d/whonix.list${reset} does not exist, ok."
       fi
       mkdir -p /var/cache/whonix-setup-wizard/status-files || true
       touch /var/cache/whonix-setup-wizard/status-files/whonix_repository.done || true
@@ -342,12 +342,12 @@ sources_list_generator() {
    if echo "$codename" | grep -q -i "n/a" ; then
       echo "ERROR: Autodetected codename ${under}$codename${reset} is invalid!"
       echo 'Please set codename explicitly using:'
-      echo '--codename'
+      echo '${under}--codename${reset}'
       exit 1
    fi
 
    echo "INFO $BASH_SOURCE: Using distribution ${under}$codename${reset} (version of Whonix) as apt repository."
-   echo "INFO $BASH_SOURCE: Creating /etc/apt/sources.list.d/whonix.list..."
+   echo "INFO $BASH_SOURCE: Creating ${under}/etc/apt/sources.list.d/whonix.list${reset}..."
 
    echo "\
 # Copyright (C) 2012 - 2018 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
