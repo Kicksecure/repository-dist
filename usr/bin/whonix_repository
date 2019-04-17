@@ -311,7 +311,7 @@ enable_disable_refresh_keys() {
    fi
 }
 
-sources_list_generator() {
+disable_refresh_create() {
    if [ "$disable" = "1" ]; then
       if [ -f "/etc/apt/sources.list.d/whonix.list" ]; then
          echo "INFO $BASH_SOURCE: Deleting Whonix apt repository /etc/apt/sources.list.d/whonix.list..."
@@ -320,13 +320,22 @@ sources_list_generator() {
       else
          echo "INFO $BASH_SOURCE: /etc/apt/sources.list.d/whonix.list does not exist, ok."
       fi
+      mkdir -p /var/cache/whonix-setup-wizard/status-files || true
+      touch /var/cache/whonix-setup-wizard/status-files/whonix_repository.done || true
    elif [ "$refresh_keys" = "1" ]; then
       true
    else
-      echo "INFO $BASH_SOURCE: Using distribution ${under}$codename${reset} (version of Whonix) as apt repository."
-      echo "INFO $BASH_SOURCE: Creating /etc/apt/sources.list.d/whonix.list..."
+      sources_list_generator
+      mkdir -p /var/cache/whonix-setup-wizard/status-files || true
+      touch /var/cache/whonix-setup-wizard/status-files/whonix_repository.done || true
+   fi
+}
 
-      echo "\
+sources_list_generator() {
+   echo "INFO $BASH_SOURCE: Using distribution ${under}$codename${reset} (version of Whonix) as apt repository."
+   echo "INFO $BASH_SOURCE: Creating /etc/apt/sources.list.d/whonix.list..."
+
+   echo "\
 # Copyright (C) 2012 - 2018 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
 # See the file COPYING for copying conditions.
 
@@ -342,29 +351,25 @@ sources_list_generator() {
 #    sudo whonix_repository
 " > "/etc/apt/sources.list.d/whonix.list"
 
-      #for baseuri in $WHONIX_APT_REPOSITORY_BASEURI; do
-         echo "\
+   #for baseuri in $WHONIX_APT_REPOSITORY_BASEURI; do
+      echo "\
 #deb tor+http://deb.dds6qkxpwdeubwucdiaord2xgbbeyds25rbsgr73tbfpqpt4a6vjwsyd.onion $codename main contrib non-free
 #deb-src tor+http://deb.dds6qkxpwdeubwucdiaord2xgbbeyds25rbsgr73tbfpqpt4a6vjwsyd.onion $codename main contrib non-free
 
 deb https://deb.whonix.org $codename main contrib non-free
 #deb-src https://deb.whonix.org $codename main contrib non-free
 " >> "/etc/apt/sources.list.d/whonix.list"
-      #done
+   #done
 
-      echo "\
+   echo "\
 # Leaving source line disabled by default to safe some time, it's not useful
 # anyway, since it's better to get the source code from the git repository.
 
 # End of /etc/apt/sources.list.d/whonix.list
 " >> "/etc/apt/sources.list.d/whonix.list"
 
-      cat "/etc/apt/sources.list.d/whonix.list"
-      echo "INFO $BASH_SOURCE: Done."
-
-      mkdir -p /var/cache/whonix-setup-wizard/status-files || true
-      touch /var/cache/whonix-setup-wizard/status-files/whonix_repository.done || true
-   fi
+   cat "/etc/apt/sources.list.d/whonix.list"
+   echo "INFO $BASH_SOURCE: Done."
 }
 
 main_function() {
@@ -375,7 +380,7 @@ main_function() {
    parse_cmd_options "$@"
    parse_variables
    enable_disable_refresh_keys
-   sources_list_generator
+   disable_refresh_create
    sync
 }
 
