@@ -323,8 +323,8 @@ disable_refresh_create() {
 }
 
 sources_list_generator() {
-   if [ "$codename" = "n/a" ]; then
-      echo "ERROR: Autodetected codename $codename is invalid!"
+   if echo "$codename" | grep -q -i "n/a" ; then
+      echo "ERROR: Autodetected codename ${under}$codename{reset} is invalid!"
       echo 'Above codename_default_stable="$(lsb_release --short --codename)" might
 have had output "n/a". This apparently happens when a Debian release is still unreleased.'
       echo 'Please set codename explicitly using:'
