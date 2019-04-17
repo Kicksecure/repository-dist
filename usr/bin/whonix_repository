@@ -261,7 +261,7 @@ parse_variables() {
          fi
       fi
 
-      ## Just in case.
+      ## Remove eventual white spaces. Just in case.
       codename_default_stable="${codename_default_stable//[[:space:]]}"
 
       if [ "$codename_default_stable" = "" ]; then
