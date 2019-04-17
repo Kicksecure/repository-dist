@@ -264,6 +264,11 @@ parse_variables() {
    fi
 
    if [ "$codename" = "" ]; then
+      if [ "$codename_default_stable" = "" ]; then
+         echo "ERROR: codename auto detection failed! Please manually set ${under}--codename${reset}."
+         exit 1
+      fi
+
       if [ "$repository" = "stable" ]; then
          codename="$codename_default_stable"
       elif [ "$repository" = "stable-proposed-updates" ]; then
