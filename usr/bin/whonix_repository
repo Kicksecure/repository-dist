@@ -287,15 +287,6 @@ man whonix_repository"
          ## buster
       fi
    fi
-
-   if [ "$codename" = "n/a" ]; then
-      echo "ERROR: Autodetected codename $codename is invalid!"
-      echo 'Above codename_default_stable="$(lsb_release --short --codename)" might
-have had output "n/a". This apparently happens when a Debian release is still unreleased.'
-      echo 'Please set codename explicitly using:'
-      echo '--codename'
-      exit 1
-   fi
 }
 
 enable_disable_refresh_keys() {
@@ -332,6 +323,15 @@ disable_refresh_create() {
 }
 
 sources_list_generator() {
+   if [ "$codename" = "n/a" ]; then
+      echo "ERROR: Autodetected codename $codename is invalid!"
+      echo 'Above codename_default_stable="$(lsb_release --short --codename)" might
+have had output "n/a". This apparently happens when a Debian release is still unreleased.'
+      echo 'Please set codename explicitly using:'
+      echo '--codename'
+      exit 1
+   fi
+
    echo "INFO $BASH_SOURCE: Using distribution ${under}$codename${reset} (version of Whonix) as apt repository."
    echo "INFO $BASH_SOURCE: Creating /etc/apt/sources.list.d/whonix.list..."
 
