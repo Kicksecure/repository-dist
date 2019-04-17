@@ -258,11 +258,11 @@ parse_variables() {
             codename_default_stable="${codename_default_stable/%"/sid"}"
             ## example codename_default_stable:
             ## buster
-
-            ## Just in case.
-            codename_default_stable="${codename_default_stable//[[:space:]]}"
          fi
       fi
+
+      ## Just in case.
+      codename_default_stable="${codename_default_stable//[[:space:]]}"
 
       if [ "$codename_default_stable" = "" ]; then
          echo "ERROR: codename auto detection failed! Please manually set ${under}--codename${reset}."
