@@ -85,7 +85,7 @@ preparation() {
    ## TODO
 #    [ -n "$WHONIX_APT_REPOSITORY_BASEURI" ] || WHONIX_APT_REPOSITORY_BASEURI="\
 # tor+http://deb.dds6qkxpwdeubwucdiaord2xgbbeyds25rbsgr73tbfpqpt4a6vjwsyd.onion
-# https://deb.whonix.org"
+# tor+https://deb.whonix.org"
 
    [ -n "$apt_source_key" ] || apt_source_key="/usr/share/whonix-repository/whonix.asc"
    [ -n "$apt_target_key" ] || apt_target_key="/etc/apt/trusted.gpg.d/whonix.gpg"
@@ -370,8 +370,8 @@ sources_list_generator() {
 #deb tor+http://deb.dds6qkxpwdeubwucdiaord2xgbbeyds25rbsgr73tbfpqpt4a6vjwsyd.onion $codename main contrib non-free
 #deb-src tor+http://deb.dds6qkxpwdeubwucdiaord2xgbbeyds25rbsgr73tbfpqpt4a6vjwsyd.onion $codename main contrib non-free
 
-deb https://deb.whonix.org $codename main contrib non-free
-#deb-src https://deb.whonix.org $codename main contrib non-free
+deb tor+https://deb.whonix.org $codename main contrib non-free
+#deb-src tor+https://deb.whonix.org $codename main contrib non-free
 " >> "/etc/apt/sources.list.d/whonix.list"
    #done
 
