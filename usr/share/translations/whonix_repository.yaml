@@ -16,7 +16,7 @@ whonix_repository:
   en:
     enabletext:
       <p><B>Automatically install updates from the Whonix team?</B></p>
-      <p>Whonix News (via whonixcheck) will notify you of available updates.</p>
+      <p>whonixcheck will notify you of available updates.</p>
       <p>When you run</p><blockquote>sudo apt-get dist-upgrade</blockquote>
       <p>updates from the Whonix team will be AUTOMATICALLY downloaded and installed, along with updates from the Debian team.
       Please read <a href=https://www.whonix.org/wiki/Trust>https://www.whonix.org/wiki/Trust</a> to understand the risks.</p>
