@@ -1,3 +1,15 @@
+commit 8f041ecc36f3de7877d72494ffa4e929f6916fe8
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Dec 10 09:48:47 2019 -0500
+
+    remove Recommends: whonix-setup-wizard
+
+commit 7ff07351a3d40833e51c4f228da34658f4e2903b
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Aug 28 12:54:12 2019 +0000
+
+    bumped changelog version
+
 commit 1c165b3804b60d94fb570d813519f6e661111e65
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Aug 28 11:35:55 2019 +0000
