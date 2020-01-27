@@ -1,3 +1,15 @@
+commit cfbe31eda7ab90614e68a2691670bfc667a872ae
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 25 07:46:53 2020 -0500
+
+    extend key
+
+commit 106879f6a8fbab0445c961fc199385dcd7d6fce3
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Dec 10 11:47:38 2019 -0500
+
+    bumped changelog version
+
 commit 8f041ecc36f3de7877d72494ffa4e929f6916fe8
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Dec 10 09:48:47 2019 -0500
