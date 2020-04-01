@@ -5,7 +5,7 @@ Source: whonix-repository
 Section: misc
 Priority: optional
 Maintainer: Patrick Schleizer <adrelanos@riseup.net>
-Build-Depends: debhelper (>= 12), genmkfile, ronn, python3
+Build-Depends: debhelper (>= 12), ronn, python3
 Homepage: https://www.whonix.org/wiki/Whonix-APT-Repository
 Vcs-Browser: https://github.com/Whonix/whonix-repository
 Vcs-Git: https://github.com/Whonix/whonix-repository.git
