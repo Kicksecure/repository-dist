@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Copyright (C) 2012 - 2018 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
+## Copyright (C) 2012 - 2020 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
 ## See the file COPYING for copying conditions.
 
 #set -x
@@ -134,7 +134,7 @@ man $SCRIPTNAME"
                exit 0
                ;;
            -v | --verbose)
-               echo "$SCRIPTNAME verbose output..."
+               echo "INFO '$BASH_SOURCE': verbose output..."
                set -x
                VERBOSE="1"
                shift
@@ -181,7 +181,7 @@ man $SCRIPTNAME"
                break
                ;;
            -*)
-               echo "$SCRIPTNAME unknown option: $1" >&2
+               echo "INFO '$BASH_SOURCE': unknown option: '$1'" >&2
                exit 1
                ;;
            *)
@@ -211,21 +211,21 @@ gpg_tmp_delete() {
 }
 
 add_keys() {
-   echo "INFO $BASH_SOURCE: Running ${under}apt-key --keyring "$apt_target_key" add "$apt_source_key"${reset}..."
+   echo "INFO '$BASH_SOURCE': Running '${under}apt-key --keyring '$apt_target_key' add '$apt_source_key'${reset}'..."
    apt-key --keyring "$apt_target_key" add "$apt_source_key"
    test -f "$apt_target_key"
-   echo "INFO $BASH_SOURCE: Done."
+   echo "INFO '$BASH_SOURCE': Done."
 }
 
 remove_keys() {
-   echo "INFO $BASH_SOURCE: Deleting ${under}$apt_target_key${reset}..."
+   echo "INFO '$BASH_SOURCE': Deleting '${under}$apt_target_key${reset}'..."
 
    if [ -f "$apt_target_key" ]; then
       rm "$apt_target_key"
       ! test -e "$apt_target_key"
-      echo "INFO $BASH_SOURCE: Done."
+      echo "INFO '$BASH_SOURCE': Done."
    else
-      echo "INFO $BASH_SOURCE: ${under}$apt_target_key${reset} does not exist, ok."
+      echo "INFO '$BASH_SOURCE': '${under}$apt_target_key${reset}' does not exist, ok."
    fi
 }
 
@@ -233,7 +233,7 @@ refresh_keys() {
    if [ -e "$apt_target_key" ]; then
       add_keys
    else
-      echo "INFO $BASH_SOURCE: ${under}$apt_target_key${reset} does not exist. Doing nothing, ok."
+      echo "INFO '$BASH_SOURCE': '${under}$apt_target_key${reset}' does not exist. Doing nothing, ok."
    fi
 }
 
@@ -321,11 +321,11 @@ enable_disable_refresh_keys() {
 disable_refresh_create() {
    if [ "$disable" = "1" ]; then
       if [ -f "/etc/apt/sources.list.d/whonix.list" ]; then
-         echo "INFO $BASH_SOURCE: Deleting Whonix apt repository ${under}/etc/apt/sources.list.d/whonix.list${reset}..."
+         echo "INFO '$BASH_SOURCE': Deleting Whonix apt repository '${under}/etc/apt/sources.list.d/whonix.list${reset}'..."
          rm --force "/etc/apt/sources.list.d/whonix.list"
-         echo "INFO $BASH_SOURCE: Done."
+         echo "INFO '$BASH_SOURCE': Done."
       else
-         echo "INFO $BASH_SOURCE: ${under}/etc/apt/sources.list.d/whonix.list${reset} does not exist, ok."
+         echo "INFO '$BASH_SOURCE': '${under}/etc/apt/sources.list.d/whonix.list${reset}' does not exist, ok."
       fi
       mkdir -p /var/cache/whonix-setup-wizard/status-files || true
       touch /var/cache/whonix-setup-wizard/status-files/whonix_repository.done || true
@@ -340,17 +340,17 @@ disable_refresh_create() {
 
 sources_list_generator() {
    if echo "$codename" | grep -q -i "n/a" ; then
-      echo "ERROR: Autodetected codename ${under}$codename${reset} is invalid!"
+      echo "ERROR: Autodetected codename '${under}$codename${reset}' is invalid!"
       echo 'Please set codename explicitly using:'
       echo '${under}--codename${reset}'
       exit 1
    fi
 
-   echo "INFO $BASH_SOURCE: Using distribution ${under}$codename${reset} (version of Whonix) as apt repository."
-   echo "INFO $BASH_SOURCE: Creating ${under}/etc/apt/sources.list.d/whonix.list${reset}..."
+   echo "INFO '$BASH_SOURCE': Using distribution '${under}$codename${reset}' (version of Whonix) as apt repository."
+   echo "INFO '$BASH_SOURCE': Creating '${under}/etc/apt/sources.list.d/whonix.list${reset}'..."
 
    echo "\
-# Copyright (C) 2012 - 2018 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
+# Copyright (C) 2012 - 2020 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
 # See the file COPYING for copying conditions.
 
 # Whonix /etc/apt/sources.list.d/whonix.list
@@ -383,7 +383,7 @@ deb tor+https://deb.whonix.org $codename main contrib non-free
 " >> "/etc/apt/sources.list.d/whonix.list"
 
    cat "/etc/apt/sources.list.d/whonix.list"
-   echo "INFO $BASH_SOURCE: Done."
+   echo "INFO '$BASH_SOURCE': Done."
 }
 
 main_function() {
