@@ -15,7 +15,7 @@ Technically speaking, this tool creates or deletes
 apt-key.
 ## How to install `whonix-repository` using apt-get ##
 
-1\. Download [Whonix's Signing Key]().
+1\. Download Whonix's Signing Key.
 
 ```
 wget https://www.whonix.org/patrick.asc
