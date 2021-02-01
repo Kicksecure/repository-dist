@@ -327,14 +327,14 @@ disable_refresh_create() {
       else
          echo "INFO '$BASH_SOURCE': '${under}/etc/apt/sources.list.d/whonix.list${reset}' does not exist, ok."
       fi
-      mkdir -p /var/cache/whonix-setup-wizard/status-files || true
-      touch /var/cache/whonix-setup-wizard/status-files/whonix_repository.done || true
+      mkdir -p /var/cache/setup-dist/status-files || true
+      touch /var/cache/setup-dist/status-files/whonix_repository.done || true
    elif [ "$refresh_keys" = "1" ]; then
       true
    else
       sources_list_generator
-      mkdir -p /var/cache/whonix-setup-wizard/status-files || true
-      touch /var/cache/whonix-setup-wizard/status-files/whonix_repository.done || true
+      mkdir -p /var/cache/setup-dist/status-files || true
+      touch /var/cache/setup-dist/status-files/whonix_repository.done || true
    fi
 }
 
