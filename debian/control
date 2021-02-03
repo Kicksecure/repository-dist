@@ -14,17 +14,17 @@ Standards-Version: 4.3.0
 Package: repository-dist
 Architecture: all
 Depends: gnupg2, python3, python3-pyqt5, lxqt-sudo, lsb-release, ${misc:Depends}
-Description: Whonix APT Repository Tool
- This tool can always be used to enable either Whonix's stable, testers or
- developers repository or to disable Whonix's repository.
+Description: Derivative APT Repository Tool
+ This tool can always be used to enable either Derivative's stable, testers or
+ developers repository or to disable Derivative's repository.
  .
- Whonix's APT Repository is not enabled by default. Some users prefer this for
- trust/security reasons.
+ Derivative's APT Repository is not enabled by default. Some users prefer this
+ for trust/security reasons.
  .
- On first boot of Whonix, the Whonix Repository Tool gets automatically started
- by whonixsetup. The user is free to either leave Whonix's repository disabled
- or to configure it as desired.
+ On first boot of Derivative, the Derivative Repository Tool gets automatically
+ started by setup-dist. The user is free to either leave Derivative's
+ repository disabled or to configure it as desired.
  .
  Technically speaking, this tool creates or deletes
- /etc/sources.list.d/whonix.list and adds or deletes Whonix's signing key from
- apt-key.
+ /etc/sources.list.d/whonix.list and adds or deletes Derivative's signing key
+ from apt-key.
