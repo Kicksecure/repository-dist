@@ -36,6 +36,6 @@ repository-dist:
       <p>You can always start the Whonix Repository Tool again by running</p>
       <blockquote>Start Menu -> System -> Whonix Repository.</blockquote>
     finish_failed:
-      <p>Please report this Whonix bug!</p>
+      <p>Please report this bug!</p>
       <p>You can always start the Whonix Repository Tool again by running</p>
       <blockquote>Start Menu -> System -> Whonix Repository.</blockquote>
