@@ -32,7 +32,7 @@ case "$1" in
          true "Variable DERIVATIVE_APT_REPOSITORY_OPTS is empty, not calling repository-dist tool."
       else
          ## This is not the case by default.
-         ## We are no longer enabling Whonix's APT Repository by default, neither for
+         ## We are no longer enabling Derivative APT Repository by default, neither for
          ## redistributable builds nor for builds from source code. In Non-Qubes-Whonix the
          ## repository-dist tool gets auto started once Whonix starts so the user
          ## can choose there.
