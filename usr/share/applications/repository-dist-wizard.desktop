@@ -5,11 +5,11 @@
 Type=Application
 Terminal=false
 Exec=/usr/lib/repository-dist/repository-dist-wizard
-Name=Whonix Repository
-GenericName=Whonix Repository
-Comment=Whonix Repository
+Name=Repository
+GenericName=Derivative Repository
+Comment=Derivative Repository
 Categories=System
 Icon=/usr/share/icons/anon-icon-pack/whonixlock.png
 ## Because we need a wrapper to start it.
 X-KDE-StartupNotify=false
-Keywords=system;Whonix;repository;apt-get
+Keywords=system;derivative;repository;apt-get
