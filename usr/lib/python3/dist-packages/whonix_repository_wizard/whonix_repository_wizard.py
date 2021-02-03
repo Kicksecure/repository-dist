@@ -18,18 +18,18 @@ from guimessages.translations import _translations
 from guimessages.guimessage import gui_message
 
 class common:
-    tr_file ='/usr/share/translations/whonix_repository.yaml'
+    tr_file ='/usr/share/translations/repository-dist.yaml'
 
-class whonix_repository_wizard(QWizard):
+class repository-dist_wizard(QWizard):
     def __init__(self):
-        super(whonix_repository_wizard, self).__init__()
+        super(repository-dist_wizard, self).__init__()
 
         self.resize(500, 330)
         self.setWindowTitle('Whonix Repository Wizard')
         icon = "/usr/share/icons/anon-icon-pack/whonix.ico"
         self.setWindowIcon(QtGui.QIcon(icon))
 
-        translation = _translations(common.tr_file, 'whonix_repository')
+        translation = _translations(common.tr_file, 'repository-dist')
         # gettext like.
         self._ = translation.gettext
 
@@ -137,7 +137,7 @@ class whonix_repository_wizard(QWizard):
 
             elif self.disable_button.isChecked():
                 if self.one_shot:
-                    command = 'whonix_repository --disable'
+                    command = 'repository-dist --disable'
                     exit_code = call(command, shell=True)
                     mypath = inspect.getfile(inspect.currentframe())
 
@@ -171,7 +171,7 @@ class whonix_repository_wizard(QWizard):
                 repository = ' --repository developers'
 
             if self.one_shot:
-                command = 'whonix_repository --enable' + repository
+                command = 'repository-dist --enable' + repository
 
                 QApplication.setOverrideCursor(QCursor(Qt.WaitCursor))
                 exit_code = call(command, shell=True)
@@ -209,7 +209,7 @@ def main():
         not_root = gui_message(common.tr_file, 'not_root')
         sys.exit(1)
 
-    wizard = whonix_repository_wizard()
+    wizard = repository-dist_wizard()
 
     sys.exit()
 

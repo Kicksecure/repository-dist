@@ -1,4 +1,4 @@
-whonix_repository(8) -- enable, configure or disable Whonix apt repository
+repository-dist(8) -- enable, configure or disable derivative distribution apt repository
 =============================================
 
 <span class="comment">
@@ -8,20 +8,20 @@ whonix_repository(8) -- enable, configure or disable Whonix apt repository
 
 ## SYNOPSIS
 
-`whonix_repository` [option]
+`repository-dist` [option]
 
 ## DESCRIPTION
 
-Enables or disables Whonix apt repository.
+Enables or disables derivative distribution apt repository.
 
 ## OPTIONS
   * --enable
 
-    Enables Whonix apt repository.
+    Enables derivative distribution apt repository.
 
   * --disable
 
-    Disables Whonix apt repository.
+    Disables derivative distribution apt repository.
 
   * --codename <codename>
 
@@ -30,7 +30,7 @@ Enables or disables Whonix apt repository.
 
   * --repository <codename>
 
-    Chose either the stable, stable-proposed-updates, testers or developers version of Whonix. Only
+    Chose either the stable, stable-proposed-updates, testers or developers version of derivative distribution. Only
     useful in combination with `--enable`.
 
   * --verbose
@@ -45,17 +45,17 @@ Enables or disables Whonix apt repository.
 
 ## EXAMPLES
 
-`sudo whonix_repository`
+`sudo repository-dist`
 
-`sudo whonix_repository --enable --repository stable`
+`sudo repository-dist --enable --repository stable`
 
-`sudo whonix_repository --verbose --enable --repository stable`
+`sudo repository-dist --verbose --enable --repository stable`
 
-`sudo whonix_repository --enable --codename jessie`
+`sudo repository-dist --enable --codename jessie`
 
-`sudo whonix_repository --disable`
+`sudo repository-dist --disable`
 
-`sudo whonix_repository --disable --verbose`
+`sudo repository-dist --disable --verbose`
 
 ## WWW
 

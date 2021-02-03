@@ -12,7 +12,7 @@ whonix-repository-wizard(1) -- enable, configure or disable Whonix apt repositor
 
 ## DESCRIPTION
 
-Graphical user interface for `whonix_repository` tool.
+Graphical user interface for `repository-dist` tool.
 
 ## WWW
 

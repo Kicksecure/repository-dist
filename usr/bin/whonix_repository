@@ -280,19 +280,19 @@ parse_variables() {
       else
          echo "ERROR: No option given. Usage examples:
 
-sudo whonix_repository --enable --repository stable
+sudo $SCRIPTNAME --enable --repository stable
 
-sudo whonix_repository --verbose --enable --repository stable
+sudo $SCRIPTNAME --verbose --enable --repository stable
 
-sudo whonix_repository --enable --codename $codename_default_stable
+sudo $SCRIPTNAME --enable --codename $codename_default_stable
 
-sudo whonix_repository --disable
+sudo $SCRIPTNAME --disable
 
-sudo whonix_repository --disable --verbose
+sudo $SCRIPTNAME --disable --verbose
 
 See also:
 
-man whonix_repository"
+man $SCRIPTNAME"
          exit 1
       fi
    fi
@@ -328,13 +328,13 @@ disable_refresh_create() {
          echo "INFO '$BASH_SOURCE': '${under}/etc/apt/sources.list.d/whonix.list${reset}' does not exist, ok."
       fi
       mkdir -p /var/cache/setup-dist/status-files || true
-      touch /var/cache/setup-dist/status-files/whonix_repository.done || true
+      touch /var/cache/setup-dist/status-files/repository-dist.done || true
    elif [ "$refresh_keys" = "1" ]; then
       true
    else
       sources_list_generator
       mkdir -p /var/cache/setup-dist/status-files || true
-      touch /var/cache/setup-dist/status-files/whonix_repository.done || true
+      touch /var/cache/setup-dist/status-files/repository-dist.done || true
    fi
 }
 
@@ -355,14 +355,14 @@ sources_list_generator() {
 
 # Whonix /etc/apt/sources.list.d/whonix.list
 
-# This file has been automatically created by /usr/bin/whonix_repository.
+# This file has been automatically created by $SCRIPTNAME.
 # If you make manual changes to it, your changes get lost next time you run
-# the whonix_repository tool.
-# You can conveniently manage this file, using the whonix_repository tool.
+# the $SCRIPTNAME tool.
+# You can conveniently manage this file, using the $SCRIPTNAME tool.
 # For any modifications (delete this file, use stable version, use testers
-# version or use developers version), please use the whonix_repository tool.
+# version or use developers version), please use the $SCRIPTNAME tool.
 # Run:
-#    sudo whonix_repository
+#    sudo $SCRIPTNAME
 " > "/etc/apt/sources.list.d/whonix.list"
 
    #for baseuri in $WHONIX_APT_REPOSITORY_BASEURI; do
