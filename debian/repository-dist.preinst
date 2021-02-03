@@ -1,0 +1,43 @@
+#!/bin/bash
+
+## Copyright (C) 2012 - 2020 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
+## See the file COPYING for copying conditions.
+
+if [ -f /usr/lib/helper-scripts/pre.bsh ]; then
+   source /usr/lib/helper-scripts/pre.bsh
+fi
+
+set -e
+
+true "
+#####################################################################
+## INFO: BEGIN: $DPKG_MAINTSCRIPT_PACKAGE $DPKG_MAINTSCRIPT_NAME $@
+#####################################################################
+"
+
+## Legacy.
+if test -f /etc/apt/sources.list.d/whonix.list ; then
+   if ! test -f /etc/apt/sources.list.d/derivative.list ; then
+      mv --verbose /etc/apt/sources.list.d/whonix.list /etc/apt/sources.list.d/derivative.list
+   fi
+fi
+if test -f /etc/apt/trusted.gpg.d/whonix.gpg ; then
+   if ! test -f /etc/apt/trusted.gpg.d/derivative.gpg ; then
+      mv --verbose /etc/apt/trusted.gpg.d/whonix.gpg /etc/apt/trusted.gpg.d/derivative.gpg
+   fi
+fi
+
+true "INFO: debhelper beginning here."
+
+#DEBHELPER#
+
+true "INFO: Done with debhelper."
+
+true "
+#####################################################################
+## INFO: END  : $DPKG_MAINTSCRIPT_PACKAGE $DPKG_MAINTSCRIPT_NAME $@
+#####################################################################
+"
+
+## Explicitly "exit 0", so eventually trapped errors can be ignored.
+exit 0
