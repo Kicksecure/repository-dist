@@ -1,3 +1,156 @@
+commit 489d8f45c9ec4e0658413134fb76dc06c4f7c6f9
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Feb 3 11:51:48 2021 -0500
+
+    readme
+
+commit 849a1b24009510adfedd33e1fd50e2126879b118
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Feb 3 11:46:55 2021 -0500
+
+    migration whonix-repository -> repository-dist
+    
+    mv --verbose /etc/apt/sources.list.d/whonix.list /etc/apt/sources.list.d/derivative.list
+    mv --verbose /etc/apt/trusted.gpg.d/whonix.gpg /etc/apt/trusted.gpg.d/derivative.gpg
+
+commit 410bb8526918843196f6e9ef1410b070955b233a
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Feb 3 10:31:33 2021 -0500
+
+    dist-repository
+
+commit e0cd514ee46c76b6d92f0be78c0cd5b68c02ada4
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Feb 3 10:25:42 2021 -0500
+
+    comment
+
+commit 9f63ad6e1fcd5fa2b332827dbedd8a8f71f84b01
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Feb 3 10:23:38 2021 -0500
+
+    comment
+
+commit b19699f3d9504b4eba150674f9f160385f4b5a6a
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Feb 3 10:22:29 2021 -0500
+
+    output
+
+commit 0a3f2e04303a49428dc403dd2b61680423376c7c
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Feb 3 10:21:08 2021 -0500
+
+    comment
+
+commit 698eb2dfe6dc90dac72b497d0ee1d2568b7f5d16
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Feb 3 10:20:17 2021 -0500
+
+    output
+
+commit 78f5e726eeabad84cc0c5129313710bde78832ae
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Feb 3 10:18:58 2021 -0500
+
+    output
+
+commit d5a5220864cef516c0571580940e002bf651a440
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Feb 3 10:13:58 2021 -0500
+
+    WHONIX_APT_REPOSITORY_OPTS -> DERIVATIVE_APT_REPOSITORY_OPTS
+
+commit 4a520e6a305a04acbbb6a4c7225e405986a27053
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Feb 3 09:52:39 2021 -0500
+
+    repository-dist
+
+commit 546094af5de579102125b07fa891672dd43d6f6f
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Feb 3 09:46:55 2021 -0500
+
+    whonix-repository -> repository-dist
+
+commit 9ef6b3ac65e2c5247a4c4c2a50991eda1f70ade0
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Feb 3 09:46:17 2021 -0500
+
+    man pages
+
+commit 006530104c0bd21f491f7ae2533bdda5c2be7bb2
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Feb 3 09:37:34 2021 -0500
+
+    description
+
+commit 2f6e04fc8771fdab456a54bc1d42dc0b60c0cada
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Feb 3 09:35:49 2021 -0500
+
+    update link
+
+commit 31f3228c2492ed577365ed7779e0c8d242f6f6a1
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Feb 3 09:34:08 2021 -0500
+
+    man page
+
+commit 8f9280ec766e11eade7404ddedd23b2f0fcc4090
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Feb 3 09:32:45 2021 -0500
+
+    genmkfile manpages
+
+commit 5394ab2491d67ebd53e78748a60e5769aabc4928
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Feb 3 09:31:54 2021 -0500
+
+    repository-dist
+
+commit 664196226abc08649ca4acba2731fe663a55b614
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Feb 3 09:29:08 2021 -0500
+
+    fix
+
+commit 9923c03e01951f04e9d5e63fc735c52cf14461ff
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Feb 3 09:27:09 2021 -0500
+
+    whonix-repository -> repository-dist
+
+commit c260d9d1e9672d613f0ef5e417e5ddf83804f46a
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Feb 3 09:25:19 2021 -0500
+
+    whonix-repository-wizard -> repository-dist-wizard
+
+commit bafc555505d1566037322bf5f25fc64f799fca11
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Feb 3 09:22:51 2021 -0500
+
+    whonix_repository -> repository-dist
+
+commit f0fb313db63e62d478bb6650fc9786b660676f1a
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Feb 3 09:10:07 2021 -0500
+
+    whonix_repository -> repository-dist
+
+commit a1342d3be89c455639bd9358038cfa2a661e5d5c
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Feb 1 12:07:45 2021 -0500
+
+    whonixsetup -> setup-dist
+
+commit 925f0b66a9debaee4f4ed1dc563b39322597d35e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Jan 26 09:56:18 2021 -0500
+
+    bumped changelog version
+
 commit 2b0e6730c95b84b35e50ad8a38bb9f28f32e70a6
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Jan 26 09:56:17 2021 -0500
