@@ -17,15 +17,20 @@ import yaml
 from guimessages.translations import _translations
 from guimessages.guimessage import gui_message
 
+if os.path.exists('/usr/share/whonix/marker'):
+   project = "Whonix"
+else:
+   project = "Kicksecure"
+
 class common:
     tr_file ='/usr/share/translations/repository-dist.yaml'
 
-class repository-dist_wizard(QWizard):
+class repository_dist_wizard(QWizard):
     def __init__(self):
-        super(repository-dist_wizard, self).__init__()
+        super(repository_dist_wizard, self).__init__()
 
         self.resize(500, 330)
-        self.setWindowTitle('Whonix Repository Wizard')
+        self.setWindowTitle(project + ' Repository Wizard')
         icon = "/usr/share/icons/anon-icon-pack/whonix.ico"
         self.setWindowIcon(QtGui.QIcon(icon))
 
@@ -114,10 +119,10 @@ class repository-dist_wizard(QWizard):
             pass
 
         self.repo_group.setTitle("Repository")
-        self.repo1.setText("Whonix Stable Repository")
-        self.repo2.setText("Whonix Stable Proposed Updates Repository")
-        self.repo3.setText("Whonix Testers Repository")
-        self.repo4.setText("Whonix Developers Repository")
+        self.repo1.setText(project + " Stable Repository")
+        self.repo2.setText(project + " Stable Proposed Updates Repository")
+        self.repo3.setText(project + " Testers Repository")
+        self.repo4.setText(project + " Developers Repository")
 
         self.button(QWizard.BackButton).clicked.connect(self.BackButton_clicked)
 
@@ -209,7 +214,7 @@ def main():
         not_root = gui_message(common.tr_file, 'not_root')
         sys.exit(1)
 
-    wizard = repository-dist_wizard()
+    wizard = repository_dist_wizard()
 
     sys.exit()
 
