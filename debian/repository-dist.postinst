@@ -28,8 +28,8 @@ case "$1" in
          fi
       fi
 
-      if [ "$WHONIX_APT_REPOSITORY_OPTS" = "" ]; then
-         true "Variable WHONIX_APT_REPOSITORY_OPTS is empty, not calling repository-dist tool."
+      if [ "$DERIVATIVE_APT_REPOSITORY_OPTS" = "" ]; then
+         true "Variable DERIVATIVE_APT_REPOSITORY_OPTS is empty, not calling repository-dist tool."
       else
          ## This is not the case by default.
          ## We are no longer enabling Whonix's APT Repository by default, neither for
@@ -37,10 +37,10 @@ case "$1" in
          ## repository-dist tool gets auto started once Whonix starts so the user
          ## can choose there.
          if [ -o xtrace ]; then
-            bash -x repository-dist --enable --repository $WHONIX_APT_REPOSITORY_OPTS
+            bash -x repository-dist --enable --repository $DERIVATIVE_APT_REPOSITORY_OPTS
          else
-            echo "$DPKG_MAINTSCRIPT_PACKAGE $DPKG_MAINTSCRIPT_NAME Running: repository-dist --enable --repository $WHONIX_APT_REPOSITORY_OPTS"
-            repository-dist --enable --repository $WHONIX_APT_REPOSITORY_OPTS
+            echo "$DPKG_MAINTSCRIPT_PACKAGE $DPKG_MAINTSCRIPT_NAME Running: repository-dist --enable --repository $DERIVATIVE_APT_REPOSITORY_OPTS"
+            repository-dist --enable --repository $DERIVATIVE_APT_REPOSITORY_OPTS
          fi
       fi
 
