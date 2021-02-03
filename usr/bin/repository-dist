@@ -87,7 +87,7 @@ preparation() {
 # tor+http://deb.dds6qkxpwdeubwucdiaord2xgbbeyds25rbsgr73tbfpqpt4a6vjwsyd.onion
 # tor+https://deb.whonix.org"
 
-   [ -n "$apt_source_key" ] || apt_source_key="/usr/share/whonix-repository/whonix.asc"
+   [ -n "$apt_source_key" ] || apt_source_key="/usr/share/repository-dist/whonix.asc"
    [ -n "$apt_target_key" ] || apt_target_key="/etc/apt/trusted.gpg.d/whonix.gpg"
 
    ## silence "warning: apt-key should not be used in scripts"
@@ -98,7 +98,7 @@ preparation() {
    ## to create apt keys for folder '/etc/apt/trusted.gpg.d/' is high.
    ## In Whonix, it's different. Enabling Whonix repository is optional. Whonix
    ## Repository Tool can be used to enable or disable Whonix repository. Whonix
-   ## ships Whonix signing key as asc, as file /usr/share/whonix-repository/whonix.asc.
+   ## ships Whonix signing key as asc, as file /usr/share/repository-dist/whonix.asc.
    ## That '.asc' file is "less binary" than a '.gpg' file. apt-key seems perfectly
    ## capable of converting the '.asc' to '.gpg' and to copy it to folder
    ## folder '/etc/apt/trusted.gpg.d/'. Therefore disabling this warning is justified.

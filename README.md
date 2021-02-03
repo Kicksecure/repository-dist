@@ -13,7 +13,7 @@ or to configure it as desired.
 Technically speaking, this tool creates or deletes
 /etc/sources.list.d/whonix.list and adds or deletes Whonix's signing key from
 apt-key.
-## How to install `whonix-repository` using apt-get ##
+## How to install `repository-dist` using apt-get ##
 
 1\. Download Whonix's Signing Key.
 
@@ -41,10 +41,10 @@ echo "deb https://deb.whonix.org buster main contrib non-free" | sudo tee /etc/a
 sudo apt-get update
 ```
 
-5\. Install `whonix-repository`.
+5\. Install `repository-dist`.
 
 ```
-sudo apt-get install whonix-repository
+sudo apt-get install repository-dist
 ```
 
 ## How to Build deb Package from Source Code ##
@@ -55,7 +55,7 @@ Can be build using standard Debian package build tools such as:
 dpkg-buildpackage -b
 ```
 
-See instructions. (Replace `generic-package` with the actual name of this package `whonix-repository`.)
+See instructions. (Replace `generic-package` with the actual name of this package `repository-dist`.)
 
 * **A)** [easy](https://www.whonix.org/wiki/Dev/Build_Documentation/generic-package/easy), _OR_
 * **B)** [including verifying software signatures](https://www.whonix.org/wiki/Dev/Build_Documentation/generic-package)
@@ -67,4 +67,4 @@ See instructions. (Replace `generic-package` with the actual name of this packag
 
 ## Donate ##
 
-`whonix-repository` requires [donations](https://www.whonix.org/wiki/Donate) to stay alive!
+`repository-dist` requires [donations](https://www.whonix.org/wiki/Donate) to stay alive!

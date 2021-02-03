@@ -2,5 +2,5 @@
 ## See the file COPYING for copying conditions.
 
 version=4
-opts=filenamemangle=s/.+\/v?(\d\S+)\.tar\.gz/whonix-repository-$1\.tar\.gz/ \
-  https://github.com/Whonix/whonix-repository/tags .*/v?(\d\S+)\.tar\.gz
+opts=filenamemangle=s/.+\/v?(\d\S+)\.tar\.gz/repository-dist-$1\.tar\.gz/ \
+  https://github.com/Whonix/repository-dist/tags .*/v?(\d\S+)\.tar\.gz
