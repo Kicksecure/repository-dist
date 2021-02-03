@@ -6,7 +6,7 @@ Section: misc
 Priority: optional
 Maintainer: Patrick Schleizer <adrelanos@riseup.net>
 Build-Depends: debhelper (>= 12), python3
-Homepage: https://www.whonix.org/wiki/Whonix-APT-Repository
+Homepage: https://www.whonix.org/wiki/Project-APT-Repository
 Vcs-Browser: https://github.com/Whonix/repository-dist
 Vcs-Git: https://github.com/Whonix/repository-dist.git
 Standards-Version: 4.3.0
