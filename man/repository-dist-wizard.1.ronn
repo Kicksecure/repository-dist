@@ -16,7 +16,7 @@ Graphical user interface for `repository-dist` tool.
 
 ## WWW
 
-https://www.whonix.org/wiki/Whonix-APT-Repository
+https://www.whonix.org/wiki/Project-APT-Repository
 
 ## AUTHOR
 
