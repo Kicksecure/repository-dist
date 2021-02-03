@@ -15,27 +15,27 @@ not_root:
 repository-dist:
   en:
     enabletext:
-      <p><B>Automatically install updates from the Whonix team?</B></p>
+      <p><B>Automatically install updates from the derivative distribution team?</B></p>
       <p>systemcheck will notify you of available updates.</p>
       <p>When you run</p><blockquote>sudo apt-get dist-upgrade</blockquote>
-      <p>updates from the Whonix team will be AUTOMATICALLY downloaded and installed, along with updates from the Debian team.
+      <p>updates from the derivative distribution team will be AUTOMATICALLY downloaded and installed, along with updates from the Debian team.
       Please read <a href=https://www.whonix.org/wiki/Trust>https://www.whonix.org/wiki/Trust</a> to understand the risks.</p>
     repotext:
-      <p>Which Whonix Repository would you like to receive updates from?<p>
+      <p>Which repository would you like to receive updates from?<p>
       <p>Most users should select the Stable repository.</p>
     enablebutton_text:
-      Yes. Automatically install updates from the Whonix team.
+      Yes. Automatically install updates from the derivative distribution team.
     disablebutton_text:
       No. I will manually update from source code.
     finish_enabled:
-      <p>You will not receive updates from the Whonix team.</p>
-      <p>You can always start the Whonix Repository Tool again by running</p>
-      <blockquote>Start Menu -> System -> Whonix Repository.</blockquote>
+      <p>You will not receive updates from the derivative distribution team.</p>
+      <p>You can always start the Derivative Distribution Repository Tool again by running</p>
+      <blockquote>Start Menu -> System -> Derivative Repository.</blockquote>
     finish_disabed:
-      <p>Updates from the Whonix team will be automatically installed when you upgrade.
-      <p>You can always start the Whonix Repository Tool again by running</p>
-      <blockquote>Start Menu -> System -> Whonix Repository.</blockquote>
+      <p>Updates from the derivative distribution team will be automatically installed when you upgrade.
+      <p>You can always start the Derivative Repository Tool again by running</p>
+      <blockquote>Start Menu -> System -> Derivative Repository.</blockquote>
     finish_failed:
       <p>Please report this bug!</p>
-      <p>You can always start the Whonix Repository Tool again by running</p>
-      <blockquote>Start Menu -> System -> Whonix Repository.</blockquote>
+      <p>You can always start the Derivative Repository Tool again by running</p>
+      <blockquote>Start Menu -> System -> Derivative Repository.</blockquote>
