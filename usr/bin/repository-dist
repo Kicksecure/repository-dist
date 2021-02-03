@@ -97,9 +97,9 @@ preparation() {
    ## Looks more than a Debian policy reason. Debian implements apt-keys differently.
    ## Debian ships binary gpg files in folder '/etc/apt/trusted.gpg.d/'. The effort
    ## to create apt keys for folder '/etc/apt/trusted.gpg.d/' is high.
-   ## In Whonix, it's different. Enabling Whonix repository is optional. Whonix
-   ## Repository Tool can be used to enable or disable Whonix repository. Whonix
-   ## ships Whonix signing key as asc, as file
+   ## In derivative, it's different. Enabling derivative repository is optional. Derivative
+   ## Repository Tool can be used to enable or disable derivative repository. Derivative
+   ## ships derivative signing key as asc, as file
    ## /usr/share/repository-dist/derivative-distribution-signing-key.asc.
    ## That '.asc' file is "less binary" than a '.gpg' file. apt-key seems perfectly
    ## capable of converting the '.asc' to '.gpg' and to copy it to folder
