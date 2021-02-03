@@ -4,7 +4,7 @@
 [Desktop Entry]
 Type=Application
 Terminal=false
-Exec=/usr/lib/whonix-repository/whonix-repository-wizard
+Exec=/usr/lib/whonix-repository/repository-dist-wizard
 Name=Whonix Repository
 GenericName=Whonix Repository
 Comment=Whonix Repository

@@ -1,4 +1,4 @@
-whonix-repository-wizard(1) -- enable, configure or disable Whonix apt repository
+repository-dist-wizard(1) -- enable, configure or disable Whonix apt repository
 ============================
 
 <span class="comment">
@@ -8,7 +8,7 @@ whonix-repository-wizard(1) -- enable, configure or disable Whonix apt repositor
 
 ## SYNOPSIS
 
-`whonix-repository-wizard`
+`repository-dist-wizard`
 
 ## DESCRIPTION
 
