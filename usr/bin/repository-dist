@@ -23,7 +23,7 @@ error_handler() {
 ## Experts only:
 ## $SCRIPTNAME --verbose
 ## for verbose output. Clean the output and
-## submit to Whonix developers.
+## submit to derivative developers.
 ###############################################################################\
 "
    echo "$MSG"
@@ -83,12 +83,13 @@ colors() {
 preparation() {
    ## Fallback.
    ## TODO
-#    [ -n "$WHONIX_APT_REPOSITORY_BASEURI" ] || WHONIX_APT_REPOSITORY_BASEURI="\
+#    [ -n "$DERIVATIVE_APT_REPOSITORY_BASEURI" ] || DERIVATIVE_APT_REPOSITORY_BASEURI="\
 # tor+http://deb.dds6qkxpwdeubwucdiaord2xgbbeyds25rbsgr73tbfpqpt4a6vjwsyd.onion
 # tor+https://deb.whonix.org"
 
    [ -n "$apt_source_key" ] || apt_source_key="/usr/share/repository-dist/whonix.asc"
    [ -n "$apt_target_key" ] || apt_target_key="/etc/apt/trusted.gpg.d/whonix.gpg"
+   [ -n "$sources_list_target_build_remote_derivative" ] || sources_list_target_build_remote_derivative="/etc/apt/sources.list.d/derivative.list"
 
    ## silence "warning: apt-key should not be used in scripts"
    ## https://forums.whonix.org/t/warning-apt-key-should-not-be-used-in-scripts/6342
@@ -169,9 +170,9 @@ man $SCRIPTNAME"
                ;;
             ## TODO
 #            -b | --baseuri)
-#                WHONIX_APT_REPOSITORY_BASEURI="$2"
-#                if [ "$WHONIX_APT_REPOSITORY_BASEURI" = "" ]; then
-#                   echo "ERROR: WHONIX_APT_REPOSITORY_BASEURI may not be empty!"
+#                DERIVATIVE_APT_REPOSITORY_BASEURI="$2"
+#                if [ "$DERIVATIVE_APT_REPOSITORY_BASEURI" = "" ]; then
+#                   echo "ERROR: DERIVATIVE_APT_REPOSITORY_BASEURI may not be empty!"
 #                   exit 1
 #                fi
 #                shift 2
@@ -320,12 +321,12 @@ enable_disable_refresh_keys() {
 
 disable_refresh_create() {
    if [ "$disable" = "1" ]; then
-      if [ -f "/etc/apt/sources.list.d/whonix.list" ]; then
-         echo "INFO '$BASH_SOURCE': Deleting Whonix apt repository '${under}/etc/apt/sources.list.d/whonix.list${reset}'..."
-         rm --force "/etc/apt/sources.list.d/whonix.list"
+      if [ -f "$sources_list_target_build_remote_derivative" ]; then
+         echo "INFO '$BASH_SOURCE': Deleting derivative APT repository '${under}$sources_list_target_build_remote_derivative${reset}'..."
+         rm --force "$sources_list_target_build_remote_derivative"
          echo "INFO '$BASH_SOURCE': Done."
       else
-         echo "INFO '$BASH_SOURCE': '${under}/etc/apt/sources.list.d/whonix.list${reset}' does not exist, ok."
+         echo "INFO '$BASH_SOURCE': '${under}$sources_list_target_build_remote_derivative${reset}' does not exist, ok."
       fi
       mkdir -p /var/cache/setup-dist/status-files || true
       touch /var/cache/setup-dist/status-files/repository-dist.done || true
@@ -346,14 +347,14 @@ sources_list_generator() {
       exit 1
    fi
 
-   echo "INFO '$BASH_SOURCE': Using distribution '${under}$codename${reset}' (version of Whonix) as apt repository."
-   echo "INFO '$BASH_SOURCE': Creating '${under}/etc/apt/sources.list.d/whonix.list${reset}'..."
+   echo "INFO '$BASH_SOURCE': Using distribution '${under}$codename${reset}' (version of derivative) as apt repository."
+   echo "INFO '$BASH_SOURCE': Creating '${under}$sources_list_target_build_remote_derivative${reset}'..."
 
    echo "\
 # Copyright (C) 2012 - 2020 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
 # See the file COPYING for copying conditions.
 
-# Whonix /etc/apt/sources.list.d/whonix.list
+# $sources_list_target_build_remote_derivative
 
 # This file has been automatically created by $SCRIPTNAME.
 # If you make manual changes to it, your changes get lost next time you run
@@ -363,26 +364,26 @@ sources_list_generator() {
 # version or use developers version), please use the $SCRIPTNAME tool.
 # Run:
 #    sudo $SCRIPTNAME
-" > "/etc/apt/sources.list.d/whonix.list"
+" > "$sources_list_target_build_remote_derivative"
 
-   #for baseuri in $WHONIX_APT_REPOSITORY_BASEURI; do
+   #for baseuri in $DERIVATIVE_APT_REPOSITORY_BASEURI; do
       echo "\
 #deb tor+http://deb.dds6qkxpwdeubwucdiaord2xgbbeyds25rbsgr73tbfpqpt4a6vjwsyd.onion $codename main contrib non-free
 #deb-src tor+http://deb.dds6qkxpwdeubwucdiaord2xgbbeyds25rbsgr73tbfpqpt4a6vjwsyd.onion $codename main contrib non-free
 
 deb tor+https://deb.whonix.org $codename main contrib non-free
 #deb-src tor+https://deb.whonix.org $codename main contrib non-free
-" >> "/etc/apt/sources.list.d/whonix.list"
+" >> "$sources_list_target_build_remote_derivative"
    #done
 
    echo "\
 # Leaving source line disabled by default to safe some time, it's not useful
 # anyway, since it's better to get the source code from the git repository.
 
-# End of /etc/apt/sources.list.d/whonix.list
-" >> "/etc/apt/sources.list.d/whonix.list"
+# End of $sources_list_target_build_remote_derivative
+" >> "$sources_list_target_build_remote_derivative"
 
-   cat "/etc/apt/sources.list.d/whonix.list"
+   cat "$sources_list_target_build_remote_derivative"
    echo "INFO '$BASH_SOURCE': Done."
 }
 
