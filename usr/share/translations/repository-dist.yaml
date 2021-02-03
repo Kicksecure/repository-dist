@@ -12,7 +12,7 @@ not_root:
       <p><B>ERROR. This must be run as root!</B></p>
       <p>Use a root file manager or "sudo --set-home" in a terminal.</p>
 
-repository_dist:
+repository-dist:
   en:
     enabletext:
       <p><B>Automatically install updates from the Whonix team?</B></p>
