@@ -77,7 +77,7 @@ class repository_dist_wizard(QWizard):
 
     def setupUi(self):
         self.enable_text = QLabel(self.page_enable)
-        self.enable_text.setGeometry(QtCore.QRect(10, 10, 445, 150))
+        self.enable_text.setGeometry(QtCore.QRect(10, 10, 445, 200))
         self.enable_text.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
         self.enable_text.setWordWrap(True)
         self.enable_group.setGeometry(QtCore.QRect(10, 170, 445, 70))
