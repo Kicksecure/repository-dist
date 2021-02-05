@@ -1,3 +1,27 @@
+commit d9cc1a8254de666e10c6d65c1c0f1fcae015bb49
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Feb 5 02:33:47 2021 -0500
+
+    fix truncated text
+
+commit 97f7fa83e5a96ceb3e3312e39858b44f38bcf8bb
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Feb 5 02:29:56 2021 -0500
+
+    output
+
+commit 2f56e4ad60f978502424a8cd40dd49441fcd125b
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Feb 5 02:25:11 2021 -0500
+
+    fix
+
+commit 4dc33bab0f5604bf783754bba2248b9c78e47284
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Feb 3 11:51:49 2021 -0500
+
+    bumped changelog version
+
 commit 489d8f45c9ec4e0658413134fb76dc06c4f7c6f9
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Feb 3 11:51:48 2021 -0500
