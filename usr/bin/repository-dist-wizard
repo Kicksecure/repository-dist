@@ -4,5 +4,5 @@
 ## Copyright (C) 2014 - 2020 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
 ## See the file COPYING for copying conditions.
 
-from repository-dist_wizard import repository-dist_wizard
-repository-dist_wizard.main()
+from repository_dist_wizard import repository_dist_wizard
+repository_dist_wizard.main()
