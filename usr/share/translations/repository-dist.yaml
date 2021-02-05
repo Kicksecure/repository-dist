@@ -24,7 +24,7 @@ repository-dist:
       <p>Which repository would you like to receive updates from?<p>
       <p>Most users should select the Stable repository.</p>
     enablebutton_text:
-      Yes. Automatically install updates from the derivative distribution team.
+      Yes. Automatically install updates from the derivative.
     disablebutton_text:
       No. I will manually update from source code.
     finish_enabled:
