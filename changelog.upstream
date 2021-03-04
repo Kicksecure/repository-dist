@@ -1,3 +1,21 @@
+commit 454f818e020730507316dfb97afc84d93c169597
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 4 07:07:38 2021 -0500
+
+    readme
+
+commit de1cdcbc4e6ca45d2b6c08340b759fcede915638
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Mar 2 02:09:21 2021 -0500
+
+    add signify public key usr/share/repository-dist/derivative-distribution-signify-key.pub
+
+commit ed35b64760a80c01deccad995fd020303818e2d9
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Feb 5 04:42:54 2021 -0500
+
+    bumped changelog version
+
 commit d9cc1a8254de666e10c6d65c1c0f1fcae015bb49
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Feb 5 02:33:47 2021 -0500
