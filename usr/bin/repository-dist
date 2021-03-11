@@ -211,6 +211,8 @@ add_keys() {
 
    test -f "$gpg_tmp/temp.gpg"
 
+   ## Not needlessly overwriting apt_target_key if no update is needed.
+   ## To avoid race condition of partially written file.
    if diff "$gpg_tmp/temp.gpg" "$apt_target_key" &>/dev/null ; then
       echo "INFO '$BASH_SOURCE': Already added '${under}$apt_source_key${reset}' to '${under}$apt_target_key${reset}', ok."
       gpg_tmp_delete
