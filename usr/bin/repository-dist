@@ -198,11 +198,19 @@ gpg_tmp_delete() {
 
 add_keys() {
    test -f "$apt_source_key"
+   echo "INFO '$BASH_SOURCE': adding '$apt_source_key' to '$apt_target_key'${reset}'..."
 
-   ## TODO
-   echo "INFO '$BASH_SOURCE': Running '${under}cp --verbose $apt_source_key $apt_target_key${reset}'..."
+   gpg_tmp_create
 
-   cat "$apt_source_key" | gpg --dearmor > "$apt_target_key"
+   cat "$apt_source_key" | \
+      gpg \
+         --dearmor \
+         --no-options \
+         --homedir "$gpg_tmp" \
+         --no-default-keyring \
+         > "$apt_target_key"
+
+   gpg_tmp_delete
 
    test -f "$apt_target_key"
    echo "INFO '$BASH_SOURCE': Done."
