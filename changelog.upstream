@@ -1,3 +1,103 @@
+commit 17f234bff09ff66fd8600cd650781657336cf81b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 11 14:33:03 2021 -0500
+
+    readme
+
+commit 0958822284faa19469c4cc5a271dc2e9ea68a76e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 11 14:15:37 2021 -0500
+
+    fix
+
+commit 8275310ef82d123366ba6db76f1301f10bec81c1
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 11 14:07:07 2021 -0500
+
+    fix
+
+commit a81f8ad4268db013b9c229b19e2eb1bb8e8ffcb0
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 11 14:04:18 2021 -0500
+
+    Revert "cleanup"
+    
+    This reverts commit 16597522ae72d8cd2dbfbaf1591835c0998c7cc0.
+
+commit aebff4b084c343f136147d823da5b3a5305b7192
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 11 13:54:41 2021 -0500
+
+    fix
+
+commit 292be2eca246328198b9ab0aa19747c74568f089
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 11 13:53:11 2021 -0500
+
+    output
+
+commit a21a28444c18d7153aa36877fdbfb3a194534646
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 11 13:52:28 2021 -0500
+
+    output
+
+commit b7320fc45e576e91463c4458d8f731c104433de6
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 11 13:51:10 2021 -0500
+
+    description
+
+commit da731be8c7cbb32abc883ce95060935ad5508c15
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 11 13:49:52 2021 -0500
+
+    output
+
+commit efbce4f976f95cdd845fa8e27c0170f45f225931
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 11 13:46:55 2021 -0500
+
+    sanity test
+
+commit 2bccf5a640ead88422f07c524b279608eb621bfc
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 11 13:46:04 2021 -0500
+
+    fix
+
+commit 767ce95a46750966f881b205f1b542dcfa0ef02f
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 11 13:45:37 2021 -0500
+
+    sanity test
+
+commit 774d47a3d03e4a154613a8bfceb7d341b21190f7
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 11 13:44:03 2021 -0500
+
+    --verbose
+
+commit 16597522ae72d8cd2dbfbaf1591835c0998c7cc0
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 11 13:43:50 2021 -0500
+
+    cleanup
+
+commit e1f28ff20ca76383bd5b607be9ccd2b454cac50c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 11 13:43:17 2021 -0500
+
+    stop using apt-key since deprecated
+    
+    http://forums.whonix.org/t/apt-2-2-changes/11240/1
+
+commit 40d52e333d400b3247f4e7f995e3af7f50b6990c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 4 07:07:39 2021 -0500
+
+    bumped changelog version
+
 commit 454f818e020730507316dfb97afc84d93c169597
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Thu Mar 4 07:07:38 2021 -0500

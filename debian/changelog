@@ -1,3 +1,9 @@
+repository-dist (3:7.5-1) unstable; urgency=medium
+
+  * New upstream version (local package).
+
+ -- Patrick Schleizer <adrelanos@riseup.net>  Thu, 11 Mar 2021 19:33:04 +0000
+
 repository-dist (3:7.4-1) unstable; urgency=medium
 
   * New upstream version (local package).
