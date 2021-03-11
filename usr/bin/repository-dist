@@ -198,7 +198,6 @@ gpg_tmp_delete() {
 
 add_keys() {
    test -f "$apt_source_key"
-   echo "INFO '$BASH_SOURCE': adding '$apt_source_key' to '$apt_target_key'${reset}'..."
 
    gpg_tmp_create
 
@@ -208,11 +207,25 @@ add_keys() {
          --no-options \
          --homedir "$gpg_tmp" \
          --no-default-keyring \
-         > "$apt_target_key"
+         > "$gpg_tmp/temp.gpg"
+
+   test -f "$gpg_tmp/temp.gpg"
+
+   if diff "$gpg_tmp/temp.gpg" "$apt_target_key" &>/dev/null ; then
+      echo "INFO '$BASH_SOURCE': Already added '${under}$apt_source_key${reset}' to '${under}$apt_target_key${reset}', ok."
+      gpg_tmp_delete
+      return 0
+   fi
+
+   echo "INFO '$BASH_SOURCE': Adding '${under}$apt_source_key${reset}' to '${under}$apt_target_key${reset}'..."
+
+   cp "$gpg_tmp/temp.gpg" "$apt_target_key"
+
+   test -f "$apt_target_key"
+   diff "$gpg_tmp/temp.gpg" "$apt_target_key"
 
    gpg_tmp_delete
 
-   test -f "$apt_target_key"
    echo "INFO '$BASH_SOURCE': Done."
 }
 
