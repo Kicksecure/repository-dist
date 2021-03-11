@@ -206,6 +206,7 @@ remove_keys() {
 
 refresh_keys() {
    if [ -e "$apt_target_key" ]; then
+      echo "INFO '$BASH_SOURCE': '${under}$apt_target_key${reset}' already exists. Checking if refresh is needed..."
       add_keys
    else
       echo "INFO '$BASH_SOURCE': '${under}$apt_target_key${reset}' does not exist. Doing nothing, ok."
