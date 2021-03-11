@@ -180,6 +180,22 @@ man $SCRIPTNAME"
    ## will remain in the "$@" positional parameters.
 }
 
+gpg_tmp_create() {
+   gpg_tmp="$(mktemp --directory)"
+
+   rm --recursive --force "$gpg_tmp"
+   mkdir --parents "$gpg_tmp"
+   chmod 700 "$gpg_tmp"
+}
+
+gpg_tmp_delete() {
+   if [ -d "$gpg_tmp" ]; then
+      ## Debugging.
+      #ls -la "$gpg_tmp" || true
+      rm --recursive "$gpg_tmp" || true
+   fi
+}
+
 add_keys() {
    if diff "$apt_source_key" "$apt_target_key" &>/dev/null ; then
       echo "INFO '$BASH_SOURCE': signing key '$apt_source_key' already installed in '$apt_target_key', ok.'${reset}'"
