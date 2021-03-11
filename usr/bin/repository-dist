@@ -185,7 +185,7 @@ add_keys() {
       echo "INFO '$BASH_SOURCE': signing key '$apt_source_key' already installed in '$apt_target_key', ok.'${reset}'"
    fi
    test -f "$apt_source_key"
-   echo "INFO '$BASH_SOURCE': Running '${under}cp --verbose $apt_source_key $apt_target_key'${reset}'..."
+   echo "INFO '$BASH_SOURCE': Running '${under}cp --verbose $apt_source_key $apt_target_key${reset}'..."
    cp --verbose "$apt_source_key" "$apt_target_key"
    test -f "$apt_target_key"
    diff "$apt_source_key" "$apt_target_key"
