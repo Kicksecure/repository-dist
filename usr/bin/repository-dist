@@ -191,7 +191,7 @@ remove_keys() {
    echo "INFO '$BASH_SOURCE': Deleting '${under}$apt_target_key${reset}'..."
 
    if [ -f "$apt_target_key" ]; then
-      rm "$apt_target_key"
+      rm --verbose "$apt_target_key"
       ! test -e "$apt_target_key"
       echo "INFO '$BASH_SOURCE': Done."
    else
