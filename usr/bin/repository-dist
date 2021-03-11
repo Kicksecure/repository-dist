@@ -184,6 +184,7 @@ add_keys() {
    echo "INFO '$BASH_SOURCE': Running '${under}cp --verbose $apt_target_key $apt_source_key'${reset}'..."
    cp --verbose "$apt_target_key" "$apt_source_key"
    test -f "$apt_target_key"
+   diff "$apt_source_key" "$apt_target_key"
    echo "INFO '$BASH_SOURCE': Done."
 }
 
