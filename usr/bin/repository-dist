@@ -180,22 +180,6 @@ man $SCRIPTNAME"
    ## will remain in the "$@" positional parameters.
 }
 
-gpg_tmp_create() {
-   gpg_tmp="$(mktemp --directory)"
-
-   rm --recursive --force "$gpg_tmp"
-   mkdir --parents "$gpg_tmp"
-   chmod 700 "$gpg_tmp"
-}
-
-gpg_tmp_delete() {
-   if [ -d "$gpg_tmp" ]; then
-      ## Debugging.
-      #ls -la "$gpg_tmp" || true
-      rm --recursive "$gpg_tmp" || true
-   fi
-}
-
 add_keys() {
    echo "INFO '$BASH_SOURCE': Running '${under}cp --verbose $apt_target_key $apt_source_key'${reset}'..."
    cp --verbose "$apt_target_key" "$apt_source_key"
