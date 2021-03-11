@@ -11,8 +11,8 @@ started by setup-dist. The user is free to either leave Derivative's
 repository disabled or to configure it as desired.
 
 Technically speaking, this tool creates or deletes
-/etc/sources.list.d/derivative.list and adds or deletes Derivative's signing
-key from apt-key.
+/etc/sources.list.d/derivative.list and copies or deletes Derivative's signing
+key to/from /etc/apt/trusted.gpg.d folder.
 ## How to install `repository-dist` using apt-get ##
 
 1\. Download Whonix's Signing Key.
