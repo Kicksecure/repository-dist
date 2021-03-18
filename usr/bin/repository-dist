@@ -89,6 +89,8 @@ preparation() {
 
    [ -n "$apt_source_key" ] || apt_source_key="/usr/share/repository-dist/derivative-distribution-signing-key.asc"
    [ -n "$apt_target_key" ] || apt_target_key="/etc/apt/trusted.gpg.d/derivative.gpg"
+
+   ## Not naming sources_list_target_build_remote_derivative to avoid conflict with Whonix / Kicksecure build script.
    [ -n "$sources_list_target_build_remote_derivative" ] || sources_list_target_build_remote_derivative="/etc/apt/sources.list.d/derivative.list"
 }
 
