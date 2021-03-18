@@ -91,7 +91,7 @@ preparation() {
    [ -n "$apt_target_key" ] || apt_target_key="/etc/apt/trusted.gpg.d/derivative.gpg"
 
    ## Not naming sources_list_target_build_remote_derivative to avoid conflict with Whonix / Kicksecure build script.
-   [ -n "$sources_list_target_build_remote_derivative" ] || sources_list_target_build_remote_derivative="/etc/apt/sources.list.d/derivative.list"
+   [ -n "$sources_list_file_derivative" ] || sources_list_file_derivative="/etc/apt/sources.list.d/derivative.list"
 }
 
 root_check() {
@@ -337,12 +337,12 @@ enable_disable_refresh_keys() {
 
 disable_refresh_create() {
    if [ "$disable" = "1" ]; then
-      if [ -f "$sources_list_target_build_remote_derivative" ]; then
-         echo "INFO '$BASH_SOURCE': Deleting derivative APT repository '${under}$sources_list_target_build_remote_derivative${reset}'..."
-         rm --force "$sources_list_target_build_remote_derivative"
+      if [ -f "$sources_list_file_derivative" ]; then
+         echo "INFO '$BASH_SOURCE': Deleting derivative APT repository '${under}$sources_list_file_derivative${reset}'..."
+         rm --force "$sources_list_file_derivative"
          echo "INFO '$BASH_SOURCE': Done."
       else
-         echo "INFO '$BASH_SOURCE': '${under}$sources_list_target_build_remote_derivative${reset}' does not exist, ok."
+         echo "INFO '$BASH_SOURCE': '${under}$sources_list_file_derivative${reset}' does not exist, ok."
       fi
       mkdir -p /var/cache/setup-dist/status-files || true
       touch /var/cache/setup-dist/status-files/repository-dist.done || true
@@ -364,13 +364,13 @@ sources_list_generator() {
    fi
 
    echo "INFO '$BASH_SOURCE': Using distribution '${under}$codename${reset}' (version of derivative) as apt repository."
-   echo "INFO '$BASH_SOURCE': Creating '${under}$sources_list_target_build_remote_derivative${reset}'..."
+   echo "INFO '$BASH_SOURCE': Creating '${under}$sources_list_file_derivative${reset}'..."
 
    echo "\
 # Copyright (C) 2012 - 2021 ENCRYPTED SUPPORT LP <adrelanos@whonix.org>
 # See the file COPYING for copying conditions.
 
-# $sources_list_target_build_remote_derivative
+# $sources_list_file_derivative
 
 # This file has been automatically created by $SCRIPTNAME.
 # If you make manual changes to it, your changes get lost next time you run
@@ -380,7 +380,7 @@ sources_list_generator() {
 # version or use developers version), please use the $SCRIPTNAME tool.
 # Run:
 #    sudo $SCRIPTNAME
-" > "$sources_list_target_build_remote_derivative"
+" > "$sources_list_file_derivative"
 
    #for baseuri in $DERIVATIVE_APT_REPOSITORY_BASEURI; do
       echo "\
@@ -389,17 +389,17 @@ sources_list_generator() {
 
 deb tor+https://deb.whonix.org $codename main contrib non-free
 #deb-src tor+https://deb.whonix.org $codename main contrib non-free
-" >> "$sources_list_target_build_remote_derivative"
+" >> "$sources_list_file_derivative"
    #done
 
    echo "\
 # Leaving source line disabled by default to safe some time, it's not useful
 # anyway, since it's better to get the source code from the git repository.
 
-# End of $sources_list_target_build_remote_derivative
-" >> "$sources_list_target_build_remote_derivative"
+# End of $sources_list_file_derivative
+" >> "$sources_list_file_derivative"
 
-   cat "$sources_list_target_build_remote_derivative"
+   cat "$sources_list_file_derivative"
    echo "INFO '$BASH_SOURCE': Done."
 }
 
