@@ -31,3 +31,17 @@ Description: Derivative APT Repository Tool
  Technically speaking, this tool creates or deletes
  /etc/sources.list.d/derivative.list and copies or deletes Derivative's signing
  key to/from /etc/apt/trusted.gpg.d folder.
+
+Package: whonix-repository
+Architecture: all
+Depends: repository-dist, ${misc:Depends}
+Section: oldlibs
+Description: transitional package
+ Package whonix-repository was renamed to repository-dist.
+ .
+ Use package repository-dist instead.
+ Legacy. This is a transitional package.
+ .
+ It can be removed by installing package repository-dist.
+ .
+ sudo apt-get install repository-dist
