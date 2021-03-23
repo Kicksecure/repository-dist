@@ -14,6 +14,7 @@ Standards-Version: 4.3.0
 Package: repository-dist
 Architecture: all
 Depends: gnupg2, python3, python3-pyqt5, lxqt-sudo, lsb-release, ${misc:Depends}
+Provides: whonix-repository
 Replaces: whonix-repository
 Conflicts: whonix-repository
 Description: Derivative APT Repository Tool
