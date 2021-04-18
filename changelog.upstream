@@ -1,3 +1,15 @@
+commit b369b4417083d9f270898d40531c6f04bd91d88b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Apr 18 02:21:27 2021 -0400
+
+    same gpg signing key with new e-mail addresses
+
+commit e9f35adaad5d5a1407730cd7019b5e445c99bc92
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Mar 23 07:47:11 2021 -0400
+
+    bumped changelog version
+
 commit 33cb30e42d07244f1aca08a70105ee8ee58a6b7a
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Tue Mar 23 07:44:20 2021 -0400
