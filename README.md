@@ -1,4 +1,4 @@
-# Derivative APT Repository Tool #
+# Derivative APT Repository Command Line Interface (CLI) #
 
 This tool can always be used to enable either Derivative's stable, testers or
 developers repository or to disable Derivative's repository.
