@@ -1,3 +1,25 @@
+commit 935f02c3899149bd0c3063a6aaf9bb24f97e6a4d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri May 7 05:40:29 2021 -0400
+
+    readme
+
+commit e1faf410205132c3fa19800febe44f5c8e169998
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri May 7 05:34:16 2021 -0400
+
+    reduce dependencies for CLI version
+    
+    split dependencies into repository-dist (CLI) and repository-dist-wizard (GUI)
+    
+    https://forums.whonix.org/t/kicksecure-minimal-version/11613
+
+commit e4fa263b49f73efbf176c1f5ff7e52a1a867597f
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Apr 18 03:16:09 2021 -0400
+
+    bumped changelog version
+
 commit b369b4417083d9f270898d40531c6f04bd91d88b
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sun Apr 18 02:21:27 2021 -0400

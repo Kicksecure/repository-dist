@@ -1,3 +1,9 @@
+repository-dist (3:8.2-1) unstable; urgency=medium
+
+  * New upstream version (local package).
+
+ -- Patrick Schleizer <adrelanos@whonix.org>  Fri, 07 May 2021 09:40:30 +0000
+
 repository-dist (3:8.1-1) unstable; urgency=medium
 
   * New upstream version (local package).
