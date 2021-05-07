@@ -5,7 +5,7 @@ Source: repository-dist
 Section: misc
 Priority: optional
 Maintainer: Patrick Schleizer <adrelanos@whonix.org>
-Build-Depends: debhelper (>= 12), python3
+Build-Depends: debhelper (>= 12), python3, dh-python
 Homepage: https://www.whonix.org/wiki/Project-APT-Repository
 Vcs-Browser: https://github.com/Whonix/repository-dist
 Vcs-Git: https://github.com/Whonix/repository-dist.git
@@ -13,11 +13,11 @@ Standards-Version: 4.3.0
 
 Package: repository-dist
 Architecture: all
-Depends: gnupg2, python3, python3-pyqt5, lxqt-sudo, lsb-release, ${misc:Depends}
+Depends: gnupg2, lsb-release, ${python3:Depends}, ${misc:Depends}
 Provides: whonix-repository
 Replaces: whonix-repository
 Conflicts: whonix-repository
-Description: Derivative APT Repository Tool
+Description: Derivative APT Repository Command Line Interface (CLI)
  This tool can always be used to enable either Derivative's stable, testers or
  developers repository or to disable Derivative's repository.
  .
@@ -31,6 +31,16 @@ Description: Derivative APT Repository Tool
  Technically speaking, this tool creates or deletes
  /etc/sources.list.d/derivative.list and copies or deletes Derivative's signing
  key to/from /etc/apt/trusted.gpg.d folder.
+
+Package: repository-dist-wizard
+Architecture: all
+Depends: python3, python3-pyqt5, lxqt-sudo, ${misc:Depends}
+Description: Derivative APT Repository Graphical User Interface (GUI)
+ This tool can always be used to enable either Derivative's stable, testers or
+ developers repository or to disable Derivative's repository.
+ .
+ This is a metapackage depending on the required packages for the GUI
+ (Graphical User Interface).
 
 Package: whonix-repository
 Architecture: all
