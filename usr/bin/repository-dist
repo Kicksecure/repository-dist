@@ -271,10 +271,10 @@ parse_variables() {
          if cat /etc/debian_version | grep -q "/sid" ; then
             codename_default_stable="$(cat /etc/debian_version)"
             ## example codename_default_stable:
-            ## buster/sid
+            ## bullseye/sid
             codename_default_stable="${codename_default_stable/%"/sid"}"
             ## example codename_default_stable:
-            ## buster
+            ## bullseye
          fi
       fi
 
