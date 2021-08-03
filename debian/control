@@ -5,11 +5,12 @@ Source: repository-dist
 Section: misc
 Priority: optional
 Maintainer: Patrick Schleizer <adrelanos@whonix.org>
-Build-Depends: debhelper (>= 12), python3, dh-python
+Build-Depends: debhelper (>= 13), debhelper-compat (= 13), python3, dh-python
 Homepage: https://www.whonix.org/wiki/Project-APT-Repository
 Vcs-Browser: https://github.com/Whonix/repository-dist
 Vcs-Git: https://github.com/Whonix/repository-dist.git
-Standards-Version: 4.3.0
+Standards-Version: 4.5.1
+Rules-Requires-Root: no
 
 Package: repository-dist
 Architecture: all
