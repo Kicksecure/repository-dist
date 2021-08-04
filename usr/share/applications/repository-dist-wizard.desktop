@@ -4,7 +4,7 @@
 [Desktop Entry]
 Type=Application
 Terminal=false
-Exec=/usr/lib/repository-dist/repository-dist-wizard
+Exec=/usr/libexec/repository-dist/repository-dist-wizard
 Name=Repository
 GenericName=Derivative Repository
 Comment=Derivative Repository
