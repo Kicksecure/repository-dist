@@ -1,3 +1,59 @@
+commit 33c7e64219f876300e5f047938720a84c90d9fd4
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 4 12:29:52 2021 -0400
+
+    lintian FHS
+
+commit 710be311a8cfc89d8b5df8674364662c34519326
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 4 07:06:18 2021 -0400
+
+    chmod -x usr/lib/python3/dist-packages/repository_dist_wizard/repository_dist_wizard.py
+    
+    lintian FHS
+
+commit 68794ba0b1a9a532a92a5aa937aee6c8d981ddde
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Aug 3 12:48:55 2021 -0400
+
+    move /usr/lib/helper-scripts and /usr/lib/curl-scripts to /usr/libexec/helper-scripts as per lintian FHS
+
+commit f3ff1e6eec5ff7b3a17c726815a108306f927bd5
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Aug 3 11:47:34 2021 -0400
+
+    re-generate man pages (generated using "genmkfile manpages")
+
+commit 696ed25a5ab7fbb5a79884b4b19879ab330a7916
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Aug 3 11:43:43 2021 -0400
+
+    man page
+
+commit 3fd6fca63d222cb3fa6ee2360dba1dfd6dcdbf88
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Aug 3 05:48:24 2021 -0400
+
+    bullseye
+
+commit eefa663b1416c7a8b727bd845884b14d20f01849
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Aug 1 16:36:15 2021 -0400
+
+    bullseye
+
+commit 9cbc523176f383be3ad45b9eae8ef17c65489868
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Aug 1 16:24:38 2021 -0400
+
+    readme
+
+commit 6b10bb772cf14e5767eb6f9bacb1b3db01f5e348
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri May 7 05:40:30 2021 -0400
+
+    bumped changelog version
+
 commit 935f02c3899149bd0c3063a6aaf9bb24f97e6a4d
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Fri May 7 05:40:29 2021 -0400
