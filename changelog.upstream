@@ -1,3 +1,15 @@
+commit 08de96e54385678bc3db5b47c26721dfa14711bf
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Aug 6 16:51:57 2021 -0400
+
+    gnupg2 (dummy transitional package) -> gnupg
+
+commit 21e60e685ed60bdbdebeeb3860f9c7787c87d88d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Aug 5 17:00:34 2021 -0400
+
+    bumped changelog version
+
 commit 33c7e64219f876300e5f047938720a84c90d9fd4
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed Aug 4 12:29:52 2021 -0400
