@@ -1,3 +1,37 @@
+commit d01e9cc3724ee6e65760dddac40651ba8a5be5f3
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Aug 21 07:06:57 2021 -0400
+
+    legacy
+
+commit 5e35d24e894c7a5f6be6fefad631bc520b96080d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Aug 21 07:05:03 2021 -0400
+
+    output
+
+commit 4b7228db4a038d36315880cf6878dd713a0bcb37
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Aug 21 07:01:26 2021 -0400
+
+    required change `/etc/apt/trusted.gpg.d/derivative.gpg` -> `/etc/apt/trusted.gpg.d/derivative.asc`
+
+commit 3a1764721f24c3d2cb681a9f49da2f11e51c9f12
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Aug 21 06:36:19 2021 -0400
+
+    use ascii armored gpg key;
+    code simplification
+    
+    since APT folder `/etc/apt/trusted.gpg.d` support ascii armored gpg keys since
+    Debian `bullseye`
+
+commit 9f91e2287ce2de752755eb475fac2a88e1d6caca
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Aug 6 17:04:46 2021 -0400
+
+    bumped changelog version
+
 commit 08de96e54385678bc3db5b47c26721dfa14711bf
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Fri Aug 6 16:51:57 2021 -0400
