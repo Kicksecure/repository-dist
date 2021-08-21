@@ -194,7 +194,7 @@ add_keys() {
 
    echo "INFO '$BASH_SOURCE': Adding '${under}$apt_source_key${reset}' to '${under}$apt_target_key${reset}'..."
 
-   cp "$apt_source_key" "$apt_target_key"
+   cp --verbose "$apt_source_key" "$apt_target_key"
 
    test -f "$apt_target_key"
    diff "$apt_source_key" "$apt_target_key"
