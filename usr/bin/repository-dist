@@ -182,53 +182,22 @@ man $SCRIPTNAME"
    ## will remain in the "$@" positional parameters.
 }
 
-gpg_tmp_create() {
-   gpg_tmp="$(mktemp --directory)"
-
-   rm --recursive --force "$gpg_tmp"
-   mkdir --parents "$gpg_tmp"
-   chmod 700 "$gpg_tmp"
-}
-
-gpg_tmp_delete() {
-   if [ -d "$gpg_tmp" ]; then
-      ## Debugging.
-      #ls -la "$gpg_tmp" || true
-      rm --recursive "$gpg_tmp" || true
-   fi
-}
-
 add_keys() {
    test -f "$apt_source_key"
 
-   gpg_tmp_create
-
-   cat "$apt_source_key" | \
-      gpg \
-         --dearmor \
-         --no-options \
-         --homedir "$gpg_tmp" \
-         --no-default-keyring \
-         > "$gpg_tmp/temp.gpg"
-
-   test -f "$gpg_tmp/temp.gpg"
-
    ## Not needlessly overwriting apt_target_key if no update is needed.
    ## To avoid race condition of partially written file.
-   if diff "$gpg_tmp/temp.gpg" "$apt_target_key" &>/dev/null ; then
+   if diff "$apt_source_key" "$apt_target_key" &>/dev/null ; then
       echo "INFO '$BASH_SOURCE': Already added '${under}$apt_source_key${reset}' to '${under}$apt_target_key${reset}', ok."
-      gpg_tmp_delete
       return 0
    fi
 
    echo "INFO '$BASH_SOURCE': Adding '${under}$apt_source_key${reset}' to '${under}$apt_target_key${reset}'..."
 
-   cp "$gpg_tmp/temp.gpg" "$apt_target_key"
+   cp "$apt_source_key" "$apt_target_key"
 
    test -f "$apt_target_key"
-   diff "$gpg_tmp/temp.gpg" "$apt_target_key"
-
-   gpg_tmp_delete
+   diff "$apt_source_key" "$apt_target_key"
 
    echo "INFO '$BASH_SOURCE': Done."
 }
