@@ -14,7 +14,7 @@ Rules-Requires-Root: no
 
 Package: repository-dist
 Architecture: all
-Depends: gnupg, lsb-release, ${python3:Depends}, ${misc:Depends}
+Depends: gnupg, lsb-release, helper-scripts, ${python3:Depends}, ${misc:Depends}
 Provides: whonix-repository
 Replaces: whonix-repository
 Conflicts: whonix-repository
