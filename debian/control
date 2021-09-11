@@ -15,9 +15,6 @@ Rules-Requires-Root: no
 Package: repository-dist
 Architecture: all
 Depends: lsb-release, helper-scripts, ${python3:Depends}, ${misc:Depends}
-Provides: whonix-repository
-Replaces: whonix-repository
-Conflicts: whonix-repository
 Description: Derivative APT Repository Command Line Interface (CLI)
  This tool can always be used to enable either Derivative's stable, testers or
  developers repository or to disable Derivative's repository.
