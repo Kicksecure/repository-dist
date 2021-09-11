@@ -353,11 +353,11 @@ sources_list_generator() {
 
    #for baseuri in $DERIVATIVE_APT_REPOSITORY_BASEURI; do
       echo "\
-#deb tor+http://deb.dds6qkxpwdeubwucdiaord2xgbbeyds25rbsgr73tbfpqpt4a6vjwsyd.onion $codename main contrib non-free
-#deb-src tor+http://deb.dds6qkxpwdeubwucdiaord2xgbbeyds25rbsgr73tbfpqpt4a6vjwsyd.onion $codename main contrib non-free
+#deb [signed-by=/usr/share/keyrings/derivative.asc] tor+http://deb.dds6qkxpwdeubwucdiaord2xgbbeyds25rbsgr73tbfpqpt4a6vjwsyd.onion $codename main contrib non-free
+#deb-src [signed-by=/usr/share/keyrings/derivative.asc] tor+http://deb.dds6qkxpwdeubwucdiaord2xgbbeyds25rbsgr73tbfpqpt4a6vjwsyd.onion $codename main contrib non-free
 
-deb tor+https://deb.whonix.org $codename main contrib non-free
-#deb-src tor+https://deb.whonix.org $codename main contrib non-free
+deb [signed-by=/usr/share/keyrings/derivative.asc] tor+https://deb.whonix.org $codename main contrib non-free
+#deb-src [signed-by=/usr/share/keyrings/derivative.asc] tor+https://deb.whonix.org $codename main contrib non-free
 " >> "$sources_list_file_derivative"
    #done
 
