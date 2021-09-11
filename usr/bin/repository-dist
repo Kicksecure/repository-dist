@@ -132,6 +132,7 @@ man $SCRIPTNAME"
                disable="1"
                shift
                ;;
+           ## Legacy compatibility.
            --refresh-keys)
                refresh_keys="1"
                shift
