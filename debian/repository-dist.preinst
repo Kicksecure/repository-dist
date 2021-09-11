@@ -15,23 +15,17 @@ true "
 #####################################################################
 "
 
-## Legacy 1.
+## legacy
 if test -f /etc/apt/sources.list.d/whonix.list ; then
    if ! test -f /etc/apt/sources.list.d/derivative.list ; then
       mv --verbose /etc/apt/sources.list.d/whonix.list /etc/apt/sources.list.d/derivative.list
    fi
 fi
-if test -f /etc/apt/trusted.gpg.d/whonix.gpg ; then
-   if ! test -f /etc/apt/trusted.gpg.d/derivative.gpg ; then
-      mv --verbose /etc/apt/trusted.gpg.d/whonix.gpg /etc/apt/trusted.gpg.d/derivative.gpg
-   fi
-fi
-## Legacy 2.
-if test -f /etc/apt/trusted.gpg.d/derivative.gpg ; then
-   if ! test -f /etc/apt/trusted.gpg.d/derivative.asc ; then
-      mv --verbose /etc/apt/trusted.gpg.d/derivative.gpg /etc/apt/trusted.gpg.d/derivative.asc
-   fi
-fi
+
+## legacy
+rm --verbose --force /etc/apt/trusted.gpg.d/whonix.gpg
+rm --verbose --force /etc/apt/trusted.gpg.d/derivative.gpg
+rm --verbose --force /etc/apt/trusted.gpg.d/derivative.asc
 
 true "INFO: debhelper beginning here."
 
