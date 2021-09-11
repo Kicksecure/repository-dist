@@ -51,7 +51,7 @@ Enables or disables derivative distribution apt repository.
 
 `sudo repository-dist --verbose --enable --repository stable`
 
-`sudo repository-dist --enable --codename jessie`
+`sudo repository-dist --enable --codename bullseye`
 
 `sudo repository-dist --disable`
 
