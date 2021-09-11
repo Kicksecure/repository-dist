@@ -27,6 +27,19 @@ rm --verbose --force /etc/apt/trusted.gpg.d/whonix.gpg
 rm --verbose --force /etc/apt/trusted.gpg.d/derivative.gpg
 rm --verbose --force /etc/apt/trusted.gpg.d/derivative.asc
 
+file_name="/etc/apt/sources.list.d/derivative.list"
+
+## legacy
+if test -f "$file_name" ; then
+   ## Do not try to upgrade http to https as this would fail for onions.
+   search="deb tor+http"
+   replace="deb [signed-by=/usr/share/keyrings/derivative.asc] tor+http"
+   str_replace "$search" "$replace" "$file_name" || true
+   search="deb http"
+   replace="deb [signed-by=/usr/share/keyrings/derivative.asc] http"
+   str_replace "$search" "$replace" "$file_name" || true
+fi
+
 true "INFO: debhelper beginning here."
 
 #DEBHELPER#
