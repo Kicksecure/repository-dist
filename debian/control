@@ -42,17 +42,3 @@ Description: Derivative APT Repository Graphical User Interface (GUI)
  .
  This is a metapackage depending on the required packages for the GUI
  (Graphical User Interface).
-
-Package: whonix-repository
-Architecture: all
-Depends: repository-dist, ${misc:Depends}
-Section: oldlibs
-Description: transitional package
- Package whonix-repository was renamed to repository-dist.
- .
- Use package repository-dist instead.
- Legacy. This is a transitional package.
- .
- It can be removed by installing package repository-dist.
- .
- sudo apt-get install repository-dist
