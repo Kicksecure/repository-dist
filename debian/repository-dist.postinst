@@ -40,14 +40,6 @@ case "$1" in
          fi
       fi
 
-      ## Update existing keys. Only already added ones.
-      if [ -o xtrace ]; then
-         bash -x repository-dist --refresh-keys
-      else
-         echo "$DPKG_MAINTSCRIPT_PACKAGE $DPKG_MAINTSCRIPT_NAME Running: repository-dist --refresh-keys"
-         repository-dist --refresh-keys
-      fi
-
       true "INFO: End configuring $DPKG_MAINTSCRIPT_PACKAGE."
 
       ;;
