@@ -1,3 +1,126 @@
+commit 35a13f38ab1444c9d508f6f7a8aaa9522ee8f13a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Sep 11 18:00:34 2021 -0400
+
+    description
+
+commit 51b21e41498c11cab773042a94fd03547869b90c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Sep 11 17:50:05 2021 -0400
+
+    manpage
+
+commit b0591b2f812185e284a8ec88de75f9e62fb77f08
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Sep 11 17:49:53 2021 -0400
+
+    manpage
+
+commit e9b96a90fd19dbac108a3c2cc755a942f239d5ab
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Sep 11 17:48:52 2021 -0400
+
+    comment
+
+commit 0840872a1f22384b61bb2c8a324ed3943fc22d45
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Sep 11 17:48:05 2021 -0400
+
+    cleanup
+
+commit d3b7a4284aefd17d9173c65a95f0d6cb037e07e9
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Sep 11 17:46:40 2021 -0400
+
+    legacy
+
+commit eb569b6225a67d78bee385c9d30981cdf7aeb91a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Sep 11 17:37:49 2021 -0400
+
+    legacy: upgrade existing `/etc/apt/sources.list.d/derivative.list`
+    
+    to use `[signed-by=/usr/share/keyrings/derivative.asc]`
+
+commit 73ccff0d64314490703eda5c376e04129fd6170e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Sep 11 17:28:07 2021 -0400
+
+    `Depends: python3` -> `Depends: python3:any`
+
+commit 36c40c9a5e3b4ce36714bb7d8e601f8205b90244
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Sep 11 17:23:33 2021 -0400
+
+    cleanup
+
+commit 3781fc5bd5e8396675b304e309427cc02e752a57
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Sep 11 17:22:40 2021 -0400
+
+    remove no loner required `Depends: gnupg`
+
+commit de2c03eb1e97ef4cc51979bbf0a51ac9d35879cf
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Sep 11 17:22:07 2021 -0400
+
+    Depends: helper-scripts
+
+commit d25317d734052fee49bef8cd3d2e11161872e26f
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Sep 11 17:19:31 2021 -0400
+
+    cleanup, remove legacy transitional package whonix-repository
+
+commit 4afbd86c840c81fb64fdd27f5676accf854cad20
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Sep 11 17:17:35 2021 -0400
+
+    renamed: usr/share/keyrings/derivative-distribution-signing-key.asc -> usr/share/keyrings/derivative.asc
+    renamed: usr/share/keyrings/derivative-distribution-signify-key.pub -> usr/share/keyrings/derivative.pub
+
+commit c7836751a6cc25cab5888815011df5a1d493e75c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Sep 11 17:15:33 2021 -0400
+
+    delete legacy `/etc/apt/trusted.gpg.d/derivative.asc`
+    
+    because now using `signed-by` and `/usr/share/keyrings/derivative.asc`
+
+commit e3e2db96441401015c4fa61f423b43a240390b97
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Sep 11 17:10:36 2021 -0400
+
+    port to APT sources.list `signed-by`
+
+commit d3f117937ecfd89d0a5159dd35e5813bd99d9aca
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Sep 11 16:57:35 2021 -0400
+
+    renamed: usr/share/repository-dist/derivative-distribution-signing-key.asc -> usr/share/keyrings/derivative-distribution-signing-key.asc (gpg)
+    
+    renamed: usr/share/repository-dist/derivative-distribution-signify-key.pub -> usr/share/keyrings/derivative-distribution-signify-key.pub (signify)
+
+commit f113c374a5e36f25c98441d166d34863fdd9268a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Sep 11 16:56:11 2021 -0400
+
+    use APT sources.list `signed-by`
+    
+    https://forums.whonix.org/t/apt-repository-signing-keys-per-apt-sources-list-signed-by/12302
+
+commit 1fd8cd55237f95e6413c37c19cbff0471bab460a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Sep 11 16:31:37 2021 -0400
+
+    readme
+
+commit 75e7916ffd2f2ffa1e9c27a8411605b4da2a34fd
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Aug 21 16:44:04 2021 -0400
+
+    bumped changelog version
+
 commit d01e9cc3724ee6e65760dddac40651ba8a5be5f3
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Aug 21 07:06:57 2021 -0400
