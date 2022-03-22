@@ -31,7 +31,7 @@ class repository_dist_wizard(QWizard):
 
         self.resize(500, 330)
         self.setWindowTitle(project + ' Repository Wizard')
-        icon = "/usr/share/icons/anon-icon-pack/whonix.ico"
+        icon = "/usr/share/icons/icon-pack-dist/whonix.ico"
         self.setWindowIcon(QtGui.QIcon(icon))
 
         translation = _translations(common.tr_file, 'repository-dist')
