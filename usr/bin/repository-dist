@@ -207,7 +207,19 @@ parse_variables() {
     [ "$refresh_keys" = "1" ] && return 0
 
     if [ -z "$url" ]; then
-        echo "ERROR: url not provided, it can only be 'whonix' or 'kicksecure'"
+        if test -f /usr/share/whonix/marker; then
+            url="whonix"
+        elif test -f /usr/share/kicksecure/marker; then
+            url="kicksecure"
+        fi
+        if [ -z "$url" ]; then
+            echo "ERROR: url not provided, it can only be 'whonix' or 'kicksecure'"
+            exit 1
+        fi
+    fi
+
+    if test -f /usr/share/kicksecure/marker && [ "$url" = "whonix" ]; then
+        echo "ERROR: kicksecure is not allowed to enable whonix repos."
         exit 1
     fi
 
