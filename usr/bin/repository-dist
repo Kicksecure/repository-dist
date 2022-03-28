@@ -286,7 +286,14 @@ disable_refresh_create() {
    elif [ "$refresh_keys" = "1" ]; then
       true
    else
-      sources_list_generator
+      if [ "$url" = "whonix" ]; then
+          sources_list_generator
+          ## above will run for whonix repo, below will run for kicksecure repo.
+          url="kicksecure"
+          sources_list_generator
+      elif [ "$url" = "kicksecure" ]; then
+          sources_list_generator
+      fi
       mkdir -p /var/cache/setup-dist/status-files || true
       touch /var/cache/setup-dist/status-files/repository-dist.done || true
    fi
