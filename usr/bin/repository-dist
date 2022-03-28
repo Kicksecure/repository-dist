@@ -153,15 +153,6 @@ man $SCRIPTNAME"
                fi
                shift 2
                ;;
-           -u | --url)
-                url="$2"
-                if [ "$url" != "whonix" ] && [ "$url" != "kicksecure" ]; then
-                    echo "ERROR: url can only be 'whonix' or 'kicksecure'."
-                    exit 1
-                fi
-                shift 2
-                ;;
-
            -t | --transport)
                 transport="$2"
                 if [ -z "${transport}" ]; then
@@ -205,24 +196,6 @@ man $SCRIPTNAME"
 parse_variables() {
     [ "$disable" = "1" ] && return 0
     [ "$refresh_keys" = "1" ] && return 0
-
-    if [ -z "$url" ]; then
-        if test -f /usr/share/whonix/marker; then
-            url="whonix"
-        elif test -f /usr/share/kicksecure/marker; then
-            url="kicksecure"
-        fi
-        if [ -z "$url" ]; then
-            echo "ERROR: url not provided, it can only be 'whonix' or 'kicksecure'"
-            exit 1
-        fi
-    fi
-
-    if test -f /usr/share/kicksecure/marker && [ "$url" = "whonix" ]; then
-        echo "ERROR: kicksecure is not allowed to enable whonix repos."
-        exit 1
-    fi
-
 
    if [ -z "$codename" ]; then
       [ -n "$codename_default_stable" ] || codename_default_stable="$(lsb_release --short --codename)"
@@ -286,14 +259,7 @@ disable_refresh_create() {
    elif [ "$refresh_keys" = "1" ]; then
       true
    else
-      if [ "$url" = "whonix" ]; then
-          sources_list_generator
-          ## above will run for whonix repo, below will run for kicksecure repo.
-          url="kicksecure"
-          sources_list_generator
-      elif [ "$url" = "kicksecure" ]; then
-          sources_list_generator
-      fi
+      sources_list_generator
       mkdir -p /var/cache/setup-dist/status-files || true
       touch /var/cache/setup-dist/status-files/repository-dist.done || true
    fi
@@ -307,44 +273,38 @@ sources_list_generator() {
         exit 1
     fi
 
-    case "$url" in
-        whonix)
-            url_onion="deb.dds6qkxpwdeubwucdiaord2xgbbeyds25rbsgr73tbfpqpt4a6vjwsyd.onion"
-            url_plain="deb.whonix.org"
-            sources_file="/etc/apt/sources.list.d/derivative.list"
-            ;;
-        kicksecure)
-            url_onion="deb.w5j6stm77zs6652pgsij4awcjeel3eco7kvipheu6mtr623eyyehj4yd.onion"
-            url_plain="deb.kicksecure.com"
-            sources_file="/etc/apt/sources.list.d/kicksecure.list"
-            ;;
-    esac
+    whonix_url_onion="deb.dds6qkxpwdeubwucdiaord2xgbbeyds25rbsgr73tbfpqpt4a6vjwsyd.onion"
+    whonix_url_plain="deb.whonix.org"
+    kicksecure_url_onion="deb.w5j6stm77zs6652pgsij4awcjeel3eco7kvipheu6mtr623eyyehj4yd.onion"
+    kicksecure_url_plain="deb.kicksecure.com"
 
+    sources_file="/etc/apt/sources.list.d/derivative.list"
 
-    ## cover all possibilities, even lines with wrong syntax
-    transport_lines="
-http://${url_plain}
-https://${url_plain}
-tor+http://${url_plain}
-tor+https://${url_plain}
-http+tor://${url_plain}
-https+tor://${url_plain}
-http://${url_onion}
-https://${url_onion}
-tor+http://${url_onion}
-tor+https://${url_onion}
-http+tor://${url_onion}
-https+tor://${url_onion}
-"
 
     ## syntax is prefixing with 'tor+http(s)' for uniformity
     ## although 'http(s)+tor' also works.
     case "$transport" in
-        plain-tls) repo="https://${url_plain}";;
-        plain-tls-tor) repo="tor+https://${url_plain}";;
-        onion) repo="tor+http://${url_onion}";;
-        onion-tls) repo="tor+https://${url_onion}";;
-        "") repo="tor+http://${url_onion}";; ## default to onion service
+        plain-tls) 
+            whonix_repo="https://${whonix_url_plain}"
+            kicksecure_repo="https://${kicksecure_url_plain}"
+            ;;
+        plain-tls-tor) 
+            whonix_repo="tor+https://${whonix_url_plain}"
+            kicksecure_repo="tor+https://${kicksecure_url_plain}"
+            ;;
+        onion)
+            whonix_repo="tor+http://${whonix_url_onion}"
+            kicksecure_repo="tor+http://${kicksecure_url_onion}"
+            ;;
+        onion-tls)
+            whonix_repo="tor+https://${whonix_url_onion}"
+            kicksecure_repo="tor+https://${kicksecure_url_onion}"
+            ;;
+        "") 
+            ## default to onion
+            whonix_repo="tor+http://${whonix_url_onion}"
+            kicksecure_repo="tor+http://${kicksecure_url_onion}"
+            ;;
         *) echo "ERROR: Invalid transport type, it can only be:
  plain-tls
  plain-tls-tor
@@ -371,20 +331,19 @@ https+tor://${url_onion}
 ## version or use developers version), please use the $SCRIPTNAME tool.
 ## Run:
 ##    sudo $SCRIPTNAME
-
-deb [signed-by=/usr/share/keyrings/derivative.asc] $repo $codename main contrib non-free
-#deb-src [signed-by=/usr/share/keyrings/derivative.asc] $repo $codename main contrib non-free
-
 ## Leaving source line disabled by default to save some time, it's not useful
 ## anyway, since it's better to get the source code from the git repository.
 
-## End of $sources_file
+deb [signed-by=/usr/share/keyrings/derivative.asc] $kicksecure_repo $codename main contrib non-free
+#deb-src [signed-by=/usr/share/keyrings/derivative.asc] $kicksecure_repo $codename main contrib non-free
 " | tee "$sources_file" >/dev/null
 
-    ## check every line possibility to be altered
-    #for line in ${transport_lines}; do
-    #    sed -i'' "s| ${line}| ${repo}|" "${sources_file}"
-    #done
+if test -f /usr/share/whonix/marker; then
+    echo "\
+deb [signed-by=/usr/share/keyrings/derivative.asc] $whonix_repo $codename main contrib non-free
+#deb-src [signed-by=/usr/share/keyrings/derivative.asc] $whonix_repo $codename main contrib non-free
+" | tee -a "$sources_file" >/dev/null
+fi
 
     cat "$sources_file"
     echo "INFO '$BASH_SOURCE': Done."
