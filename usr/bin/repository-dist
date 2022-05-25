@@ -104,12 +104,38 @@ sanity_tests() {
    command -v id >/dev/null
 }
 
+no_option_msg() {
+   echo "ERROR: No option given. Usage examples:
+
+   sudo $SCRIPTNAME --enable --repository stable
+
+   sudo $SCRIPTNAME --verbose --enable --repository stable
+
+   sudo $SCRIPTNAME --enable --codename $codename_default_stable
+
+   sudo $SCRIPTNAME --disable
+
+   sudo $SCRIPTNAME --disable --verbose
+
+   See also:
+
+   man $SCRIPTNAME"
+   exit 1
+}
+
 parse_cmd_options() {
    ## Thanks to:
    ## http://mywiki.wooledge.org/BashFAQ/035
 
    local HELP_MSG="See:
 man $SCRIPTNAME"
+
+   args="$@"
+   args_without_spaces="${args//[[:space:]]/}"
+   if [ "$args_without_spaces" = "" ]; then
+      no_option_msg
+      exit 1
+   fi
 
    while :
    do
