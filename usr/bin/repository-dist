@@ -284,11 +284,11 @@ sources_list_generator() {
     ## syntax is prefixing with 'tor+http(s)' for uniformity
     ## although 'http(s)+tor' also works.
     case "$transport" in
-        plain-tls) 
+        plain-tls)
             whonix_repo="https://${whonix_url_plain}"
             kicksecure_repo="https://${kicksecure_url_plain}"
             ;;
-        plain-tls-tor) 
+        plain-tls-tor)
             whonix_repo="tor+https://${whonix_url_plain}"
             kicksecure_repo="tor+https://${kicksecure_url_plain}"
             ;;
@@ -300,10 +300,13 @@ sources_list_generator() {
             whonix_repo="tor+https://${whonix_url_onion}"
             kicksecure_repo="tor+https://${kicksecure_url_onion}"
             ;;
-        "") 
+        "")
             ## default to onion
-            whonix_repo="tor+http://${whonix_url_onion}"
-            kicksecure_repo="tor+http://${kicksecure_url_onion}"
+            #whonix_repo="tor+http://${whonix_url_onion}"
+            #kicksecure_repo="tor+http://${kicksecure_url_onion}"
+            ## default to plain-tls-tor
+            whonix_repo="tor+https://${whonix_url_plain}"
+            kicksecure_repo="tor+https://${kicksecure_url_plain}"
             ;;
         *) echo "ERROR: Invalid transport type, it can only be:
  plain-tls
