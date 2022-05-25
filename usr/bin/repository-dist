@@ -320,6 +320,7 @@ sources_list_generator() {
             kicksecure_repo="tor+https://${kicksecure_url_onion}"
             ;;
         "")
+            ## https://forums.whonix.org/t/tool-to-onionize-all-apt-sources/13367/29
             ## default to onion
             #whonix_repo="tor+http://${whonix_url_onion}"
             #kicksecure_repo="tor+http://${kicksecure_url_onion}"
