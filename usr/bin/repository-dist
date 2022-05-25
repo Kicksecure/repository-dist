@@ -361,12 +361,12 @@ deb [signed-by=/usr/share/keyrings/derivative.asc] $kicksecure_repo $codename ma
 #deb-src [signed-by=/usr/share/keyrings/derivative.asc] $kicksecure_repo $codename main contrib non-free
 " | tee "$sources_file" >/dev/null
 
-if test -f /usr/share/whonix/marker; then
-    echo "\
+    if test -f /usr/share/whonix/marker; then
+        echo "\
 deb [signed-by=/usr/share/keyrings/derivative.asc] $whonix_repo $codename main contrib non-free
 #deb-src [signed-by=/usr/share/keyrings/derivative.asc] $whonix_repo $codename main contrib non-free
 " | tee -a "$sources_file" >/dev/null
-fi
+    fi
 
     cat "$sources_file"
     echo "INFO '$BASH_SOURCE': Done."
