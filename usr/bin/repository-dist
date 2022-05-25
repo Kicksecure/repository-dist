@@ -276,6 +276,8 @@ disable_refresh_create() {
       if [ -f "$sources_list_file_derivative" ]; then
          echo "INFO '$BASH_SOURCE': Deleting derivative APT repository '${under}$sources_list_file_derivative${reset}'..."
          rm --force "$sources_list_file_derivative"
+         ## Deletion of /usr/share/keyrings/derivative.asc is unnecessary, see:
+         ## https://www.kicksecure.com/wiki/Dev/APT
          echo "INFO '$BASH_SOURCE': Done."
       else
          echo "INFO '$BASH_SOURCE': '${under}$sources_list_file_derivative${reset}' does not exist, ok."
