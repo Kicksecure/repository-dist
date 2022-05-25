@@ -300,7 +300,6 @@ sources_list_generator() {
 
     sources_file="/etc/apt/sources.list.d/derivative.list"
 
-
     ## syntax is prefixing with 'tor+http(s)' for uniformity
     ## although 'http(s)+tor' also works.
     case "$transport" in
