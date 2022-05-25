@@ -265,7 +265,7 @@ parse_variables() {
    fi
 }
 
-disable_refresh_create() {
+disable_or_create() {
    if [ "$disable" = "1" ]; then
       if [ -f "$sources_list_file_derivative" ]; then
          echo "INFO '$BASH_SOURCE': Deleting derivative APT repository '${under}$sources_list_file_derivative${reset}'..."
@@ -379,7 +379,7 @@ main_function() {
     preparation
     parse_cmd_options "$@"
     parse_variables
-    disable_refresh_create
+    disable_or_create
     sync
 }
 
