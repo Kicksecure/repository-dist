@@ -1,3 +1,72 @@
+commit 5d92903646de22a37315edc6c3f6252d3d1a84fb
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed May 25 11:19:22 2022 -0400
+
+    refactoring
+
+commit 72446d0db8fc992b0c4ded5036f76cca8b6cd1b3
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed May 25 11:18:22 2022 -0400
+
+    minor
+
+commit 5ea94ec474fd00b885fd2e0df51672db5d39f3c4
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed May 25 11:17:04 2022 -0400
+
+    comment
+
+commit 03e4fc33fae83cc2bfe347d44f985d0207baeaaa
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed May 25 11:16:05 2022 -0400
+
+    minor
+
+commit 2f3aad67ef676283bf4d6f27234b504c49f401a4
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed May 25 11:14:59 2022 -0400
+
+    remove deprecated legacy parameter `--refresh-keys`
+
+commit a4ddd9654f2aeb8a8790198e8b2afee4d1bddc4d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed May 25 11:13:38 2022 -0400
+
+    comment
+
+commit cf61cd9d87af5754731b940769758c333887fccf
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed May 25 11:09:41 2022 -0400
+
+    copyright
+
+commit 78c91c5cd9cf5e54026ce3aa20509bd5886e9a5b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed May 25 11:08:02 2022 -0400
+
+    fix, restore usage information if no parameters are given
+
+commit fae6814168b530d54aed3a6bba597bc5a49d73bc
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed May 25 10:54:34 2022 -0400
+
+    default to plain-tls-tor
+    
+    https://forums.whonix.org/t/tool-to-onionize-all-apt-sources/13367/28
+
+commit 87ee01124ef32dd6af475598a191fd4e80a2fb12
+Merge: 26608b6 2793512
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed May 25 10:47:36 2022 -0400
+
+    Merge remote-tracking branch 'nyxnor/transport'
+
+commit 26608b66d77f93e5f3c79d1ef4ff8deb374d0162
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed May 25 06:07:14 2022 -0400
+
+    bumped changelog version
+
 commit 7715f3f6c47787f861382309c19d44de9ef29c6d
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Fri May 20 15:27:09 2022 -0400
@@ -15,6 +84,34 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sun Apr 10 12:40:15 2022 -0400
 
     readme
+
+commit 2793512f71e10f9ea46ba5f36f0bfe955e6a877d
+Author: nyxnor <nyxnor@protonmail.com>
+Date:   Mon Mar 28 22:51:29 2022 +0000
+
+    single file to be changed
+
+commit faca24a2ed405b005b4e23c9a700badfc966b44f
+Author: nyxnor <nyxnor@protonmail.com>
+Date:   Mon Mar 28 18:48:17 2022 +0000
+
+    whonix double repo parse
+    
+    Signed-off-by: nyxnor <nyxnor@protonmail.com>
+
+commit 123fb6d6551ba41bff8db33a49c5b0c5c6cc25f4
+Author: nyxnor <nyxnor@protonmail.com>
+Date:   Mon Mar 28 11:36:57 2022 +0000
+
+    autodetect OS; block kicksecure from enabling whonix repo
+    
+    Signed-off-by: nyxnor <nyxnor@protonmail.com>
+
+commit 0cf8bf721603d06cfb923526b3284c713032b687
+Author: nyxnor <nyxnor@protonmail.com>
+Date:   Sat Mar 26 19:45:13 2022 +0000
+
+    add transports
 
 commit 7a8a48175718d72c99a33a4c099f93d8f223fe55
 Author: Patrick Schleizer <adrelanos@whonix.org>
