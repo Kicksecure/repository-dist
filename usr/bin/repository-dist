@@ -158,11 +158,6 @@ man $SCRIPTNAME"
                disable="1"
                shift
                ;;
-           ## Legacy compatibility.
-           --refresh-keys)
-               refresh_keys="1"
-               shift
-               ;;
            -c | --codename)
                codename="$2"
                if [ "$codename" = "" ]; then
@@ -221,7 +216,6 @@ man $SCRIPTNAME"
 
 parse_variables() {
     [ "$disable" = "1" ] && return 0
-    [ "$refresh_keys" = "1" ] && return 0
 
    if [ -z "$codename" ]; then
       [ -n "$codename_default_stable" ] || codename_default_stable="$(lsb_release --short --codename)"
@@ -284,8 +278,6 @@ disable_refresh_create() {
       fi
       mkdir -p /var/cache/setup-dist/status-files || true
       touch /var/cache/setup-dist/status-files/repository-dist.done || true
-   elif [ "$refresh_keys" = "1" ]; then
-      true
    else
       sources_list_generator
       mkdir -p /var/cache/setup-dist/status-files || true
