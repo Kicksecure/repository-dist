@@ -20,10 +20,11 @@ error_handler() {
 ## BASH_COMMAND: $BASH_COMMAND
 ## exit_code: $exit_code
 ##
-## Experts only:
+## For debugging run:
+##
 ## $SCRIPTNAME --verbose
-## for verbose output. Clean the output and
-## submit to derivative developers.
+##
+## Clean the output and submit to developers.
 ###############################################################################\
 "
    echo "$MSG"
