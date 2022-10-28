@@ -25,6 +25,10 @@ Advanced users option\. Specific literal code names\. Only useful in combination
 .IP
 Chose either the stable, stable\-proposed\-updates, testers or developers version of derivative distribution\. Only useful in combination with \fB\-\-enable\fR\.
 .IP "\[ci]" 4
+\-\-transport \fItransport\fR
+.IP
+Chose either plain\-tls, plain\-tls\-tor, onion or onion\-tls\. Note that onion\-tls is at time of writing only a theoretical option\. See chapter ONION TLS\.
+.IP "\[ci]" 4
 \-\-verbose
 .IP
 Verbose output
@@ -36,7 +40,9 @@ Verbose output
 .SH "EXAMPLES"
 \fBsudo repository\-dist\fR
 .P
-\fBsudo repository\-dist \-\-enable \-\-repository stable\fR
+\fBsudo repository\-dist \-\-enable \-\-repository stable \-\-transport plain\-tls\-tor\fR
+.P
+\fBsudo repository\-dist \-\-enable \-\-repository stable \-\-transport onion\fR
 .P
 \fBsudo repository\-dist \-\-verbose \-\-enable \-\-repository stable\fR
 .P
@@ -45,6 +51,8 @@ Verbose output
 \fBsudo repository\-dist \-\-disable\fR
 .P
 \fBsudo repository\-dist \-\-disable \-\-verbose\fR
+.SH "ONION TLS"
+https://www\.kicksecure\.com/wiki/Privacy_Policy_Technical_Details#Onion_TLS
 .SH "WWW"
 https://www\.whonix\.org/wiki/Trust
 .SH "AUTHOR"
