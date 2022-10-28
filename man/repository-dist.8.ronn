@@ -33,6 +33,12 @@ Enables or disables derivative distribution apt repository.
     Chose either the stable, stable-proposed-updates, testers or developers version of derivative distribution. Only
     useful in combination with `--enable`.
 
+  * --transport <transport>
+
+    Chose either plain-tls, plain-tls-tor, onion or onion-tls.
+    Note that onion-tls is at time of writing only a theoretical option.
+    See chapter ONION TLS.
+
   * --verbose
 
     Verbose output
@@ -47,7 +53,9 @@ Enables or disables derivative distribution apt repository.
 
 `sudo repository-dist`
 
-`sudo repository-dist --enable --repository stable`
+`sudo repository-dist --enable --repository stable --transport plain-tls-tor`
+
+`sudo repository-dist --enable --repository stable --transport onion`
 
 `sudo repository-dist --verbose --enable --repository stable`
 
@@ -56,6 +64,10 @@ Enables or disables derivative distribution apt repository.
 `sudo repository-dist --disable`
 
 `sudo repository-dist --disable --verbose`
+
+## ONION TLS
+
+https://www.kicksecure.com/wiki/Privacy_Policy_Technical_Details#Onion_TLS
 
 ## WWW
 
