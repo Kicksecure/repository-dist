@@ -1,3 +1,23 @@
+commit a766624cb33165366a515773739c0f819d52896a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Oct 28 09:36:28 2022 -0400
+
+    genmkfile manpages
+
+commit d814f1ca2b5ba81a06f47dc070f11f9c776c65cf
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Oct 28 09:35:55 2022 -0400
+
+    man page: document `--transport`
+    
+    plain-tls, plain-tls-tor, onion or onion-tls
+
+commit 4fb9beedcc7ebfa211b9bba767ab208af9c18244
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Jun 19 07:34:52 2022 -0400
+
+    bumped changelog version
+
 commit aba33b86bcc55ab86c73bc35376aaf10573e9e2e
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Jun 18 10:36:47 2022 -0400
