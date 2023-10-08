@@ -112,7 +112,7 @@ class repository_dist_wizard(QWizard):
             self.disable_button.setText(message)
             message = self._('finish_enabled')
             self.finish_text_disabled = message
-            message = self._('finish_disabed')
+            message = self._('finish_disabled')
             self.finish_text_enabled = message
             message = self._('finish_failed')
             self.finish_text_failed = message
