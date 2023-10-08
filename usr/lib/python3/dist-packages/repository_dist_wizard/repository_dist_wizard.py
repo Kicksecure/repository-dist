@@ -208,7 +208,7 @@ class repository_dist_wizard(QWizard):
             return -1
 
 def signal_handler(sig, frame):
-    sys.exit(0)
+    sys.exit(128 + sig)
 
 def main():
     app = QApplication(sys.argv)
