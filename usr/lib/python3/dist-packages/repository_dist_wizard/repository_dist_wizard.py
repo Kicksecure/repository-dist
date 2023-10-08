@@ -211,7 +211,6 @@ def signal_handler(sig, frame):
     sys.exit(0)
 
 def main():
-    import sys
     app = QApplication(sys.argv)
 
     signal.signal(signal.SIGINT, signal_handler)
