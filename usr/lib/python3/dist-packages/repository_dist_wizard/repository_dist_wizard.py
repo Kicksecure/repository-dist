@@ -151,7 +151,10 @@ class repository_dist_wizard(QWizard):
                         message = 'INFO %s: Ok, exit code of "%s" was %s.' % ( mypath, ' '.join(command), exit_code )
 
                     else:
-                        error = '<p>ERROR %s: exit code of \"%s\" was %s.</p>' % ( mypath, ' '.join(command), exit_code )
+                        if exit_code == 126:
+                            error = '<p>ERROR: Authorization failed.</p>'
+                        else:
+                            error = '<p>ERROR %s: exit code of \"%s\" was %s.</p>' % ( mypath, ' '.join(command), exit_code )
                         finish_text_failed =  error + self.finish_text_failed
                         self.finish_text.setText(finish_text_failed)
                         message = error
@@ -188,7 +191,10 @@ class repository_dist_wizard(QWizard):
                     message = "INFO %s: Ok, exit code of \"%s\" was %s." % ( mypath, ' '.join(command), exit_code )
 
                 else:
-                    error = '<p>ERROR %s: exit code of \"%s\" was %s.</p>' % ( mypath, ' '.join(command), exit_code )
+                    if exit_code == 126:
+                        error = '<p>ERROR: Authorization failed.</p>'
+                    else:
+                        error = '<p>ERROR %s: exit code of \"%s\" was %s.</p>' % ( mypath, ' '.join(command), exit_code )
                     finish_text_failed =  error + self.finish_text_failed
                     self.finish_text.setText(finish_text_failed)
                     message = error
