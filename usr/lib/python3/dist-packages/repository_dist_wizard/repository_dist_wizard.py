@@ -39,7 +39,6 @@ class repository_dist_wizard(QWizard):
         # gettext like.
         self._ = translation.gettext
 
-        # When run a root, Qt is not granted access to all its functionalities (seemingly).
         # Set a transparent (default dialog) background for the widget.
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255, 0))
