@@ -218,7 +218,7 @@ def main():
 
     wizard = repository_dist_wizard()
 
-    sys.exit()
+    sys.exit(0)
 
 if __name__ == "__main__":
     main()
