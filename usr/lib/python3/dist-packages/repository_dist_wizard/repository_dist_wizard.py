@@ -11,16 +11,17 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QCursor
 from PyQt5.QtWidgets import *
 
-import os, inspect
+import os, sys, inspect
 import yaml
+import signal
 
 from guimessages.translations import _translations
 from guimessages.guimessage import gui_message
 
 if os.path.exists('/usr/share/whonix/marker'):
-   project = "Whonix"
+    project = "Whonix"
 else:
-   project = "Kicksecure"
+    project = "Kicksecure"
 
 class common:
     tr_file ='/usr/share/translations/repository-dist.yaml'
@@ -203,10 +204,19 @@ class repository_dist_wizard(QWizard):
         else:
             return -1
 
+def signal_handler(sig, frame):
+    sys.exit(0)
 
 def main():
     import sys
     app = QApplication(sys.argv)
+
+    signal.signal(signal.SIGINT, signal_handler)
+    signal.signal(signal.SIGTERM, signal_handler)
+
+    timer = QtCore.QTimer()
+    timer.start(500)
+    timer.timeout.connect(lambda: None)
 
     # root check.
     if os.getuid() != 0:
