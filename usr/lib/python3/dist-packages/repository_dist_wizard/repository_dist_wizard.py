@@ -143,7 +143,7 @@ class repository_dist_wizard(QWizard):
 
             elif self.disable_button.isChecked():
                 if self.one_shot:
-                    command = ['repository-dist', '--disable']
+                    command = ['pkexec', 'repository-dist', '--disable']
                     exit_code = call(command)
                     mypath = inspect.getfile(inspect.currentframe())
 
@@ -176,7 +176,7 @@ class repository_dist_wizard(QWizard):
                 repository = ['--repository', 'developers']
 
             if self.one_shot:
-                command = ['repository-dist', '--enable'] + repository
+                command = ['pkexec', 'repository-dist', '--enable'] + repository
 
                 QApplication.setOverrideCursor(QCursor(Qt.WaitCursor))
                 exit_code = call(command)
@@ -215,12 +215,6 @@ def main():
     timer = QtCore.QTimer()
     timer.start(500)
     timer.timeout.connect(lambda: None)
-
-    # root check.
-    if os.getuid() != 0:
-        print('ERROR: This must be run as root!\nUse "sudo --set-home".')
-        not_root = gui_message(common.tr_file, 'not_root')
-        sys.exit(1)
 
     wizard = repository_dist_wizard()
 
