@@ -143,60 +143,58 @@ class repository_dist_wizard(QWizard):
 
             elif self.disable_button.isChecked():
                 if self.one_shot:
-                    command = 'repository-dist --disable'
-                    exit_code = call(command, shell=True)
+                    command = ['repository-dist', '--disable']
+                    exit_code = call(command)
                     mypath = inspect.getfile(inspect.currentframe())
 
                     if exit_code == 0:
                         self.finish_text.setText(self.finish_text_disabled)
-                        message = 'INFO %s: Ok, exit code of "%s" was %s.' % ( mypath, command, exit_code )
+                        message = 'INFO %s: Ok, exit code of "%s" was %s.' % ( mypath, ' '.join(command), exit_code )
 
                     else:
-                        error = '<p>ERROR %s: exit code of \"%s\" was %s.</p>' % ( mypath, command, exit_code )
+                        error = '<p>ERROR %s: exit code of \"%s\" was %s.</p>' % ( mypath, ' '.join(command), exit_code )
                         finish_text_failed =  error + self.finish_text_failed
                         self.finish_text.setText(finish_text_failed)
                         message = error
 
-                    command = 'echo ' + message
-                    call(command, shell=True)
+                    print(message)
                     self.one_shot = False
 
                 return self.currentId() + 2
 
         elif self.currentId() == 2:
             if self.repo1.isChecked():
-                repository = ' --repository stable'
+                repository = ['--repository', 'stable']
 
             elif self.repo2.isChecked():
-                repository = ' --repository stable-proposed-updates'
+                repository = ['--repository', 'stable-proposed-updates']
 
             elif self.repo3.isChecked():
-                repository = ' --repository testers'
+                repository = ['--repository', 'testers']
 
             elif self.repo4.isChecked():
-                repository = ' --repository developers'
+                repository = ['--repository', 'developers']
 
             if self.one_shot:
-                command = 'repository-dist --enable' + repository
+                command = ['repository-dist', '--enable'] + repository
 
                 QApplication.setOverrideCursor(QCursor(Qt.WaitCursor))
-                exit_code = call(command, shell=True)
+                exit_code = call(command)
                 QApplication.restoreOverrideCursor()
 
                 mypath = inspect.getfile(inspect.currentframe())
 
                 if exit_code == 0:
                     self.finish_text.setText(self.finish_text_enabled)
-                    message = "INFO %s: Ok, exit code of \"%s\" was %s." % ( mypath, command, exit_code )
+                    message = "INFO %s: Ok, exit code of \"%s\" was %s." % ( mypath, ' '.join(command), exit_code )
 
                 else:
-                    error = '<p>ERROR %s: exit code of \"%s\" was %s.</p>' % ( mypath, command, exit_code )
+                    error = '<p>ERROR %s: exit code of \"%s\" was %s.</p>' % ( mypath, ' '.join(command), exit_code )
                     finish_text_failed =  error + self.finish_text_failed
                     self.finish_text.setText(finish_text_failed)
                     message = error
-                command = 'echo ' + message
 
-                call(command, shell=True)
+                print(message)
                 self.one_shot = False
 
             self.button(QWizard.CancelButton).setEnabled(False)
