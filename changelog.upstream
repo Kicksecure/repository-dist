@@ -1,3 +1,63 @@
+commit 631ae7de3de1a10f72d7e478df8648b662dc8e18
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 8 06:25:00 2023 -0400
+
+    wayland
+
+commit 3afda30e0721916cc751408a8d8c368ad37e094b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 8 06:24:10 2023 -0400
+
+    cleanup
+
+commit 500dd0760d3384b192c309eea58e0b1a53f0c3de
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 8 06:21:56 2023 -0400
+
+    minor
+
+commit b8c70e8fb408055e8625179e89158078f04db51c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 8 06:21:36 2023 -0400
+
+    wayland
+
+commit a38ada515f95ee03f032163d4d78dd66759e5e8c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 8 06:17:48 2023 -0400
+
+    avoid python shell=True
+
+commit c94ae4576d78c80dc3b433ff320d2ab316992cff
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 8 06:08:56 2023 -0400
+
+    typo
+
+commit bf3e67903c2df1274e3a9728bd5591e35d078188
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 8 06:03:47 2023 -0400
+
+    allow termination through ctrl + c (signal sigterm)
+
+commit d2dace0b1332c3bba47c972e1ae02a820b5866e0
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 8 05:54:04 2023 -0400
+
+    wayland
+
+commit c12a5b2d55909c91d675ff6c709f508f87488210
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 8 04:33:01 2023 -0400
+
+    wayland
+
+commit 13406f9832c076f56654bfb276e8133a772120f6
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Jul 17 11:47:34 2023 -0400
+
+    bumped changelog version
+
 commit 0f4aca8e1baedcf3d31d4dd516230927153ee441
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Mon Jul 17 11:18:55 2023 -0400
