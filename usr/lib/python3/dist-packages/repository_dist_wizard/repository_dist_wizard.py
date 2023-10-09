@@ -4,6 +4,9 @@
 ## Copyright (C) 2014 - 2023 ENCRYPTED SUPPORT LP <adrelanos@whonix.org>
 ## See the file COPYING for copying conditions.
 
+import sys
+import signal
+
 from PyQt5 import QtCore, QtGui
 from subprocess import call
 
@@ -11,9 +14,9 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QCursor
 from PyQt5.QtWidgets import *
 
-import os, sys, inspect
+import os
+import inspect
 import yaml
-import signal
 
 from guimessages.translations import _translations
 from guimessages.guimessage import gui_message
