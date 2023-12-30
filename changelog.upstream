@@ -1,3 +1,27 @@
+commit d007ddc1327aed9248b4911c6b00cc62b0c3fbed
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Dec 29 19:36:26 2023 -0500
+
+    remove no longer needed dependency on lxqt-sudo
+
+commit 60f8840eee043e0322c26becb482fd43efd98a0b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Dec 29 19:35:46 2023 -0500
+
+    wrap-and-sort
+
+commit 0990358c8d926e5b4a246cf47b5c45723e03016e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Dec 29 19:35:28 2023 -0500
+
+    Depends: pkexec
+
+commit 9d9933ac45394a8c5eff7079465a03e833503005
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Nov 11 20:21:10 2023 +0000
+
+    bumped changelog version
+
 commit e150e68459b6c3487461d0e01e3305791d32f409
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Nov 11 13:41:31 2023 -0500
