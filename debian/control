@@ -33,7 +33,7 @@ Description: Derivative APT Repository Command Line Interface (CLI)
 
 Package: repository-dist-wizard
 Architecture: all
-Depends: python3:any, python3-pyqt5, qtwayland5, lxqt-sudo, ${misc:Depends}
+Depends: python3:any, python3-pyqt5, qtwayland5, lxqt-sudo, pkexec, ${misc:Depends}
 Description: Derivative APT Repository Graphical User Interface (GUI)
  This tool can always be used to enable either Derivative's stable, testers or
  developers repository or to disable Derivative's repository.
