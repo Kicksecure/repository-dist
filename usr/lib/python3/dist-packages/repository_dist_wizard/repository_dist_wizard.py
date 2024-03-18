@@ -6,13 +6,22 @@
 
 import sys
 import signal
-
-from PyQt5 import QtCore, QtGui
 from subprocess import call
 
-from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QCursor
-from PyQt5.QtWidgets import *
+try:
+    from PyQt5 import QtCore, QtGui
+    from PyQt5.QtCore import Qt
+    from PyQt5.QtGui import QCursor
+    from PyQt5.QtWidgets import *
+except ImportError as e:
+    print("""ERROR: Missing dependencies. To be able to use repository-dist-wizard, you need to have the repository-dist-wizard package installed.
+To install, run:
+sudo apt update
+sudo apt install --no-install-recommends repository-dist-wizard
+
+Alternatively, you could use the CLI version, run:
+repository-dist""")
+    exit(1)
 
 import os
 import inspect
