@@ -1,3 +1,15 @@
+commit a6c62ee7968318aae2e0bab688ea8a294bfc536d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Mar 18 11:09:19 2024 -0400
+
+    improve error message in case of missing dependencies
+
+commit 411e361182dd4261a62be0a7d63f3243a1477d7e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Dec 30 00:41:21 2023 +0000
+
+    bumped changelog version
+
 commit d007ddc1327aed9248b4911c6b00cc62b0c3fbed
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Fri Dec 29 19:36:26 2023 -0500
