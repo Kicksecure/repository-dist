@@ -1,2 +1,4 @@
 ## https://phabricator.whonix.org/T277
 debian-watch-does-not-check-openpgp-signature
+
+maintainer-desktop-entry [debian/repository-dist-wizard.desktop]
