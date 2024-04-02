@@ -1,3 +1,21 @@
+commit 327962bd30399fa38bac9f91250be3243f3081f9
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Apr 2 05:47:27 2024 -0400
+
+    comments
+
+commit 98023039faeccaa0a711e90d8bc5a97b9bd39b9d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Apr 2 05:45:44 2024 -0400
+
+    move `.desktop` file from `repository-dist` to `repository-dist-wizard`
+
+commit e70bdd5e224ea392ec043def82df93d06798f508
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Mar 18 15:09:42 2024 +0000
+
+    bumped changelog version
+
 commit a6c62ee7968318aae2e0bab688ea8a294bfc536d
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Mon Mar 18 11:09:19 2024 -0400
