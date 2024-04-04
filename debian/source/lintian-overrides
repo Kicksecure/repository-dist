@@ -2,4 +2,4 @@
 debian-watch-does-not-check-openpgp-signature
 
 ## move `.desktop` file from `repository-dist` to `repository-dist-wizard`
-maintainer-desktop-entry [debian/repository-dist-wizard.desktop]
+maintainer-desktop-entry [debian/repository_dist_wizard.desktop]

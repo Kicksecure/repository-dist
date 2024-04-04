@@ -1,2 +1,0 @@
-## move `.desktop` file from `repository-dist` to `repository-dist-wizard`
-package-contains-empty-directory [usr/share/applications/]
