@@ -19,7 +19,7 @@ case "$1" in
    configure)
       true "INFO: Configuring $DPKG_MAINTSCRIPT_PACKAGE..."
 
-      if type -t enable_echo ; then
+      if [ "$(type -t enable_echo)" = "function" ] ; then
          ## Not trying to enable echo, if DEBDEBUG is set to 1, because then
          ## echo is already enabled.
          if [ ! "$DEBDEBUG" = "1" ]; then
