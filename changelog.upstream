@@ -1,3 +1,23 @@
+commit 4952ccdc53a4827a08da252ac353a401adebd56e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Jul 27 10:20:34 2024 -0400
+
+    chmod +x
+
+commit 2d829dd95bbeea09e69b21f4a6256393ec36674f
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Jul 27 10:18:01 2024 -0400
+
+    remove duplication
+    
+    already configured in DERIVATIVE_APT_REPOSITORY_OPTS
+
+commit bcc5cbaf0cde15417911098df05a662a22bf6859
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Jul 27 14:09:35 2024 +0000
+
+    bumped changelog version
+
 commit a4154a3e100eb24b0c20792c92236861971b5c95
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Jul 27 10:08:30 2024 -0400
