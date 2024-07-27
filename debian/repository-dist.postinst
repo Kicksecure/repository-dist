@@ -32,7 +32,7 @@ case "$1" in
       fi
 
       if [ "$DERIVATIVE_APT_REPOSITORY_OPTS" = "" ]; then
-         true "Variable DERIVATIVE_APT_REPOSITORY_OPTS is empty, not calling repository-dist tool."
+         true "INFO: Variable DERIVATIVE_APT_REPOSITORY_OPTS is empty, not calling repository-dist tool."
       else
          ## https://www.kicksecure.com/wiki/Trust#APT_Repository_Default_Settings
          if [ -o xtrace ]; then
