@@ -19,10 +19,13 @@ case "$1" in
    configure)
       true "INFO: Configuring $DPKG_MAINTSCRIPT_PACKAGE..."
 
+      true "INFO: Checking if function enable_echo is available..."
       if [ "$(type -t enable_echo)" = "function" ] ; then
+         true "INFO: Yes, function enable_echo is available."
          ## Not trying to enable echo, if DEBDEBUG is set to 1, because then
          ## echo is already enabled.
          if [ ! "$DEBDEBUG" = "1" ]; then
+            true "INFO: DEBDEBUG is not set to 1, therefore running enable_echo..."
             ## provided by pre.bsh
             enable_echo
          fi
