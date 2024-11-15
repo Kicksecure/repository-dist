@@ -1,0 +1,10 @@
+[Unit]
+Description=Creates the /etc/apt/sources.list.d/derivative.list file if it doesn't exist already.
+
+[Service]
+Type=oneshot
+RemainAfterExit=no
+ExecStart=bash -c '/usr/bin/repository-dist $(cat /var/lib/repository-dist/derivative_apt_repository_opts); systemctl disable repository-dist-installer.service'
+
+[Install]
+WantedBy=multi-user.target
