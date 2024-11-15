@@ -4,4 +4,3 @@
 ## This file was generated using genmkfile 'make debinstfile'.
 
 usr/*
-var/*

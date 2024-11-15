@@ -1,0 +1,13 @@
+## Copyright (C) 2024 - 2024 ENCRYPTED SUPPORT LP <adrelanos@whonix.org>
+## See the file COPYING for copying conditions.
+
+[Unit]
+Description=/etc/apt/sources.list.d/derivative.list initializer
+
+[Service]
+Type=oneshot
+RemainAfterExit=no
+ExecStart=/usr/libexec/repository-dist/repository-dist-initializer
+
+[Install]
+WantedBy=multi-user.target

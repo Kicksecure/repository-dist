@@ -1,0 +1,21 @@
+#!/bin/bash
+
+## Copyright (C) 2024 - 2024 ENCRYPTED SUPPORT LP <adrelanos@whonix.org>
+## See the file COPYING for copying conditions.
+
+set -x
+set -e
+
+if ! test -r /var/lib/repository-dist/derivative_apt_repository_opts ; then
+  exit 0
+fi
+
+if test -e /var/lib/repository-dist/initializer.done ; then
+  exit 0
+fi
+
+repository_dist_arguments=$(cat /var/lib/repository-dist/derivative_apt_repository_opts)
+
+repository-dist ${repository_dist_arguments}
+
+touch /var/lib/repository-dist/initializer.done

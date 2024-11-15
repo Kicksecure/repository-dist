@@ -55,9 +55,6 @@ true "
 #      ;;
 #esac
 
-true "INFO: ensuring repository-dist-installer.service is disabled by default."
-deb-systemd-helper disable repository-dist-installer.service
-
 true "INFO: debhelper beginning here."
 
 #DEBHELPER#
