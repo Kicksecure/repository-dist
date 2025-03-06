@@ -15,33 +15,44 @@ repository-dist(8) -- enable, configure or disable derivative distribution apt r
 Enables or disables derivative distribution apt repository.
 
 ## OPTIONS
-  * --enable
+
+  * -h, --help
+
+    Print a help message.
+
+  * -v, --verbose
+
+    Verbose output.
+
+  * -e, --enable
 
     Enables derivative distribution apt repository.
 
-  * --disable
+  * -d, --disable
 
     Disables derivative distribution apt repository.
 
-  * --codename <codename>
+  * -c, --codename <codename>
 
     Advanced users option. Specific literal code names.
     Only useful in combination with `--enable`.
 
-  * --repository <codename>
+  * -r, --repository <codename>
 
-    Chose either the stable, stable-proposed-updates, testers or developers version of derivative distribution. Only
-    useful in combination with `--enable`.
+    Chose either the `stable`, `stable-proposed-updates`, `testers` or
+    `developers` version of derivative distribution.
+    Only useful in combination with `--enable`.
 
-  * --transport <transport>
+  * -t, --transport <transport>
 
-    Chose either plain-tls, plain-tls-tor, onion or onion-tls.
-    Note that onion-tls is at time of writing only a theoretical option.
+    Chose either `plain-tls`, `plain-tls-tor`, `onion` or `onion-tls`.
+    option. `plain-tls` enables `https` for the plain net domain.
+    `plain-tls-tor` enables `tor+https`for the plain net domain. `onion`
+    enables `tor+http` for the onion domain. `onion-tls` enables
+    `tor+https` for the onion domain.
+    Note that `onion-tls` is at time of writing only a theoretical
+    Only useful in combination with `--enable`.
     See chapter ONION TLS.
-
-  * --verbose
-
-    Verbose output
 
 ## RETURN VALUES
 
