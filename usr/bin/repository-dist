@@ -137,9 +137,11 @@ Transport assignment:
 
 Examples:
    sudo $SCRIPTNAME --enable --repository stable
+   sudo $SCRIPTNAME --enable --repository developers
    sudo $SCRIPTNAME --enable --verbose --repository stable
    sudo $SCRIPTNAME --enable --codename $codename_default_stable
    sudo $SCRIPTNAME --enable --transport onion
+   sudo $SCRIPTNAME --enable --transport onion --repository testers
    sudo $SCRIPTNAME --disable
    sudo $SCRIPTNAME --disable --verbose
 
