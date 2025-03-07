@@ -14,7 +14,8 @@ Rules-Requires-Root: no
 
 Package: repository-dist
 Architecture: all
-Depends: helper-scripts, lsb-release, ${misc:Depends}, ${python3:Depends}
+Depends: helper-scripts, lsb-release, moreutils,
+ ${misc:Depends}, ${python3:Depends}
 Description: Derivative APT Repository Command Line Interface (CLI)
  This tool can always be used to enable either Derivative's stable, testers or
  developers repository or to disable Derivative's repository.
