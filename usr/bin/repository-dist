@@ -96,7 +96,7 @@ preparation() {
 # tor+https://deb.whonix.org"
 
    ## Not naming sources_list_target_build_remote_derivative to avoid conflict with Whonix / Kicksecure build script.
-   [ -n "${sources_list_file_derivative:-}" ] || sources_list_file_derivative="/etc/apt/sources.list.d/debian.list"
+   [ -n "${sources_list_file_derivative:-}" ] || sources_list_file_derivative="/etc/apt/sources.list.d/derivative.list"
 }
 
 root_check() {
