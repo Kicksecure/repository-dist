@@ -4,6 +4,8 @@
 ## See the file COPYING for copying conditions.
 
 #set -x
+set -o nounset
+set -o errexit
 set -o pipefail
 set -o errtrace
 
@@ -34,9 +36,14 @@ error_handler() {
 trap "error_handler" ERR
 
 colors() {
-   if [ "$TERM" = "" ]; then
+   if [ -n "${NO_COLOR:-}" ]; then
       return 0
    fi
+   case "${TERM:-}" in
+      ""|dumb|unknown)
+         return 0
+         ;;
+   esac
 
    ## Thanks to:
    ## http://mywiki.wooledge.org/BashFAQ/037
@@ -89,61 +96,69 @@ preparation() {
 # tor+https://deb.whonix.org"
 
    ## Not naming sources_list_target_build_remote_derivative to avoid conflict with Whonix / Kicksecure build script.
-   [ -n "$sources_list_file_derivative" ] || sources_list_file_derivative="/etc/apt/sources.list.d/derivative.list"
+   [ -n "${sources_list_file_derivative:-}" ] || sources_list_file_derivative="/etc/apt/sources.list.d/debian.list"
 }
 
 root_check() {
    if [ "$(id -u)" != "0" ]; then
-      echo "ERROR: This must be run as root (sudo)!"
+      echo "ERROR: This must be run as root (sudo)!" >&2
       exit 1
-   else
-      true "INFO: Script running as root."
    fi
+   true "INFO: Script running as root."
 }
 
 sanity_tests() {
    command -v id >/dev/null
 }
 
-no_option_msg() {
-   echo "ERROR: No option given. Usage examples:
+usage() {
+   get_codename_default
+   echo "Usage: ${0##*/} [OPTIONS]
+Options:
+   -h, --help           print this help message
+   -v, --verbose        increase verbosity
 
+   -e, --enable         enables derivative distribution repository
+   -d, --disable        remove '$sources_list_file_derivative'
+
+   -r, --repository     set the suite, values: stable,
+                         stable-proposed-updates, testers, developers
+   -t, --transport      set the transport, values: plain-tls, plain-tls-tor
+                         (default), onion, onion-tls (discouraged)
+
+Advanced options:
+   -c, --codename       set the codename
+
+Transport assignment:
+   plain-tls:           https://DOMAIN.org
+   plain-tls-tor:       tor+https://DOMAIN.org
+   onion:               tor+http://DOMAIN.onion
+   onion-tls:           tor+https://DOMAIN.onion
+
+Examples:
    sudo $SCRIPTNAME --enable --repository stable
-
-   sudo $SCRIPTNAME --verbose --enable --repository stable
-
+   sudo $SCRIPTNAME --enable --verbose --repository stable
    sudo $SCRIPTNAME --enable --codename $codename_default_stable
-
+   sudo $SCRIPTNAME --enable --transport onion
    sudo $SCRIPTNAME --disable
-
    sudo $SCRIPTNAME --disable --verbose
 
-   See also:
-
+See also:
    man $SCRIPTNAME"
-   exit 1
+   exit "${1:-1}"
 }
 
 parse_cmd_options() {
    ## Thanks to:
    ## http://mywiki.wooledge.org/BashFAQ/035
-
-   local HELP_MSG="See:
-man $SCRIPTNAME"
-
-   args="$@"
-   args_without_spaces="${args//[[:space:]]/}"
-   if [ "$args_without_spaces" = "" ]; then
-      no_option_msg
-      exit 1
+   if [ -z "${1-}" ]; then
+      usage 1
    fi
-
    while :
    do
-       case $1 in
-           -h | --help | -\?)
-               echo "$HELP_MSG"
-               exit 0
+       case "${1-}" in
+           -h | --help | -\? )
+               usage 0
                ;;
            -v | --verbose)
                echo "INFO '$BASH_SOURCE': verbose output..."
@@ -160,39 +175,47 @@ man $SCRIPTNAME"
                shift
                ;;
            -c | --codename)
-               codename="$2"
-               if [ "$codename" = "" ]; then
-                  echo "ERROR: codename may not be empty!"
+               codename="${2:-}"
+               if [ -z "${codename:-}" ]; then
+                  echo "ERROR: codename may not be empty!" >&2
                   exit 1
                fi
                shift 2
                ;;
            -r | --repository)
-               repository="$2"
-               if [ "$repository" = "" ]; then
-                  echo "ERROR: repository may not be empty! You most likely want to use ${under}stable${reset}, ${under}stable-proposed-update${reset}, ${under}testers${reset} or ${under}developers${reset} as repository."
-                  exit 1
-               fi
+               repository="${2:-}"
+               case "$repository" in
+                  stable|stable-proposed-updates|testers|developers)
+                     ;;
+                  *)
+                     echo "ERROR: Invalid repository option." >&2
+                     exit 1
+                     ;;
+               esac
                shift 2
                ;;
            -t | --transport)
-                transport="$2"
-                if [ -z "${transport}" ]; then
-                    echo "ERROR: transport must not be empty. Choose between:
- plain-tls
- plain-tls-tor
- onion
- onion-tls"
-                    exit 1
-                fi
+                transport="${2:-}"
+                case "${transport}" in
+                   plain-tls|plain-tls-tor|onion|onion-tls)
+                      ;;
+                  "")
+                     echo "ERROR: transport must not be empty." >&2
+                     exit 1
+                     ;;
+                  *)
+                     echo "ERROR: transport is invalid." >&2
+                     exit 1
+                     ;;
+                esac
                 shift 2
                 ;;
 
              ## TODO
 #            -b | --baseuri)
-#                DERIVATIVE_APT_REPOSITORY_BASEURI="$2"
-#                if [ "$DERIVATIVE_APT_REPOSITORY_BASEURI" = "" ]; then
-#                   echo "ERROR: DERIVATIVE_APT_REPOSITORY_BASEURI may not be empty!"
+#                DERIVATIVE_APT_REPOSITORY_BASEURI="${2:-}"
+#                if [ -z "$DERIVATIVE_APT_REPOSITORY_BASEURI" ]; then
+#                   echo "ERROR: DERIVATIVE_APT_REPOSITORY_BASEURI may not be empty!" >&2
 #                   exit 1
 #                fi
 #                shift 2
@@ -205,6 +228,9 @@ man $SCRIPTNAME"
                echo "INFO '$BASH_SOURCE': unknown option: '$1'" >&2
                exit 1
                ;;
+           "")
+               break
+               ;;
            *)
                break
                ;;
@@ -215,15 +241,15 @@ man $SCRIPTNAME"
    ## will remain in the "$@" positional parameters.
 }
 
-parse_variables() {
-    [ "$disable" = "1" ] && return 0
+get_codename_default() {
+    [ "${disable:-}" = "1" ] && return 0
 
-   if [ -z "$codename" ]; then
-      [ -n "$codename_default_stable" ] || codename_default_stable="$(lsb_release --short --codename)"
+   if [ -z "${codename:-}" ]; then
+      [ -n "${codename_default_stable:-}" ] || codename_default_stable="$(lsb_release --short --codename)"
 
       ## If codename_default_stable could not be set using lsb_release above, try to acquire it
       ## from /etc/debian_version.
-      if [ "$codename_default_stable" = "n/a" ]; then
+      if [ "${codename_default_stable:-}" = "n/a" ]; then
          if grep -q "/sid" /etc/debian_version ; then
             codename_default_stable="$(cat /etc/debian_version)"
             ## example codename_default_stable:
@@ -237,40 +263,40 @@ parse_variables() {
       ## Remove eventual white spaces. Just in case.
       codename_default_stable="${codename_default_stable//[[:space:]]}"
 
-      if [ -z "$codename_default_stable" ]; then
-         echo "ERROR: codename auto detection failed! Please manually set ${under}--codename${reset}."
+      if [ -z "${codename_default_stable:-}" ]; then
+         echo "ERROR: codename auto detection failed! Please manually set ${under}--codename${reset}." >&2
          exit 1
       fi
+   fi
+}
 
-    case "$repository" in
-        stable) codename="$codename_default_stable";;
-        stable-proposed-updates) codename="${codename_default_stable}-proposed-updates";;
-        testers) codename="${codename_default_stable}-testers";;
-        developers) codename="${codename_default_stable}-developers";;
-        "") codename="$codename_default_stable";;
-        *)
-            echo "ERROR: Invalid repository option, available options are:
- stable
- stable-proposed-updates
- testers
- developers"
-            exit 1
-        esac
+parse_variables() {
+   [ "${disable:-}" = "1" ] && return 0
+
+   if [ -z "${codename:-}" ]; then
+      get_codename_default
+      case "${repository:-}" in
+         stable) codename="${codename_default_stable:-}";;
+         stable-proposed-updates) codename="${codename_default_stable}-proposed-updates";;
+         testers) codename="${codename_default_stable}-testers";;
+         developers) codename="${codename_default_stable}-developers";;
+         "") codename="${codename_default_stable:-}";;
+      esac
    fi
 
-   codename_old="$codename"
+   codename_old="${codename:-}"
    codename="${codename//[[:space:]]}"
 
-   if [ ! "$codename_old" = "$codename" ]; then
+   if [ ! "$codename_old" = "${codename:-}" ]; then
       echo "INFO: Removed white spaces from codename ${under}$codename_old${reset} and set to codename ${under}$codename${reset}."
    fi
 }
 
 disable_or_create() {
-   if [ "$disable" = "1" ]; then
+   if [ "${disable:-}" = "1" ]; then
       if [ -f "$sources_list_file_derivative" ]; then
          echo "INFO '$BASH_SOURCE': Deleting derivative APT repository '${under}$sources_list_file_derivative${reset}'..."
-         rm --force "$sources_list_file_derivative"
+         rm --force -- "$sources_list_file_derivative"
          ## Deletion of /usr/share/keyrings/derivative.asc is unnecessary, see:
          ## https://www.kicksecure.com/wiki/Dev/APT
          echo "INFO '$BASH_SOURCE': Done."
@@ -287,10 +313,10 @@ disable_or_create() {
 }
 
 sources_list_generator() {
-    if echo "$codename" | grep -q -i "n/a" ; then
-        echo "ERROR: Autodetected codename '${under}$codename${reset}' is invalid!"
+    if echo "${codename:-}" | grep -q -i "n/a" ; then
+        echo "ERROR: Autodetected codename '${under}$codename${reset}' is invalid!" >&2
         echo 'Please set codename explicitly using:'
-        echo '${under}--codename${reset}'
+        echo "${under}--codename${reset}"
         exit 1
     fi
 
@@ -299,11 +325,11 @@ sources_list_generator() {
     kicksecure_url_onion="deb.w5j6stm77zs6652pgsij4awcjeel3eco7kvipheu6mtr623eyyehj4yd.onion"
     kicksecure_url_plain="deb.kicksecure.com"
 
-    sources_file="/etc/apt/sources.list.d/derivative.list"
+    sources_file="$sources_list_file_derivative"
 
     ## syntax is prefixing with 'tor+http(s)' for uniformity
     ## although 'http(s)+tor' also works.
-    case "$transport" in
+    case "${transport:-}" in
         plain-tls)
             whonix_repo="https://${whonix_url_plain}"
             kicksecure_repo="https://${kicksecure_url_plain}"
@@ -329,13 +355,6 @@ sources_list_generator() {
             whonix_repo="tor+https://${whonix_url_plain}"
             kicksecure_repo="tor+https://${kicksecure_url_plain}"
             ;;
-        *) echo "ERROR: Invalid transport type, it can only be:
- plain-tls
- plain-tls-tor
- onion
- onion-tls"
-        exit 1
-        ;;
     esac
 
     echo "INFO '$BASH_SOURCE': Using distribution '${under}$codename${reset}' (version of derivative) as apt repository."
@@ -354,31 +373,35 @@ sources_list_generator() {
 ## For any modifications (delete this file, use stable version, use testers
 ## version or use developers version), please use the $SCRIPTNAME tool.
 ## Run:
-##    sudo $SCRIPTNAME
+##    sudo $SCRIPTNAME --help
 ## Leaving source line disabled by default to save some time, it's not useful
 ## anyway, since it's better to get the source code from the git repository.
 
 deb [signed-by=/usr/share/keyrings/derivative.asc] $kicksecure_repo $codename main contrib non-free
 #deb-src [signed-by=/usr/share/keyrings/derivative.asc] $kicksecure_repo $codename main contrib non-free
-" | tee "$sources_file" >/dev/null
+#deb [signed-by=/usr/share/keyrings/derivative.asc] tor+http://$kicksecure_url_onion $codename main contrib non-free
+#deb-src [signed-by=/usr/share/keyrings/derivative.asc] tor+http://$kicksecure_url_onion $codename main contrib non-free
+" | tee -- "$sources_file" >/dev/null
 
     if test -f /usr/share/whonix/marker; then
         echo "\
 deb [signed-by=/usr/share/keyrings/derivative.asc] $whonix_repo $codename main contrib non-free
 #deb-src [signed-by=/usr/share/keyrings/derivative.asc] $whonix_repo $codename main contrib non-free
-" | tee -a "$sources_file" >/dev/null
+#deb [signed-by=/usr/share/keyrings/derivative.asc] tor+http://$whonix_url_onion $codename main contrib non-free
+#deb-src [signed-by=/usr/share/keyrings/derivative.asc] tor+http://$whonix_url_onion $codename main contrib non-free
+" | tee -a -- "$sources_file" >/dev/null
     fi
 
-    cat "$sources_file"
+    cat -- "$sources_file"
     echo "INFO '$BASH_SOURCE': Done."
 }
 
 main_function() {
-    root_check
     sanity_tests
     colors
     preparation
     parse_cmd_options "$@"
+    root_check
     parse_variables
     disable_or_create
     sync
