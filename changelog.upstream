@@ -1,3 +1,73 @@
+commit 2738ac987283af75da6fc6cc86e3b6336d3136c8
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Mar 7 02:48:37 2025 -0500
+
+    genmkfile manpages
+
+commit 6152773b52e5b63bb5f0a3b1b4c87377c427aa4d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Mar 7 02:48:02 2025 -0500
+
+    output
+
+commit 3759ab64470c6f6df923f73cc1a341aca5031fb4
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Mar 7 02:45:46 2025 -0500
+
+    `Depends: moreutils` (for `sponge`)
+
+commit 3272e5bf8ef730a0e008534393aacbed65175f74
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Mar 7 02:44:55 2025 -0500
+
+    sponge
+
+commit f4e60bb600a64ae5314292204f5ce526ca466a96
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Mar 7 02:44:10 2025 -0500
+
+    comments
+
+commit d7ab4aa3c3bec3d1238436664f6ac72e9787c7ed
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Mar 7 02:43:09 2025 -0500
+
+    comments
+
+commit 790b56fa4a5981d84cf7863194fe20ce520e29f6
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Mar 7 01:09:55 2025 -0500
+
+    fix
+
+commit 38ab7be40c574298c84cfd64d097e8995e9388ac
+Merge: e086eec 604860f
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Mar 7 01:07:01 2025 -0500
+
+    Merge remote-tracking branch 'github-kicksecure/master'
+
+commit 604860f74fd28ec80e997653a0dce1cbebdbb5f7
+Merge: e086eec f9506d6
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Mar 7 01:01:29 2025 -0500
+
+    Merge pull request #3 from ben-grande/help
+    
+    Improve help message
+
+commit f9506d6551229fc4ef6f57ce824c7897ba0e9e76
+Author: Ben Grande <ben.grande.b@gmail.com>
+Date:   Thu Mar 6 17:42:00 2025 +0100
+
+    Improve help message
+
+commit e086eecb9df8c261213c114d68ddebb873211de6
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Jan 23 16:27:18 2025 +0000
+
+    bumped changelog version
+
 commit 0e3cdf5d011587603a3550ae001e5676bd4219aa
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Thu Jan 23 11:12:15 2025 -0500
