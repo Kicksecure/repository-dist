@@ -367,15 +367,16 @@ sources_list_generator() {
 ## $sources_list_file_derivative
 
 ## This file has been automatically created by $SCRIPTNAME.
-## If you make manual changes to it, your changes will be lost the next time you run
-## the $SCRIPTNAME tool.
+## If you make manual changes to it, your changes will be lost the next time
+## you run the $SCRIPTNAME tool.
 ## You can conveniently manage this file using the $SCRIPTNAME tool.
 ## For any modifications (delete this file, use the stable version, use the testers'
 ## version, or use the developers' version), please use the $SCRIPTNAME tool.
 ## Run:
 ##    sudo $SCRIPTNAME --help
-## Leaving the source line disabled by default to save time. It's not useful
-## anyway, since it's better to get the source code from the git repository.
+## Leaving the source line disabled by default to save time during updates.
+## These are not useful anyway, since it's better to get the source code from
+## the git repository.
 
 deb [signed-by=/usr/share/keyrings/derivative.asc] $kicksecure_repo $codename main contrib non-free
 #deb-src [signed-by=/usr/share/keyrings/derivative.asc] $kicksecure_repo $codename main contrib non-free
