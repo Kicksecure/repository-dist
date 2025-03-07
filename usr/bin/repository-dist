@@ -382,7 +382,7 @@ deb [signed-by=/usr/share/keyrings/derivative.asc] $kicksecure_repo $codename ma
 #deb-src [signed-by=/usr/share/keyrings/derivative.asc] $kicksecure_repo $codename main contrib non-free
 #deb [signed-by=/usr/share/keyrings/derivative.asc] tor+http://$kicksecure_url_onion $codename main contrib non-free
 #deb-src [signed-by=/usr/share/keyrings/derivative.asc] tor+http://$kicksecure_url_onion $codename main contrib non-free
-" | tee -- "$sources_file" >/dev/null
+" | sponge -- "$sources_file" >/dev/null
 
     if test -f /usr/share/whonix/marker; then
         echo "\
@@ -390,7 +390,7 @@ deb [signed-by=/usr/share/keyrings/derivative.asc] $whonix_repo $codename main c
 #deb-src [signed-by=/usr/share/keyrings/derivative.asc] $whonix_repo $codename main contrib non-free
 #deb [signed-by=/usr/share/keyrings/derivative.asc] tor+http://$whonix_url_onion $codename main contrib non-free
 #deb-src [signed-by=/usr/share/keyrings/derivative.asc] tor+http://$whonix_url_onion $codename main contrib non-free
-" | tee -a -- "$sources_file" >/dev/null
+" | sponge -a -- "$sources_file" >/dev/null
     fi
 
     cat -- "$sources_file"
