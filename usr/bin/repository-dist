@@ -37,11 +37,11 @@ trap "error_handler" ERR
 
 colors() {
    if [ -n "${NO_COLOR:-}" ]; then
-      return 0
+      tput() { true; };
    fi
    case "${TERM:-}" in
       ""|dumb|unknown)
-         return 0
+         tput() { true; };
          ;;
    esac
 
