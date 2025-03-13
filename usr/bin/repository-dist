@@ -235,7 +235,9 @@ parse_variables() {
       esac
    fi
 
+   local codename_old
    codename_old="${codename:-}"
+
    codename="${codename//[[:space:]]}"
 
    if [ ! "$codename_old" = "${codename:-}" ]; then
