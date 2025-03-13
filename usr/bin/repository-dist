@@ -11,7 +11,7 @@ set -o errtrace
 
 SCRIPTNAME="$(basename "$BASH_SOURCE")"
 
-source /usr/libexec/helper-scripts/get_colors.sh
+source /usr/libexec/helper-scripts/log_run_die.sh
 
 error_handler() {
    local exit_code="$?"
@@ -31,7 +31,7 @@ error_handler() {
 ## Clean the output and submit to developers.
 ###############################################################################\
 "
-   echo "$MSG"
+   log error "$MSG"
    exit 1
 }
 
@@ -50,7 +50,7 @@ preparation() {
 
 root_check() {
    if [ "$(id -u)" != "0" ]; then
-      echo "ERROR: This must be run as root (sudo)!" >&2
+      log error "This must be run as root (sudo)!" >&2
       exit 1
    fi
    true "INFO: Script running as root."
@@ -62,7 +62,7 @@ sanity_tests() {
 
 usage() {
    get_codename_default
-   echo "Usage: ${0##*/} [OPTIONS]
+   lgo notice "Usage: ${0##*/} [OPTIONS]
 Options:
    -h, --help           print this help message
    -v, --verbose        increase verbosity
@@ -112,7 +112,7 @@ parse_cmd_options() {
                usage 0
                ;;
            -v | --verbose)
-               echo "INFO '$BASH_SOURCE': verbose output..."
+               log notice "'$BASH_SOURCE': verbose output..."
                set -x
                VERBOSE="1"
                shift
@@ -128,7 +128,7 @@ parse_cmd_options() {
            -c | --codename)
                codename="${2:-}"
                if [ -z "${codename:-}" ]; then
-                  echo "ERROR: codename may not be empty!" >&2
+                  log error "codename may not be empty!" >&2
                   exit 1
                fi
                shift 2
@@ -139,7 +139,7 @@ parse_cmd_options() {
                   stable|stable-proposed-updates|testers|developers)
                      ;;
                   *)
-                     echo "ERROR: Invalid repository option." >&2
+                     log error "Invalid repository option." >&2
                      exit 1
                      ;;
                esac
@@ -151,11 +151,11 @@ parse_cmd_options() {
                    plain-tls|plain-tls-tor|onion|onion-tls)
                       ;;
                   "")
-                     echo "ERROR: transport must not be empty." >&2
+                     log error "transport must not be empty." >&2
                      exit 1
                      ;;
                   *)
-                     echo "ERROR: transport is invalid." >&2
+                     log error "transport is invalid." >&2
                      exit 1
                      ;;
                 esac
@@ -166,7 +166,7 @@ parse_cmd_options() {
 #            -b | --baseuri)
 #                DERIVATIVE_APT_REPOSITORY_BASEURI="${2:-}"
 #                if [ -z "$DERIVATIVE_APT_REPOSITORY_BASEURI" ]; then
-#                   echo "ERROR: DERIVATIVE_APT_REPOSITORY_BASEURI may not be empty!" >&2
+#                   log error "DERIVATIVE_APT_REPOSITORY_BASEURI may not be empty!" >&2
 #                   exit 1
 #                fi
 #                shift 2
@@ -176,7 +176,7 @@ parse_cmd_options() {
                break
                ;;
            -*)
-               echo "INFO '$BASH_SOURCE': unknown option: '$1'" >&2
+               log error "$BASH_SOURCE': unknown option: '$1'" >&2
                exit 1
                ;;
            "")
@@ -215,7 +215,7 @@ get_codename_default() {
       codename_default_stable="${codename_default_stable//[[:space:]]}"
 
       if [ -z "${codename_default_stable:-}" ]; then
-         echo "ERROR: codename auto detection failed! Please manually set ${underline}--codename${nounderline}." >&2
+         log error "codename auto detection failed! Please manually set ${underline}--codename${nounderline}." >&2
          exit 1
       fi
    fi
@@ -239,20 +239,20 @@ parse_variables() {
    codename="${codename//[[:space:]]}"
 
    if [ ! "$codename_old" = "${codename:-}" ]; then
-      echo "INFO: Removed white spaces from codename ${underline}$codename_old${nounderline} and set to codename ${underline}$codename${nounderline}."
+      log notice "Removed white spaces from codename ${underline}$codename_old${nounderline} and set to codename ${underline}$codename${nounderline}."
    fi
 }
 
 disable_or_create() {
    if [ "${disable:-}" = "1" ]; then
       if [ -f "$sources_list_file_derivative" ]; then
-         echo "INFO '$BASH_SOURCE': Deleting derivative APT repository '${underline}$sources_list_file_derivative${nounderline}'..."
+         log notice "'$BASH_SOURCE': Deleting derivative APT repository '${underline}$sources_list_file_derivative${nounderline}'..."
          rm --force -- "$sources_list_file_derivative"
          ## Deletion of /usr/share/keyrings/derivative.asc is unnecessary, see:
          ## https://www.kicksecure.com/wiki/Dev/APT
-         echo "INFO '$BASH_SOURCE': Done."
+         log notice "'$BASH_SOURCE': Done."
       else
-         echo "INFO '$BASH_SOURCE': '${underline}$sources_list_file_derivative${nounderline}' does not exist, ok."
+         log notice "'$BASH_SOURCE': '${underline}$sources_list_file_derivative${nounderline}' does not exist, ok."
       fi
       mkdir -p /var/cache/setup-dist/status-files || true
       touch /var/cache/setup-dist/status-files/repository-dist.done || true
@@ -265,9 +265,9 @@ disable_or_create() {
 
 sources_list_generator() {
     if echo "${codename:-}" | grep -q -i "n/a" ; then
-        echo "ERROR: Autodetected codename '${underline}$codename${nounderline}' is invalid!" >&2
-        echo 'Please set codename explicitly using:'
-        echo "${underline}--codename${nounderline}"
+        log error "Autodetected codename '${underline}$codename${nounderline}' is invalid!" >&2
+        log error "Please set codename explicitly using:"
+        log error "${underline}--codename${nounderline}"
         exit 1
     fi
 
@@ -308,8 +308,8 @@ sources_list_generator() {
             ;;
     esac
 
-    echo "INFO '$BASH_SOURCE': Using distribution '${underline}$codename${nounderline}' (version of derivative) as apt repository."
-    echo "INFO '$BASH_SOURCE': Creating '${underline}$sources_file${nounderline}'..."
+    log notice "'$BASH_SOURCE': Using distribution '${underline}$codename${nounderline}' (version of derivative) as apt repository."
+    log notice "'$BASH_SOURCE': Creating '${underline}$sources_file${nounderline}'..."
 
     echo "\
 ## Copyright (C) 2012 - 2025 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
@@ -345,7 +345,7 @@ deb [signed-by=/usr/share/keyrings/derivative.asc] $whonix_repo $codename main c
     fi
 
     cat -- "$sources_file"
-    echo "INFO '$BASH_SOURCE': Done."
+    log notice "'$BASH_SOURCE': Done."
 }
 
 main_function() {
