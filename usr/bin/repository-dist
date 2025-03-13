@@ -264,7 +264,7 @@ disable_or_create() {
 }
 
 sources_list_generator() {
-    if echo "${codename:-}" | grep -q -i "n/a" ; then
+    if printf "%s" "${codename:-}" | grep -q -i "n/a" ; then
         log error "Autodetected codename '${underline}$codename${nounderline}' is invalid!"
         log error "Please set codename explicitly using:"
         log error "${underline}--codename${nounderline}"
@@ -311,7 +311,7 @@ sources_list_generator() {
     log notice "'$BASH_SOURCE': Using distribution '${underline}$codename${nounderline}' (version of derivative) as apt repository."
     log notice "'$BASH_SOURCE': Creating '${underline}$sources_file${nounderline}'..."
 
-    echo "\
+    printf "%s" "\
 ## Copyright (C) 2012 - 2025 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
 ## See the file COPYING for copying conditions.
 
@@ -336,7 +336,7 @@ deb [signed-by=/usr/share/keyrings/derivative.asc] $kicksecure_repo $codename ma
 " | sponge -- "$sources_file" >/dev/null
 
     if test -f /usr/share/whonix/marker; then
-        echo "\
+        printf "%s" "\
 deb [signed-by=/usr/share/keyrings/derivative.asc] $whonix_repo $codename main contrib non-free
 #deb-src [signed-by=/usr/share/keyrings/derivative.asc] $whonix_repo $codename main contrib non-free
 #deb [signed-by=/usr/share/keyrings/derivative.asc] tor+http://$whonix_url_onion $codename main contrib non-free
