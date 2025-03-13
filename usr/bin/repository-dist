@@ -201,7 +201,7 @@ get_codename_default() {
       ## If codename_default_stable could not be set using lsb_release above, try to acquire it
       ## from /etc/debian_version.
       if [ "${codename_default_stable:-}" = "n/a" ]; then
-         if grep -q -- "/sid" /etc/debian_version ; then
+         if grep --quiet -- "/sid" /etc/debian_version ; then
             codename_default_stable="$(cat /etc/debian_version)"
             ## example codename_default_stable:
             ## bookworm/sid
@@ -264,7 +264,7 @@ disable_or_create() {
 }
 
 sources_list_generator() {
-    if printf "%s" "${codename:-}" | grep -q -i -- "n/a" ; then
+    if printf "%s" "${codename:-}" | grep --quiet --ignore-case -- "n/a" ; then
         log error "Autodetected codename '${underline}$codename${nounderline}' is invalid!"
         log error "Please set codename explicitly using:"
         log error "${underline}--codename${nounderline}"
