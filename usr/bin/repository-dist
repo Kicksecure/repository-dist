@@ -84,6 +84,8 @@ ${bold}Transport assignment:${nocolor}
 
 ${bold}Examples:${nocolor}
   ${green}sudo $SCRIPTNAME --enable --repository stable${nocolor}
+  ${green}sudo $SCRIPTNAME --enable --repository stable-proposed-updates${nocolor}
+  ${green}sudo $SCRIPTNAME --enable --repository testers${nocolor}
   ${green}sudo $SCRIPTNAME --enable --repository developers${nocolor}
   ${green}sudo $SCRIPTNAME --enable --verbose --repository stable${nocolor}
   ${green}sudo $SCRIPTNAME --enable --codename $codename_default_stable${nocolor}
