@@ -62,40 +62,38 @@ sanity_tests() {
 
 usage() {
    get_codename_default
-   log notice "Usage: ${0##*/} [OPTIONS]
+   log notice "${bold}${cyan}Usage:${nocolor} ${0##*/} [OPTIONS]
 Options:
-   -h, --help           print this help message
-   -v, --verbose        increase verbosity
+  ${yellow}-h, --help${nocolor}           print this help message
+  ${yellow}-v, --verbose${nocolor}        increase verbosity
 
-   -e, --enable         enables derivative distribution repository
-   -d, --disable        remove '$sources_list_file_derivative'
+  ${green}-e, --enable${nocolor}         enables derivative distribution repository
+  ${red}-d, --disable${nocolor}        remove '$sources_list_file_derivative'
 
-   -r, --repository     set the suite, values: stable,
-                         stable-proposed-updates, testers, developers
-   -t, --transport      set the transport, values: plain-tls, plain-tls-tor
-                         (default), onion, onion-tls (discouraged)
+  ${blue}-r, --repository${nocolor}     set the suite, values: stable, stable-proposed-updates, testers, developers
+  ${blue}-t, --transport${nocolor}      set the transport, values: plain-tls, plain-tls-tor (default), onion, onion-tls (discouraged)
 
-Advanced options:
-   -c, --codename       set the codename
+${bold}Advanced options:${nocolor}
+  ${magenta}-c, --codename${nocolor}       set the codename
 
-Transport assignment:
-   plain-tls:           https://DOMAIN.org
-   plain-tls-tor:       tor+https://DOMAIN.org
-   onion:               tor+http://DOMAIN.onion
-   onion-tls:           tor+https://DOMAIN.onion
+${bold}Transport assignment:${nocolor}
+  ${cyan}plain-tls:${nocolor}           https://DOMAIN.org
+  ${cyan}plain-tls-tor:${nocolor}       tor+https://DOMAIN.org
+  ${cyan}onion:${nocolor}               tor+http://DOMAIN.onion
+  ${cyan}onion-tls:${nocolor}           tor+https://DOMAIN.onion
 
-Examples:
-   sudo $SCRIPTNAME --enable --repository stable
-   sudo $SCRIPTNAME --enable --repository developers
-   sudo $SCRIPTNAME --enable --verbose --repository stable
-   sudo $SCRIPTNAME --enable --codename $codename_default_stable
-   sudo $SCRIPTNAME --enable --transport onion
-   sudo $SCRIPTNAME --enable --transport onion --repository testers
-   sudo $SCRIPTNAME --disable
-   sudo $SCRIPTNAME --disable --verbose
+${bold}Examples:${nocolor}
+  ${green}sudo $SCRIPTNAME --enable --repository stable${nocolor}
+  ${green}sudo $SCRIPTNAME --enable --repository developers${nocolor}
+  ${green}sudo $SCRIPTNAME --enable --verbose --repository stable${nocolor}
+  ${green}sudo $SCRIPTNAME --enable --codename $codename_default_stable${nocolor}
+  ${green}sudo $SCRIPTNAME --enable --transport onion${nocolor}
+  ${green}sudo $SCRIPTNAME --enable --transport onion --repository testers${nocolor}
+  ${red}sudo $SCRIPTNAME --disable${nocolor}
+  ${red}sudo $SCRIPTNAME --disable --verbose${nocolor}
 
-See also:
-   man $SCRIPTNAME"
+${bold}See also:${nocolor}
+  ${underline}man $SCRIPTNAME${nounderline}"
    exit "${1:-1}"
 }
 
