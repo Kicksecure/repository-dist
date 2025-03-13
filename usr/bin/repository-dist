@@ -16,20 +16,20 @@ source /usr/libexec/helper-scripts/log_run_die.sh
 error_handler() {
    local exit_code="$?"
 
-   local MSG="\
-###############################################################################
-## $SCRIPTNAME script bug.
-## Please report this bug!
+   local MSG="
+${bold}${red}###############################################################################${nocolor}
+## ${bold}$SCRIPTNAME script bug.${nocolor}
+## ${red}Please report this bug!${nocolor}
 ##
-## BASH_COMMAND: '$BASH_COMMAND'
-## exit_code: '$exit_code'
+## ${yellow}BASH_COMMAND:${nocolor} '$BASH_COMMAND'
+## ${yellow}exit_code:${nocolor} '$exit_code'
 ##
-## For debugging run:
+## ${cyan}For debugging run:${nocolor}
 ##
-## $SCRIPTNAME --verbose
+## ${bold}$SCRIPTNAME --verbose${nocolor}
 ##
-## Clean the output and submit to developers.
-###############################################################################\
+## ${green}Clean the output and submit to developers.${nocolor}
+${bold}${red}###############################################################################${nocolor}
 "
    log bug "$MSG"
    exit 1
