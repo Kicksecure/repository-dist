@@ -215,7 +215,7 @@ get_codename_default() {
       codename_default_stable="${codename_default_stable//[[:space:]]}"
 
       if [ -z "${codename_default_stable:-}" ]; then
-         echo "ERROR: codename auto detection failed! Please manually set ${under}--codename${reset}." >&2
+         echo "ERROR: codename auto detection failed! Please manually set ${underline}--codename${nounderline}." >&2
          exit 1
       fi
    fi
@@ -239,20 +239,20 @@ parse_variables() {
    codename="${codename//[[:space:]]}"
 
    if [ ! "$codename_old" = "${codename:-}" ]; then
-      echo "INFO: Removed white spaces from codename ${under}$codename_old${reset} and set to codename ${under}$codename${reset}."
+      echo "INFO: Removed white spaces from codename ${underline}$codename_old${nounderline} and set to codename ${underline}$codename${nounderline}."
    fi
 }
 
 disable_or_create() {
    if [ "${disable:-}" = "1" ]; then
       if [ -f "$sources_list_file_derivative" ]; then
-         echo "INFO '$BASH_SOURCE': Deleting derivative APT repository '${under}$sources_list_file_derivative${reset}'..."
+         echo "INFO '$BASH_SOURCE': Deleting derivative APT repository '${underline}$sources_list_file_derivative${nounderline}'..."
          rm --force -- "$sources_list_file_derivative"
          ## Deletion of /usr/share/keyrings/derivative.asc is unnecessary, see:
          ## https://www.kicksecure.com/wiki/Dev/APT
          echo "INFO '$BASH_SOURCE': Done."
       else
-         echo "INFO '$BASH_SOURCE': '${under}$sources_list_file_derivative${reset}' does not exist, ok."
+         echo "INFO '$BASH_SOURCE': '${underline}$sources_list_file_derivative${nounderline}' does not exist, ok."
       fi
       mkdir -p /var/cache/setup-dist/status-files || true
       touch /var/cache/setup-dist/status-files/repository-dist.done || true
@@ -265,9 +265,9 @@ disable_or_create() {
 
 sources_list_generator() {
     if echo "${codename:-}" | grep -q -i "n/a" ; then
-        echo "ERROR: Autodetected codename '${under}$codename${reset}' is invalid!" >&2
+        echo "ERROR: Autodetected codename '${underline}$codename${nounderline}' is invalid!" >&2
         echo 'Please set codename explicitly using:'
-        echo "${under}--codename${reset}"
+        echo "${underline}--codename${nounderline}"
         exit 1
     fi
 
@@ -308,8 +308,8 @@ sources_list_generator() {
             ;;
     esac
 
-    echo "INFO '$BASH_SOURCE': Using distribution '${under}$codename${reset}' (version of derivative) as apt repository."
-    echo "INFO '$BASH_SOURCE': Creating '${under}$sources_file${reset}'..."
+    echo "INFO '$BASH_SOURCE': Using distribution '${underline}$codename${nounderline}' (version of derivative) as apt repository."
+    echo "INFO '$BASH_SOURCE': Creating '${underline}$sources_file${nounderline}'..."
 
     echo "\
 ## Copyright (C) 2012 - 2025 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
