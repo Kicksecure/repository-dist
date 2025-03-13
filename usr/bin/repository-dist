@@ -21,8 +21,8 @@ error_handler() {
 ## $SCRIPTNAME script bug.
 ## Please report this bug!
 ##
-## BASH_COMMAND: $BASH_COMMAND
-## exit_code: $exit_code
+## BASH_COMMAND: '$BASH_COMMAND'
+## exit_code: '$exit_code'
 ##
 ## For debugging run:
 ##
