@@ -31,7 +31,7 @@ error_handler() {
 ## Clean the output and submit to developers.
 ###############################################################################\
 "
-   log error "$MSG"
+   log bug "$MSG"
    exit 1
 }
 
