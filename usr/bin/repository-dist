@@ -249,9 +249,11 @@ disable_or_create() {
    if [ "${disable:-}" = "1" ]; then
       if [ -f "$sources_list_file_derivative" ]; then
          log notice "'$BASH_SOURCE': Deleting derivative APT repository '${underline}$sources_list_file_derivative${nounderline}'..."
-         rm --force -- "$sources_list_file_derivative"
+         rm --force --verbose -- "$sources_list_file_derivative"
          ## Deletion of /usr/share/keyrings/derivative.asc is unnecessary, see:
          ## https://www.kicksecure.com/wiki/Dev/APT
+         ## Sanity test.
+         ! test -f "$sources_list_file_derivative"
          log notice "'$BASH_SOURCE': Done."
       else
          log notice "'$BASH_SOURCE': '${underline}$sources_list_file_derivative${nounderline}' does not exist, ok."
