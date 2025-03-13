@@ -62,7 +62,7 @@ sanity_tests() {
 
 usage() {
    get_codename_default
-   lgo notice "Usage: ${0##*/} [OPTIONS]
+   log notice "Usage: ${0##*/} [OPTIONS]
 Options:
    -h, --help           print this help message
    -v, --verbose        increase verbosity
