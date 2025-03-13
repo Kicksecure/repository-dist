@@ -50,7 +50,7 @@ preparation() {
 
 root_check() {
    if [ "$(id -u)" != "0" ]; then
-      log error "This must be run as root (sudo)!" >&2
+      log error "This must be run as root (sudo)!"
       exit 1
    fi
    true "INFO: Script running as root."
@@ -128,7 +128,7 @@ parse_cmd_options() {
            -c | --codename)
                codename="${2:-}"
                if [ -z "${codename:-}" ]; then
-                  log error "codename may not be empty!" >&2
+                  log error "codename may not be empty!"
                   exit 1
                fi
                shift 2
@@ -139,7 +139,7 @@ parse_cmd_options() {
                   stable|stable-proposed-updates|testers|developers)
                      ;;
                   *)
-                     log error "Invalid repository option." >&2
+                     log error "Invalid repository option."
                      exit 1
                      ;;
                esac
@@ -151,11 +151,11 @@ parse_cmd_options() {
                    plain-tls|plain-tls-tor|onion|onion-tls)
                       ;;
                   "")
-                     log error "transport must not be empty." >&2
+                     log error "transport must not be empty."
                      exit 1
                      ;;
                   *)
-                     log error "transport is invalid." >&2
+                     log error "transport is invalid."
                      exit 1
                      ;;
                 esac
@@ -166,7 +166,7 @@ parse_cmd_options() {
 #            -b | --baseuri)
 #                DERIVATIVE_APT_REPOSITORY_BASEURI="${2:-}"
 #                if [ -z "$DERIVATIVE_APT_REPOSITORY_BASEURI" ]; then
-#                   log error "DERIVATIVE_APT_REPOSITORY_BASEURI may not be empty!" >&2
+#                   log error "DERIVATIVE_APT_REPOSITORY_BASEURI may not be empty!"
 #                   exit 1
 #                fi
 #                shift 2
@@ -176,7 +176,7 @@ parse_cmd_options() {
                break
                ;;
            -*)
-               log error "$BASH_SOURCE': unknown option: '$1'" >&2
+               log error "$BASH_SOURCE': unknown option: '$1'"
                exit 1
                ;;
            "")
@@ -215,7 +215,7 @@ get_codename_default() {
       codename_default_stable="${codename_default_stable//[[:space:]]}"
 
       if [ -z "${codename_default_stable:-}" ]; then
-         log error "codename auto detection failed! Please manually set ${underline}--codename${nounderline}." >&2
+         log error "codename auto detection failed! Please manually set ${underline}--codename${nounderline}."
          exit 1
       fi
    fi
@@ -265,7 +265,7 @@ disable_or_create() {
 
 sources_list_generator() {
     if echo "${codename:-}" | grep -q -i "n/a" ; then
-        log error "Autodetected codename '${underline}$codename${nounderline}' is invalid!" >&2
+        log error "Autodetected codename '${underline}$codename${nounderline}' is invalid!"
         log error "Please set codename explicitly using:"
         log error "${underline}--codename${nounderline}"
         exit 1
