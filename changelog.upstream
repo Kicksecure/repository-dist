@@ -1,3 +1,99 @@
+commit 1de7351d2bb835f5a4cb4baf08395079ab65e803
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 13 07:43:31 2025 -0400
+
+    sanity test
+
+commit b27c43b031a361e0670647a20ceee4f00b54cbb4
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 13 07:41:31 2025 -0400
+
+    local
+
+commit 62ef4a1fd36342aedbd36779681212af8ab4bd62
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 13 07:40:31 2025 -0400
+
+    long option names
+
+commit 97bab34c23d37929b07ff9a38a5ccad25d532d2a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 13 07:38:39 2025 -0400
+
+    end of options
+
+commit 9b35c1987a84c9587e1d441c0b443497d4a53a84
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 13 07:38:11 2025 -0400
+
+    printf
+
+commit 230ad98fa180e6cf7df9b732df5f9d88e06b83c0
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 13 07:32:18 2025 -0400
+
+    output
+
+commit d52dacd25dbd85215b46bdbd390e52e0b66285d7
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 13 07:30:54 2025 -0400
+
+    colors
+
+commit c88fd63f1a40f5709344e56bb6dcf791f565a510
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 13 07:23:57 2025 -0400
+
+    colors
+
+commit a90dd72bd0a7dc1894bf9ff9060c84db1bcc06ae
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 13 07:13:58 2025 -0400
+
+    output
+
+commit 43c90a1d9b28763b2319ba36c42bc504bf5ef921
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 13 07:13:24 2025 -0400
+
+    output
+
+commit 171b2b1c5b294d6b3f5d800d11da17f629ada0a5
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 13 07:12:40 2025 -0400
+
+    fix
+
+commit 7d3f4491f8a17c374419afc043fead7b8c1b7172
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 13 07:12:02 2025 -0400
+
+    cleanup
+
+commit b022cea361ae2d65bdfd069b03e3a9d7e95ac4ed
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 13 07:11:00 2025 -0400
+
+    port to log function
+
+commit 0514517df8e542d23d3125938f4874f05b3f61a5
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 13 06:57:43 2025 -0400
+
+    colors
+
+commit 3ec20d3fe25888de3246d16f551a6899de876789
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Mar 13 06:44:02 2025 -0400
+
+    source /usr/libexec/helper-scripts/get_colors.sh
+
+commit e9ab3f9313d280b4124eccdd622a035c5c036964
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Mar 8 14:45:29 2025 +0000
+
+    bumped changelog version
+
 commit 0613e58cb215267e43839c2d7ae29050d55a35ad
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Mar 8 09:41:08 2025 -0500
