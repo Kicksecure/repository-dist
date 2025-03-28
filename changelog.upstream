@@ -1,3 +1,22 @@
+commit 06338e1fdaae07c115b8fb9edb163f71e58dd89a
+Merge: ccd84b4 76027d0
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Mar 28 09:09:39 2025 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/sysmaint'
+
+commit 76027d048a7f9ebd56497da815e808f07fbc0334
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Thu Mar 27 21:40:27 2025 -0500
+
+    Ensure that if user boots into sysmaint mode as first boot, derivative.list is still generated
+
+commit ccd84b4946d4875b6cd675e9d0f6a9428d578b9c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Mar 14 08:29:01 2025 +0000
+
+    bumped changelog version
+
 commit 1de7351d2bb835f5a4cb4baf08395079ab65e803
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Thu Mar 13 07:43:31 2025 -0400
