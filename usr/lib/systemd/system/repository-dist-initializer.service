@@ -11,3 +11,4 @@ ExecStart=/usr/libexec/repository-dist/repository-dist-initializer
 
 [Install]
 WantedBy=multi-user.target
+WantedBy=sysmaint-boot.target
