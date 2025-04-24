@@ -191,7 +191,11 @@ class repository_dist_wizard(QWizard):
                 command = ['pkexec', 'repository-dist', '--enable'] + repository
 
                 QApplication.setOverrideCursor(QCursor(Qt.WaitCursor))
-                exit_code = call(command)
+                try:
+                    exit_code = call(command)
+                except OSError as e:
+                    self.finish_text.setText(f"<p>Error executing command: {e}</p>")
+                    return self.currentId() + 1
                 QApplication.restoreOverrideCursor()
 
                 mypath = inspect.getfile(inspect.currentframe())
