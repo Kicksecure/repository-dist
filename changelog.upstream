@@ -1,3 +1,76 @@
+commit c8919e16d9fc30ca34ff9e7d3cbd2e5c0341c51b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Apr 24 06:27:42 2025 -0400
+
+    comment
+
+commit 4a048938b644efb8e4c3f2011b6ee9397c685a65
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Apr 24 06:25:35 2025 -0400
+
+    .
+
+commit 25d5dd43b92c06b6d9a7a67c6bc9170c461662d3
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Apr 24 06:24:54 2025 -0400
+
+    output
+
+commit db0424cf158597f6ff82d9fbed84d2b2502ec769
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Apr 24 06:21:13 2025 -0400
+
+    check if pkexec is reachable
+    (when using user-sysmaint-split, it will be unreachable outside of sysmaint mode)
+
+commit beaadb635bfb95d7d4c0480eb9836bde8fe1673f
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Apr 24 06:16:52 2025 -0400
+
+    check if pkexec is reachable
+
+commit 37dabb696a611a02ba6a0fc7a63e62b4530ec68c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Apr 24 05:50:47 2025 -0400
+
+    check if pkexec is functional
+
+commit 27629f2cd0b2356228bddae57d23b52cbb87ef61
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Apr 24 05:22:21 2025 -0400
+
+    refactoring
+
+commit 11f7d8993ec54de0e83671c186f218e2093d36a7
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Apr 24 05:19:43 2025 -0400
+
+    fix
+
+commit 41f812fdcea7489cc4a06f35a5ba6785db306a3b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Apr 24 05:18:38 2025 -0400
+
+    fix
+
+commit 8e8a18e5135b3676b69f4c6224e35fb20b30a7f1
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Apr 24 05:10:43 2025 -0400
+
+    fix
+
+commit 739c8e5d9f059fc6f8e915741f70bf471431a124
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Apr 24 05:10:00 2025 -0400
+
+    fix
+
+commit 18266e066a7a40c6d28ac1ed235be866f148b99e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Mar 28 14:45:11 2025 +0000
+
+    bumped changelog version
+
 commit 06338e1fdaae07c115b8fb9edb163f71e58dd89a
 Merge: ccd84b4 76027d0
 Author: Patrick Schleizer <adrelanos@whonix.org>
