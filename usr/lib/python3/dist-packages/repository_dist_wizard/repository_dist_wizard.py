@@ -7,6 +7,7 @@
 import sys
 import signal
 import subprocess
+import shutil
 
 try:
     from PyQt5 import QtCore, QtGui
@@ -261,6 +262,14 @@ def main():
             None,
             "Execution Error",
             "Do not run this application with sudo or as root!"
+        )
+        sys.exit(1)
+
+    if not shutil.which("pkexec"):
+        QMessageBox.critical(
+            None,
+            "Execution Error",
+            "pkexec unavailable."
         )
         sys.exit(1)
 
