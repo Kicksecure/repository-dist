@@ -21,7 +21,7 @@ sudo apt install --no-install-recommends repository-dist-wizard
 
 Alternatively, you could use the CLI version, run:
 repository-dist""")
-    exit(1)
+    sys.exit(1)
 
 import os
 import inspect
