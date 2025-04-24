@@ -6,7 +6,7 @@
 
 import sys
 import signal
-from subprocess import call
+import subprocess
 
 try:
     from PyQt5 import QtCore, QtGui
@@ -37,6 +37,8 @@ else:
 
 class common:
     tr_file ='/usr/share/translations/repository-dist.yaml'
+
+exit_requested = False
 
 class RepositoryDistWizard(QWizard):
     def __init__(self):
@@ -153,7 +155,7 @@ class RepositoryDistWizard(QWizard):
             elif self.disable_button.isChecked():
                 if self.one_shot:
                     command = ['pkexec', 'repository-dist', '--disable']
-                    exit_code = call(command)
+                    exit_code = subprocess.call(command)
                     mypath = inspect.getfile(inspect.currentframe())
 
                     if exit_code == 0:
@@ -192,7 +194,7 @@ class RepositoryDistWizard(QWizard):
 
                 QApplication.setOverrideCursor(QCursor(Qt.WaitCursor))
                 try:
-                    exit_code = call(command)
+                    exit_code = subprocess.call(command)
                 except OSError as e:
                     self.finish_text.setText(f"<p>Error executing command: {e}</p>")
                     return self.currentId() + 1
@@ -221,22 +223,55 @@ class RepositoryDistWizard(QWizard):
         else:
             return -1
 
+def is_pkexec_functional():
+    try:
+        subprocess.run(
+            ["pkexec", "true"],
+            timeout=3,
+            check=True,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL
+        )
+        return True
+    except Exception as e:
+        print(f"pkexec test failed: {e}")
+        return False
+
 def signal_handler(sig, frame):
+    global exit_requested
+    exit_requested = True
     sys.exit(128 + sig)
 
-def main():
-    if os.geteuid() == 0:
-        print('repository_dist_wizard.py: ERROR: Do not run with sudo / as root!')
-        sys.exit(1)
+def check_signals():
+    if exit_requested:
+        QApplication.quit()
 
+def main():
     app = QApplication(sys.argv)
 
     signal.signal(signal.SIGINT, signal_handler)
     signal.signal(signal.SIGTERM, signal_handler)
 
     timer = QtCore.QTimer()
-    timer.start(500)
-    timer.timeout.connect(lambda: None)
+    timer.timeout.connect(check_signals)
+    timer.start(100)
+
+    if os.geteuid() == 0:
+        QMessageBox.critical(
+            None,
+            "Execution Error",
+            "Do not run this application with sudo or as root!"
+        )
+        sys.exit(1)
+
+    if not is_pkexec_functional():
+        QMessageBox.critical(
+            None,
+            "Authentication Error",
+            "Authentication via pkexec failed or timed out.\n\n"
+            "Please ensure a Polkit authentication agent is running in your desktop session."
+        )
+        sys.exit(1)
 
     wizard = RepositoryDistWizard()
     wizard.exec_()
