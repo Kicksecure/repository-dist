@@ -284,6 +284,8 @@ def main():
         box.setText(
             "Authentication via pkexec failed or timed out.\n\n"
             "Please ensure a Polkit authentication agent is running in your desktop session."
+            "For example:"
+            "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1"
         )
         box.exec_()
         sys.exit(1)
