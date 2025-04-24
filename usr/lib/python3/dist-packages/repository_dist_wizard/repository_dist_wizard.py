@@ -258,28 +258,33 @@ def main():
     timer.start(100)
 
     if os.geteuid() == 0:
-        QMessageBox.critical(
-            None,
-            "Execution Error",
-            "Do not run this application with sudo or as root!"
-        )
+        box = QMessageBox()
+        box.setIcon(QMessageBox.Critical)
+        box.setWindowTitle("Execution Error")
+        box.setText("Do not run this application with sudo or as root!")
+        box.exec_()
         sys.exit(1)
 
     if not shutil.which("pkexec"):
-        QMessageBox.critical(
-            None,
-            "Execution Error",
-            "pkexec unavailable."
+        box = QMessageBox()
+        box.setIcon(QMessageBox.Critical)
+        box.setWindowTitle("Execution Error")
+        box.setText(
+            "pkexec unavailable.\n\n"
+            "Either pkexec is not installed (unlikely) or you need to boot into sysmaint mode."
         )
+        box.exec_()
         sys.exit(1)
 
     if not is_pkexec_functional():
-        QMessageBox.critical(
-            None,
-            "Authentication Error",
+        box = QMessageBox()
+        box.setIcon(QMessageBox.Critical)
+        box.setWindowTitle("Authentication Error")
+        box.setText(
             "Authentication via pkexec failed or timed out.\n\n"
             "Please ensure a Polkit authentication agent is running in your desktop session."
         )
+        box.exec_()
         sys.exit(1)
 
     wizard = RepositoryDistWizard()
