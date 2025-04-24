@@ -277,6 +277,17 @@ def main():
         box.exec_()
         sys.exit(1)
 
+
+    ## If a Polkit authentication agent such as
+    ## /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+    ## is not running, a CLI prompt (which cannot be seen when started from start menu) will show.
+    """
+    ==== AUTHENTICATING FOR org.freedesktop.policykit.exec ====
+    Authentication is needed to run `/usr/bin/true' as the super user
+    Multiple identities can be used for authentication:
+    1.  ,,, (sysmaint)
+    2.  user
+    """
     if not is_pkexec_functional():
         box = QMessageBox()
         box.setIcon(QMessageBox.Critical)
