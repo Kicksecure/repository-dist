@@ -138,8 +138,6 @@ class repository_dist_wizard(QWizard):
 
         self.button(QWizard.BackButton).clicked.connect(self.BackButton_clicked)
 
-        self.exec_()
-
     """ re-arm command. """
     def BackButton_clicked(self):
         self.button(QWizard.CancelButton).setEnabled(True)
@@ -237,6 +235,7 @@ def main():
     timer.timeout.connect(lambda: None)
 
     wizard = repository_dist_wizard()
+    wizard.exec_()
 
     sys.exit(0)
 
