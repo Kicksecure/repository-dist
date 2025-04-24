@@ -122,9 +122,9 @@ class repository_dist_wizard(QWizard):
             message = self._('disablebutton_text')
             self.disable_button.setText(message)
             message = self._('finish_enabled')
-            self.finish_text_disabled = message
-            message = self._('finish_disabled')
             self.finish_text_enabled = message
+            message = self._('finish_disabled')
+            self.finish_text_disabled = message
             message = self._('finish_failed')
             self.finish_text_failed = message
         except (yaml.scanner.ScannerError, yaml.parser.ParserError):
