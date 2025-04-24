@@ -39,6 +39,7 @@ else:
 class common:
     tr_file ='/usr/share/translations/repository-dist.yaml'
 
+window_title = project + ' Repository Wizard'
 exit_requested = False
 
 class RepositoryDistWizard(QWizard):
@@ -46,7 +47,7 @@ class RepositoryDistWizard(QWizard):
         super(RepositoryDistWizard, self).__init__()
 
         self.resize(500, 330)
-        self.setWindowTitle(project + ' Repository Wizard')
+        self.setWindowTitle(window_title)
         icon = "/usr/share/icons/gnome/24x24/status/info.png"
         self.setWindowIcon(QtGui.QIcon(icon))
 
@@ -260,7 +261,7 @@ def main():
     if os.geteuid() == 0:
         box = QMessageBox()
         box.setIcon(QMessageBox.Critical)
-        box.setWindowTitle("Execution Error")
+        box.setWindowTitle(window_title + " - Execution Error")
         box.setText("Do not run this application with sudo or as root!")
         box.exec_()
         sys.exit(1)
@@ -268,7 +269,7 @@ def main():
     if not shutil.which("pkexec"):
         box = QMessageBox()
         box.setIcon(QMessageBox.Critical)
-        box.setWindowTitle("Execution Error")
+        box.setWindowTitle(window_title + " - Execution Error")
         box.setText(
             "pkexec unavailable.\n\n"
             "Either pkexec is not installed (unlikely) or you need to boot into sysmaint mode."
@@ -279,7 +280,7 @@ def main():
     if not is_pkexec_functional():
         box = QMessageBox()
         box.setIcon(QMessageBox.Critical)
-        box.setWindowTitle("Authentication Error")
+        box.setWindowTitle(window_title + " - Authentication Error")
         box.setText(
             "Authentication via pkexec failed or timed out.\n\n"
             "Please ensure a Polkit authentication agent is running in your desktop session."
