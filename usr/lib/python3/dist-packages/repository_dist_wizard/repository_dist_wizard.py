@@ -38,9 +38,9 @@ else:
 class common:
     tr_file ='/usr/share/translations/repository-dist.yaml'
 
-class repository_dist_wizard(QWizard):
+class RepositoryDistWizard(QWizard):
     def __init__(self):
-        super(repository_dist_wizard, self).__init__()
+        super(RepositoryDistWizard, self).__init__()
 
         self.resize(500, 330)
         self.setWindowTitle(project + ' Repository Wizard')
@@ -238,7 +238,7 @@ def main():
     timer.start(500)
     timer.timeout.connect(lambda: None)
 
-    wizard = repository_dist_wizard()
+    wizard = RepositoryDistWizard()
     wizard.exec_()
 
     sys.exit(0)
