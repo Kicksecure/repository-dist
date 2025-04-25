@@ -179,19 +179,19 @@ class RepositoryDistWizard(QWizard):
 
         elif self.currentId() == 2:
             if self.repo1.isChecked():
-                repository = ['--repository', 'stable']
+                repository = "stable"
 
             elif self.repo2.isChecked():
-                repository = ['--repository', 'stable-proposed-updates']
+                repository = "stable-proposed-updates"
 
             elif self.repo3.isChecked():
-                repository = ['--repository', 'testers']
+                repository = "testers"
 
             elif self.repo4.isChecked():
-                repository = ['--repository', 'developers']
+                repository = "developers"
 
             if self.one_shot:
-                command = ['pkexec', 'repository-dist', '--enable'] + repository
+                command = ['pkexec', 'repository-dist', '--enable', "--repository", repository]
 
                 QApplication.setOverrideCursor(QCursor(Qt.WaitCursor))
                 try:
