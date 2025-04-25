@@ -227,7 +227,7 @@ class RepositoryDistWizard(QWizard):
 def is_pkexec_functional():
     try:
         subprocess.run(
-            ["pkexec", "/usr/bin/true"],
+            ["pkexec", "/usr/libexec/repository-dist/pkexec-test"],
             timeout=10,
             check=True,
             stdout=subprocess.DEVNULL,
