@@ -224,7 +224,7 @@ class RepositoryDistWizard(QWizard):
         else:
             return -1
 
-def is_pkexec_functional():
+def is_pkexec_functional_simple():
     try:
         subprocess.run(
             ["pkexec", "/usr/libexec/repository-dist/pkexec-test"],
@@ -284,12 +284,13 @@ def main():
     1.  ,,, (sysmaint)
     2.  user
     """
-    if not is_pkexec_functional():
+    if not is_pkexec_functional_simple():
         box = QMessageBox()
         box.setIcon(QMessageBox.Critical)
         box.setWindowTitle(window_title + " - Authentication Error")
         box.setText(
-            "Authentication via pkexec failed or timed out.\n\n"
+            "Authentication via pkexec failed or timed out."
+            "Simple pkexec test running 'pkexec /usr/libexec/repository-dist/pkexec-test' failed."
             "Please ensure a Polkit authentication agent is running in your desktop session."
             "For example:"
             "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1"
