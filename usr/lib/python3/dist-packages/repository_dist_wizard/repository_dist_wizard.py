@@ -238,6 +238,20 @@ def is_pkexec_functional_simple():
         print(f"pkexec test failed: {e}")
         return False
 
+def is_pkexec_functional_advanced():
+    try:
+        subprocess.run(
+            ["pkexec", "/usr/bin/true"],
+            timeout=10,
+            check=True,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL
+        )
+        return True
+    except Exception as e:
+        print(f"pkexec test failed: {e}")
+        return False
+
 def signal_handler(sig, frame):
     sys.exit(128 + sig)
 
@@ -273,6 +287,22 @@ def main():
         box.exec_()
         sys.exit(1)
 
+    ## See also:
+    ## /usr/share/polkit-1/actions/com.kicksecure.repository-dist.policy
+    if not is_pkexec_functional_simple():
+        box = QMessageBox()
+        box.setIcon(QMessageBox.Critical)
+        box.setWindowTitle(window_title + " - Authentication Error #1")
+        box.setText(
+            "Authentication via pkexec failed or timed out."
+            "Simple pkexec test running 'pkexec /usr/libexec/repository-dist/pkexec-test' failed."
+            "Please ensure a Polkit authentication agent is running in your desktop session."
+            "For example:"
+            "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1"
+        )
+        box.exec_()
+        sys.exit(1)
+
 
     ## If a Polkit authentication agent such as
     ## /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
@@ -284,15 +314,15 @@ def main():
     1.  ,,, (sysmaint)
     2.  user
     """
-    if not is_pkexec_functional_simple():
+    if not is_pkexec_functional_advanced():
         box = QMessageBox()
         box.setIcon(QMessageBox.Critical)
-        box.setWindowTitle(window_title + " - Authentication Error")
+        box.setWindowTitle(window_title + " - Authentication Error #2")
         box.setText(
-            "Authentication via pkexec failed or timed out."
-            "Simple pkexec test running 'pkexec /usr/libexec/repository-dist/pkexec-test' failed."
-            "Please ensure a Polkit authentication agent is running in your desktop session."
-            "For example:"
+            "Authentication via pkexec failed or timed out.\n\n"
+            "Simple pkexec test running 'pkexec /usr/bin/true' failed.\n\n"
+            "Please ensure a Polkit authentication agent is running in your desktop session.\n\n"
+            "For example:\n\n"
             "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1"
         )
         box.exec_()
