@@ -40,7 +40,6 @@ class common:
     tr_file ='/usr/share/translations/repository-dist.yaml'
 
 window_title = project + ' Repository Wizard'
-exit_requested = False
 
 class RepositoryDistWizard(QWizard):
     def __init__(self):
@@ -240,13 +239,10 @@ def is_pkexec_functional():
         return False
 
 def signal_handler(sig, frame):
-    global exit_requested
-    exit_requested = True
     sys.exit(128 + sig)
 
 def check_signals():
-    if exit_requested:
-        QApplication.quit()
+    return
 
 def main():
     app = QApplication(sys.argv)
