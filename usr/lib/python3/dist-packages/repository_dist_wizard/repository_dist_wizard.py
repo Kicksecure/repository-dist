@@ -228,7 +228,7 @@ def is_pkexec_functional():
     try:
         subprocess.run(
             ["pkexec", "true"],
-            timeout=3,
+            timeout=10,
             check=True,
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL
