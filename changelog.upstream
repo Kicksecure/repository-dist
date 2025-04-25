@@ -1,3 +1,51 @@
+commit c409d2e056a801fb12682f5dc24575b7ae3a6e16
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Apr 25 02:39:00 2025 -0400
+
+    improve pkexec test
+
+commit 624157352463fa4665bff0cc3c4ad4afeb9fdd67
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Apr 25 02:35:39 2025 -0400
+
+    refactoring
+
+commit e4abdfa0d882a4b1144cbbfe633ccc69572ed6ac
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Apr 25 02:33:06 2025 -0400
+
+    improve pkexec test
+
+commit fe0c9213cfb449b5f95036e39295c92aa9be793b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Apr 25 02:14:29 2025 -0400
+
+    use full path
+
+commit dd4b7b7e8b507847d30ad52865fae8c39afbd8f0
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Apr 25 00:47:06 2025 -0400
+
+    refactoring
+
+commit adb4a1d97cc8288c3e1213877fa935049517c6b0
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Apr 25 00:35:15 2025 -0400
+
+    increase pkexec timeout
+
+commit 3035fa80789e2779dc6f73c5ef10ba1a1605fe79
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Apr 25 00:34:45 2025 -0400
+
+    code simplification
+
+commit c7f7c432e5142b2a3466bfb2482eee1e92392ea6
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Apr 24 10:28:26 2025 +0000
+
+    bumped changelog version
+
 commit c8919e16d9fc30ca34ff9e7d3cbd2e5c0341c51b
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Thu Apr 24 06:27:42 2025 -0400
