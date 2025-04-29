@@ -272,7 +272,9 @@ def main():
         box = QMessageBox()
         box.setIcon(QMessageBox.Critical)
         box.setWindowTitle(window_title + " - Execution Error")
-        text = "Do not run this application with 'sudo' or as 'root'!"
+        text = (
+            "Do not run this application with 'sudo' or as 'root'!"
+        )
         print("ERROR: " + text)
         box.setText(text)
         box.exec_()
