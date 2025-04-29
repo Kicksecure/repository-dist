@@ -272,7 +272,7 @@ def main():
         box = QMessageBox()
         box.setIcon(QMessageBox.Critical)
         box.setWindowTitle(window_title + " - Execution Error")
-        text = "Do not run this application with sudo or as root!"
+        text = "Do not run this application with 'sudo' or as 'root'!"
         print("ERROR: " + text)
         box.setText(text)
         box.exec_()
@@ -283,8 +283,8 @@ def main():
         box.setIcon(QMessageBox.Critical)
         box.setWindowTitle(window_title + " - Execution Error")
         text=(
-             "pkexec unavailable.\n\n"
-             "Either pkexec is not installed (unlikely) or you need to boot into sysmaint mode."
+             "'pkexec' unavailable.\n\n"
+             "Either 'pkexec' is not installed (unlikely) or you need to boot into sysmaint mode."
         )
         print("ERROR: " + text)
         box.setText(text)
