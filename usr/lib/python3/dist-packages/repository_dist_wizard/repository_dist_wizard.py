@@ -282,7 +282,7 @@ def main():
         box = QMessageBox()
         box.setIcon(QMessageBox.Critical)
         box.setWindowTitle(window_title + " - Execution Error")
-        text=(
+        text = (
              "'pkexec' unavailable.\n\n"
              "Either 'pkexec' is not installed (unlikely) or you need to boot into sysmaint mode."
         )
@@ -297,7 +297,7 @@ def main():
         box = QMessageBox()
         box.setIcon(QMessageBox.Critical)
         box.setWindowTitle(window_title + " - Authentication Error #1")
-        text=(
+        text = (
             "Authentication via pkexec failed or timed out."
             "Simple pkexec test running 'pkexec /usr/libexec/repository-dist/pkexec-test' failed."
             "Please ensure a Polkit authentication agent is running in your desktop session."
