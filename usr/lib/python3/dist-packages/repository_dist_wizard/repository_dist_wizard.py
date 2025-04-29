@@ -273,8 +273,8 @@ def main():
         box.setIcon(QMessageBox.Critical)
         box.setWindowTitle(window_title + " - Execution Error")
         text = "Do not run this application with sudo or as root!"
+        print("ERROR: " + text)
         box.setText(text)
-        print(text)
         box.exec_()
         sys.exit(1)
 
@@ -286,7 +286,7 @@ def main():
              "pkexec unavailable.\n\n"
              "Either pkexec is not installed (unlikely) or you need to boot into sysmaint mode."
         )
-        print(text)
+        print("ERROR: " + text)
         box.setText(text)
         box.exec_()
         sys.exit(1)
@@ -304,6 +304,7 @@ def main():
             "For example:"
             "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1"
         )
+        print("ERROR: " + text)
         box.setText(text)
         box.exec_()
         sys.exit(1)
@@ -331,7 +332,7 @@ def main():
             "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1"
         )
         box.setText(text)
-        print(text)
+        print("ERROR: " + text)
         box.exec_()
         sys.exit(1)
 
