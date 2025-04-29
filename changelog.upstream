@@ -1,3 +1,63 @@
+commit 3f93fee0f1b0743aa1668c1cc0d3a722729edbd4
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Apr 29 00:15:36 2025 -0400
+
+    output
+
+commit dfe8c643e0ed59d1763d3f6e2ca445adf0bdc587
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Apr 29 00:14:57 2025 -0400
+
+    output
+
+commit 09336acd95448be05f1a949b76c9e1c96e727bab
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Apr 29 00:14:24 2025 -0400
+
+    output
+
+commit b68a0ef5d278a796a3ae5c9abb1e06534f01171c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Apr 29 00:12:47 2025 -0400
+
+    refactoring
+
+commit 48f0e823fd6c5d22b80ec450952f278bdc1ec052
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Apr 29 00:12:24 2025 -0400
+
+    minor
+
+commit de642901c93473b1cb899faee7d498f92f5e4373
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Apr 29 00:11:33 2025 -0400
+
+    output
+
+commit 44d7fab4a7d5164c9e88b6071d3703d47efb403e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Apr 29 00:10:44 2025 -0400
+
+    refactoring
+
+commit 85f81f4d1eae9f3dacd1154354b2d0ab9346fea4
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Apr 29 00:10:18 2025 -0400
+
+    output
+
+commit 5539a25a87908f7ea5668351b3c04cecdb948f10
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Apr 29 00:08:48 2025 -0400
+
+    output repository-dist-wizard error messages also on console in case GUI does not work (such as when starting it as root by mistake)
+
+commit 64fa960534055faf0e1ecea62d8b3300e2ede859
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Apr 25 08:19:13 2025 +0000
+
+    bumped changelog version
+
 commit c409d2e056a801fb12682f5dc24575b7ae3a6e16
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Fri Apr 25 02:39:00 2025 -0400
