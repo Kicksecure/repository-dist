@@ -331,8 +331,8 @@ def main():
             "For example:\n\n"
             "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1"
         )
-        box.setText(text)
         print("ERROR: " + text)
+        box.setText(text)
         box.exec_()
         sys.exit(1)
 
