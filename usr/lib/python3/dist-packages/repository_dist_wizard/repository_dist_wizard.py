@@ -272,7 +272,9 @@ def main():
         box = QMessageBox()
         box.setIcon(QMessageBox.Critical)
         box.setWindowTitle(window_title + " - Execution Error")
-        box.setText("Do not run this application with sudo or as root!")
+        text = "Do not run this application with sudo or as root!"
+        box.setText(text)
+        print(text)
         box.exec_()
         sys.exit(1)
 
@@ -280,10 +282,12 @@ def main():
         box = QMessageBox()
         box.setIcon(QMessageBox.Critical)
         box.setWindowTitle(window_title + " - Execution Error")
-        box.setText(
-            "pkexec unavailable.\n\n"
-            "Either pkexec is not installed (unlikely) or you need to boot into sysmaint mode."
+        text=(
+             "pkexec unavailable.\n\n"
+             "Either pkexec is not installed (unlikely) or you need to boot into sysmaint mode."
         )
+        print(text)
+        box.setText(text)
         box.exec_()
         sys.exit(1)
 
@@ -293,13 +297,14 @@ def main():
         box = QMessageBox()
         box.setIcon(QMessageBox.Critical)
         box.setWindowTitle(window_title + " - Authentication Error #1")
-        box.setText(
+        text=(
             "Authentication via pkexec failed or timed out."
             "Simple pkexec test running 'pkexec /usr/libexec/repository-dist/pkexec-test' failed."
             "Please ensure a Polkit authentication agent is running in your desktop session."
             "For example:"
             "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1"
         )
+        box.setText(text)
         box.exec_()
         sys.exit(1)
 
@@ -318,13 +323,15 @@ def main():
         box = QMessageBox()
         box.setIcon(QMessageBox.Critical)
         box.setWindowTitle(window_title + " - Authentication Error #2")
-        box.setText(
+        text=(
             "Authentication via pkexec failed or timed out.\n\n"
             "Simple pkexec test running 'pkexec /usr/bin/true' failed.\n\n"
             "Please ensure a Polkit authentication agent is running in your desktop session.\n\n"
             "For example:\n\n"
             "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1"
         )
+        box.setText(text)
+        print(text)
         box.exec_()
         sys.exit(1)
 
