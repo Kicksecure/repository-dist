@@ -301,10 +301,10 @@ def main():
         box.setIcon(QMessageBox.Critical)
         box.setWindowTitle(window_title + " - Authentication Error #1")
         text = (
-            "Authentication via pkexec failed or timed out."
-            "Simple pkexec test running 'pkexec /usr/libexec/repository-dist/pkexec-test' failed."
-            "Please ensure a Polkit authentication agent is running in your desktop session."
-            "For example:"
+            "Authentication via pkexec failed or timed out.\n\n"
+            "Simple pkexec test running 'pkexec /usr/libexec/repository-dist/pkexec-test' failed.\n\n"
+            "Please ensure a Polkit authentication agent is running in your desktop session.\n\n"
+            "For example:\n\n"
             "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1"
         )
         print("ERROR: " + text)
