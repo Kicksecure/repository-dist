@@ -204,10 +204,10 @@ get_codename_default() {
          if grep --quiet -- "/sid" /etc/debian_version ; then
             codename_default_stable="$(cat /etc/debian_version)"
             ## example codename_default_stable:
-            ## bookworm/sid
+            ## trixie/sid
             codename_default_stable="${codename_default_stable/%"/sid"}"
             ## example codename_default_stable:
-            ## bookworm
+            ## trixie
          fi
       fi
 
