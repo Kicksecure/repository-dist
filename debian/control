@@ -28,7 +28,7 @@ Description: Derivative APT Repository Command Line Interface (CLI)
  repository disabled or to configure it as desired.
  .
  Technically speaking, this tool creates or deletes file
- `/etc/sources.list.d/derivative.list`.
+ `/etc/sources.list.d/derivative.sources`.
  .
  Using APT `signed-by`.
 

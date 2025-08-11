@@ -45,7 +45,7 @@ preparation() {
 # tor+https://deb.whonix.org"
 
    ## Not naming sources_list_target_build_remote_derivative to avoid conflict with Whonix / Kicksecure build script.
-   [ -n "${sources_list_file_derivative:-}" ] || sources_list_file_derivative="/etc/apt/sources.list.d/derivative.list"
+   [ -n "${sources_file_derivative:-}" ] || sources_file_derivative="/etc/apt/sources.list.d/derivative.sources"
 }
 
 root_check() {
@@ -68,7 +68,7 @@ Options:
   ${yellow}-v, --verbose${nocolor}        increase verbosity
 
   ${green}-e, --enable${nocolor}         enables derivative distribution repository
-  ${red}-d, --disable${nocolor}        remove '$sources_list_file_derivative'
+  ${red}-d, --disable${nocolor}        remove '$sources_file_derivative'
 
   ${blue}-r, --repository${nocolor}     set the suite, values: stable, stable-proposed-updates, testers, developers
   ${blue}-t, --transport${nocolor}      set the transport, values: plain-tls, plain-tls-tor (default), onion, onion-tls (discouraged)
@@ -247,27 +247,30 @@ parse_variables() {
 
 disable_or_create() {
    if [ "${disable:-}" = "1" ]; then
-      if [ -f "$sources_list_file_derivative" ]; then
-         log notice "'$BASH_SOURCE': Deleting derivative APT repository '${underline}$sources_list_file_derivative${nounderline}'..."
-         rm --force --verbose -- "$sources_list_file_derivative"
+      if [ -f "$sources_file_derivative" ]; then
+         log notice "'$BASH_SOURCE': Deleting derivative APT repository '${underline}$sources_file_derivative${nounderline}'..."
+         rm --force --verbose -- "$sources_file_derivative"
          ## Deletion of /usr/share/keyrings/derivative.asc is unnecessary, see:
          ## https://www.kicksecure.com/wiki/Dev/APT
          ## Sanity test.
-         ! test -f "$sources_list_file_derivative"
+         ! test -f "$sources_file_derivative"
          log notice "'$BASH_SOURCE': Done."
       else
-         log notice "'$BASH_SOURCE': '${underline}$sources_list_file_derivative${nounderline}' does not exist, ok."
+         log notice "'$BASH_SOURCE': '${underline}$sources_file_derivative${nounderline}' does not exist, ok."
       fi
       mkdir -p /var/cache/setup-dist/status-files || true
       touch /var/cache/setup-dist/status-files/repository-dist.done || true
    else
-      sources_list_generator
+      sources_generator
       mkdir -p /var/cache/setup-dist/status-files || true
       touch /var/cache/setup-dist/status-files/repository-dist.done || true
    fi
+
+   ## Remove legacy .list file, this is no longer used as of Kicksecure 18.
+   rm --force --verbose -- /etc/apt/sources.list.d/derivative.list
 }
 
-sources_list_generator() {
+sources_generator() {
     if printf "%s" "${codename:-}" | grep --quiet --ignore-case -- "n/a" ; then
         log error "Autodetected codename '${underline}$codename${nounderline}' is invalid!"
         log error "Please set codename explicitly using:"
@@ -280,7 +283,7 @@ sources_list_generator() {
     kicksecure_url_onion="deb.w5j6stm77zs6652pgsij4awcjeel3eco7kvipheu6mtr623eyyehj4yd.onion"
     kicksecure_url_plain="deb.kicksecure.com"
 
-    sources_file="$sources_list_file_derivative"
+    sources_file="$sources_file_derivative"
 
     ## syntax is prefixing with 'tor+http(s)' for uniformity
     ## although 'http(s)+tor' also works.
@@ -319,7 +322,7 @@ sources_list_generator() {
 ## Copyright (C) 2012 - 2025 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
 ## See the file COPYING for copying conditions.
 
-## $sources_list_file_derivative
+## $sources_file_derivative
 
 ## This file has been automatically created by $SCRIPTNAME.
 ## If you make manual changes to it, your changes will be lost the next time
@@ -333,18 +336,59 @@ sources_list_generator() {
 ## These are not useful anyway, since it's better to get the source code from
 ## the git repository.
 
-deb [signed-by=/usr/share/keyrings/derivative.asc] $kicksecure_repo $codename main contrib non-free
-#deb-src [signed-by=/usr/share/keyrings/derivative.asc] $kicksecure_repo $codename main contrib non-free
-#deb [signed-by=/usr/share/keyrings/derivative.asc] tor+http://$kicksecure_url_onion $codename main contrib non-free
-#deb-src [signed-by=/usr/share/keyrings/derivative.asc] tor+http://$kicksecure_url_onion $codename main contrib non-free
+#### ENABLED KICKSECURE SOURCES ####
+
+Types: deb
+URIs: $kicksecure_repo
+Suites: $codename
+Components: main contrib non-free
+Enabled: yes
+Signed-By: /usr/share/keyrings/derivative.asc
+
+#### DISABLED BY DEFAULT KICKSECURE SOURCES ####
+
+Types: deb-src
+URIs: $kicksecure_repo
+Suites: $codename
+Components: main contrib non-free
+Enabled: no
+Signed-By: /usr/share/keyrings/derivative.asc
+
+Types: deb deb-src
+URIs: tor+http://$kicksecure_url_onion
+Suites: $codename
+Components: main contrib non-free
+Enabled: no
+Signed-By: /usr/share/keyrings/derivative.asc
 " | sponge -- "$sources_file" >/dev/null
 
     if test -f /usr/share/whonix/marker; then
         printf "%s" "\
-deb [signed-by=/usr/share/keyrings/derivative.asc] $whonix_repo $codename main contrib non-free
-#deb-src [signed-by=/usr/share/keyrings/derivative.asc] $whonix_repo $codename main contrib non-free
-#deb [signed-by=/usr/share/keyrings/derivative.asc] tor+http://$whonix_url_onion $codename main contrib non-free
-#deb-src [signed-by=/usr/share/keyrings/derivative.asc] tor+http://$whonix_url_onion $codename main contrib non-free
+
+#### ENABLED WHONIX SOURCES ####
+
+Types: deb
+URIs: $whonix_repo
+Suites: $codename
+Components: main contrib non-free
+Enabled: yes
+Signed-By: /usr/share/keyrings/derivative.asc
+
+#### DISABLED BY DEFAULT WHONIX SOURCES ####
+
+Types: deb-src
+URIs: $whonix_repo
+Suites: $codename
+Components: main contrib non-free
+Enabled: no
+Signed-By: /usr/share/keyrings/derivative.asc
+
+Types: deb deb-src
+URIs: tor+http://$whonix_url_onion
+Suites: $codename
+Components: main contrib non-free
+Enabled: no
+Signed-By: /usr/share/keyrings/derivative.asc
 " | sponge -a -- "$sources_file" >/dev/null
     fi
 
