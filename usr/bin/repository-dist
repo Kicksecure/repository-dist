@@ -266,8 +266,12 @@ disable_or_create() {
       touch /var/cache/setup-dist/status-files/repository-dist.done || true
    fi
 
-   ## Remove legacy .list file, this is no longer used as of Kicksecure 18.
-   rm --force --verbose -- /etc/apt/sources.list.d/derivative.list
+   ## Check if /etc/apt/sources.list.d/derivative.list exists before deletion
+   ## to avoid repetitive verbose deletion message.
+   if test -f /etc/apt/sources.list.d/derivative.list; then
+      ## Remove legacy .list file, this is no longer used as of Kicksecure 18.
+      rm --force --verbose -- /etc/apt/sources.list.d/derivative.list
+   fi
 }
 
 sources_generator() {
