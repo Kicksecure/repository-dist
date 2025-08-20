@@ -11,7 +11,7 @@ started by setup-dist. The user is free to either leave Derivative's
 repository disabled or to configure it as desired.
 
 Technically speaking, this tool creates or deletes file
-`/etc/sources.list.d/derivative.list`.
+`/etc/sources.list.d/derivative.sources`.
 
 Using APT `signed-by`.
 

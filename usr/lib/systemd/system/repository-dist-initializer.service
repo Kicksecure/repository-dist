@@ -2,7 +2,7 @@
 ## See the file COPYING for copying conditions.
 
 [Unit]
-Description=/etc/apt/sources.list.d/derivative.list initializer
+Description=/etc/apt/sources.list.d/derivative.sources initializer
 
 [Service]
 Type=oneshot
