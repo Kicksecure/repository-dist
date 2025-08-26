@@ -1,3 +1,52 @@
+commit 580818509e6319dbc90c8c844a458e29fd7815bf
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Aug 26 05:14:30 2025 -0400
+
+    re-generate man pages (generated using "genmkfile manpages")
+
+commit 1fc601e41fd598b4ef4551cf354f8fbb9a95b2c7
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 20 09:08:41 2025 -0400
+
+    Check if /etc/apt/sources.list.d/derivative.list exists before deletion to avoid repetitive verbose deletion message.
+
+commit 5794130e3684c79e36e61f15dbf5b0f11205b865
+Merge: 2ade822 9301734
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 20 09:06:23 2025 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit 2ade822c1d81bc84839511bdfb2534ab8cf8ef98
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 20 06:57:28 2025 -0400
+
+    bumped Standards-Version
+
+commit 3ad68b1b9e38e3f6de388be373428abb97519a9a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 20 06:25:35 2025 -0400
+
+    readme
+
+commit 93017342d6165b20c21e9b90540e117c688df50d
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Sun Aug 10 20:06:01 2025 -0500
+
+    Switch to using deb822 sources
+
+commit fcf8b1b8d0668b165520feac5ff0ba35e024d7cd
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Tue Aug 5 22:58:05 2025 -0500
+
+    Port to Trixie.
+
+commit 54c51744f86abb1c9f990037c6e2ded09c39ca8a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed May 7 06:40:42 2025 +0000
+
+    bumped changelog version
+
 commit 5d2c9412c2086fea26566c67f2e00a3006c642c1
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed May 7 02:35:14 2025 -0400
