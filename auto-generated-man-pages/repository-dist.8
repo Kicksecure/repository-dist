@@ -1,5 +1,5 @@
-.\" generated with Ronn-NG/v0.9.1
-.\" http://github.com/apjanke/ronn-ng/tree/0.9.1
+.\" generated with Ronn-NG/v0.10.1
+.\" http://github.com/apjanke/ronn-ng/tree/0.10.1
 .TH "REPOSITORY\-DIST" "8" "January 2020" "repository-dist" "repository-dist Manual"
 .SH "NAME"
 \fBrepository\-dist\fR \- enable, configure or disable derivative distribution apt repository
@@ -8,31 +8,31 @@
 .SH "DESCRIPTION"
 Enables or disables derivative distribution apt repository\.
 .SH "OPTIONS"
-.IP "\[ci]" 4
+.IP "\(bu" 4
 \-h, \-\-help
 .IP
 Print a help message\.
-.IP "\[ci]" 4
+.IP "\(bu" 4
 \-v, \-\-verbose
 .IP
 Verbose output\.
-.IP "\[ci]" 4
+.IP "\(bu" 4
 \-e, \-\-enable
 .IP
 Enables derivative distribution apt repository\.
-.IP "\[ci]" 4
+.IP "\(bu" 4
 \-d, \-\-disable
 .IP
 Disables derivative distribution apt repository\.
-.IP "\[ci]" 4
+.IP "\(bu" 4
 \-c, \-\-codename \fIcodename\fR
 .IP
 Advanced users option\. Specific literal code names\. Only useful in combination with \fB\-\-enable\fR\.
-.IP "\[ci]" 4
+.IP "\(bu" 4
 \-r, \-\-repository \fIcodename\fR
 .IP
 Chose either the \fBstable\fR, \fBstable\-proposed\-updates\fR, \fBtesters\fR or \fBdevelopers\fR version of derivative distribution\. Only useful in combination with \fB\-\-enable\fR\.
-.IP "\[ci]" 4
+.IP "\(bu" 4
 \-t, \-\-transport \fItransport\fR
 .IP
 Chose either \fBplain\-tls\fR, \fBplain\-tls\-tor\fR, \fBonion\fR or \fBonion\-tls\fR\. option\. \fBplain\-tls\fR enables \fBhttps\fR for the plain net domain\. \fBplain\-tls\-tor\fR enables \fBtor+https\fRfor the plain net domain\. \fBonion\fR enables \fBtor+http\fR for the onion domain\. \fBonion\-tls\fR enables \fBtor+https\fR for the onion domain\. Note that \fBonion\-tls\fR is at time of writing only a theoretical Only useful in combination with \fB\-\-enable\fR\. See chapter ONION TLS\.
