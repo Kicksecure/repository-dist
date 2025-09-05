@@ -5,7 +5,7 @@ Source: repository-dist
 Section: misc
 Priority: optional
 Maintainer: Patrick Schleizer <adrelanos@kicksecure.com>
-Build-Depends: debhelper (>= 13), debhelper-compat (= 13), dh-python, python3
+Build-Depends: debhelper (>= 13), debhelper-compat (= 13)
 Homepage: https://www.kicksecure.com/wiki/Project-APT-Repository
 Vcs-Browser: https://github.com/Kicksecure/repository-dist
 Vcs-Git: https://github.com/Kicksecure/repository-dist.git
@@ -15,7 +15,7 @@ Rules-Requires-Root: no
 Package: repository-dist
 Architecture: all
 Depends: helper-scripts, lsb-release, moreutils,
- ${misc:Depends}, ${python3:Depends}
+ ${misc:Depends}
 Description: Derivative APT Repository Command Line Interface (CLI)
  This tool can always be used to enable either Derivative's stable, testers or
  developers repository or to disable Derivative's repository.
