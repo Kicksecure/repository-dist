@@ -1,3 +1,15 @@
+commit 27cadc91be466d56101b8ef3679b2f985209da39
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Sep 5 07:36:12 2025 -0400
+
+    no longer unneccessarily use dh_python
+
+commit 5c2e31b89b0cb40275d93fc187216b2fda8ec833
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Sep 2 15:23:58 2025 +0000
+
+    bumped changelog version
+
 commit c9e66fd9ee63d9c4877d8c7557951ac69fff2df6
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Tue Aug 26 09:14:31 2025 +0000
