@@ -14,7 +14,7 @@ Rules-Requires-Root: no
 
 Package: repository-dist
 Architecture: all
-Depends: helper-scripts, lsb-release, moreutils,
+Depends: helper-scripts, lsb-release, moreutils, python3:any,
  ${misc:Depends}
 Description: Derivative APT Repository Command Line Interface (CLI)
  This tool can always be used to enable either Derivative's stable, testers or
