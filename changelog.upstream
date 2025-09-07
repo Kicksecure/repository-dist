@@ -1,3 +1,15 @@
+commit 3fed0a4fb58b7115a9db0736334d7263627f0f9c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Sep 7 03:58:50 2025 -0400
+
+    extend signing key validity
+
+commit 0919b878a13750c4e81d82f6ff20eca702394158
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Sep 5 11:45:34 2025 +0000
+
+    bumped changelog version
+
 commit 7b6107d9376d6958d525d74c92e63c7144809782
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Fri Sep 5 07:45:18 2025 -0400
