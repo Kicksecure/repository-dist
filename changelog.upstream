@@ -1,3 +1,22 @@
+commit c2a279d72e23691a5a1e31f79277c549e47ca0b2
+Merge: fee4fdd 9c9feff
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 19 02:55:52 2025 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit 9c9feff070470b4494520c8a5d16699f6185a04c
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Sat Oct 18 21:42:54 2025 -0500
+
+    Use layouts in repository-dist-wizard rather than manual positioning to prevent future UI issues and allow resizing
+
+commit fee4fdd94053a2a395849cbe6fe5c6afe79191db
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Sep 19 16:16:47 2025 +0000
+
+    bumped changelog version
+
 commit 8046ce755b1c29a6802c9ff8c6de77230688961a
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Thu Sep 18 10:08:02 2025 -0400
