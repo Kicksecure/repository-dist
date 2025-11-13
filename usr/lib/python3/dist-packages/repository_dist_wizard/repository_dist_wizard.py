@@ -298,7 +298,7 @@ def main():
         box.setWindowTitle(window_title + " - Execution Error")
         text = (
              "'pkexec' unavailable.\n\n"
-             "Either 'pkexec' is not installed (unlikely) or you need to boot into sysmaint mode."
+             "Either 'pkexec' is not installed (unlikely) or you need to boot into sysmaint session."
         )
         print("ERROR: " + text)
         box.setText(text)
