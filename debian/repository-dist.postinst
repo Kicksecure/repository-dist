@@ -15,46 +15,6 @@ true "
 #####################################################################
 "
 
-#case "$1" in
-#   configure)
-#      true "INFO: Configuring $DPKG_MAINTSCRIPT_PACKAGE..."
-#
-#      true "INFO: Checking if function enable_echo is available..."
-#      if [ "$(type -t enable_echo)" = "function" ] ; then
-#         true "INFO: Yes, function enable_echo is available."
-#         ## Not trying to enable echo, if DEBDEBUG is set to 1, because then
-#         ## echo is already enabled.
-#         if [ ! "$DEBDEBUG" = "1" ]; then
-#            true "INFO: DEBDEBUG is not set to 1, therefore running enable_echo..."
-#            ## provided by pre.bsh
-#            enable_echo
-#         fi
-#      fi
-#
-#      if [ "$DERIVATIVE_APT_REPOSITORY_OPTS" = "" ]; then
-#         if ischroot --default-false ; then
-#            echo "INFO: Variable DERIVATIVE_APT_REPOSITORY_OPTS is empty, not calling repository-dist tool."
-#         else
-#            true "INFO: Variable DERIVATIVE_APT_REPOSITORY_OPTS is empty, not calling repository-dist tool."
-#         fi
-#      else
-#         ## https://www.kicksecure.com/wiki/Trust#APT_Repository_Default_Settings
-#         if [ -o xtrace ]; then
-#            bash -x repository-dist $DERIVATIVE_APT_REPOSITORY_OPTS
-#         else
-#            echo "$DPKG_MAINTSCRIPT_PACKAGE $DPKG_MAINTSCRIPT_NAME Running: repository-dist $DERIVATIVE_APT_REPOSITORY_OPTS"
-#            repository-dist $DERIVATIVE_APT_REPOSITORY_OPTS
-#         fi
-#      fi
-#
-#      true "INFO: End configuring $DPKG_MAINTSCRIPT_PACKAGE."
-#
-#      ;;
-#
-#   *)
-#      ;;
-#esac
-
 true "INFO: debhelper beginning here."
 
 #DEBHELPER#
