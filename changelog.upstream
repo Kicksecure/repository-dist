@@ -1,3 +1,15 @@
+commit 0d670df5df265a4da61437595e8b3bfbbe882c14
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jan 28 09:31:34 2026 -0500
+
+    extend signing key validity to infinite
+
+commit 108e06b9661a3d356263d464f0f32193aeb15896
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Jan 9 10:34:31 2026 +0000
+
+    bumped changelog version
+
 commit e8a37f23856b881ee191222ea7cf9d3f924e40ea
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Fri Jan 9 03:54:35 2026 -0500
