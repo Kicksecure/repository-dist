@@ -15,6 +15,9 @@ true "
 #####################################################################
 "
 
+## Sanity test.
+sq cert lint --cert-file "/usr/share/keyrings/derivative.asc" &>/dev/null
+
 true "INFO: debhelper beginning here."
 
 #DEBHELPER#

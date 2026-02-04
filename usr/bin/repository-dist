@@ -319,6 +319,8 @@ sources_generator() {
             ;;
     esac
 
+    sq cert lint --cert-file "/usr/share/keyrings/derivative.asc" &>/dev/null
+
     log notice "'$BASH_SOURCE': Using distribution '${underline}$codename${nounderline}' (version of derivative) as apt repository."
     log notice "'$BASH_SOURCE': Creating '${underline}$sources_file${nounderline}'..."
 
