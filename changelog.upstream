@@ -1,3 +1,9 @@
+commit 74dd42ab988a0afe5905f828a2e04fe327d575a5
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Feb 4 11:53:51 2026 +0000
+
+    bumped changelog version
+
 commit b48b79bfd932b470b9d82c1e1eb9b6e3689ff0ae
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed Feb 4 06:33:02 2026 -0500
@@ -549,7 +555,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Fri Mar 7 01:01:29 2025 -0500
 
     Merge pull request #3 from ben-grande/help
-    
+
     Improve help message
 
 commit f9506d6551229fc4ef6f57ce824c7897ba0e9e76
@@ -648,7 +654,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Jul 27 10:18:01 2024 -0400
 
     remove duplication
-    
+
     already configured in DERIVATIVE_APT_REPOSITORY_OPTS
 
 commit bcc5cbaf0cde15417911098df05a662a22bf6859
@@ -710,7 +716,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Thu Apr 4 04:10:32 2024 -0400
 
     rename desktop file to avoid file clash during upgrade
-    
+
     fixes https://github.com/Whonix/updates-status/issues/125
 
 commit 343d11f76f5e7c410f184b72efb95fe8b59bdd54
@@ -778,7 +784,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Nov 11 13:41:31 2023 -0500
 
     change license to AGPL-3+
-    
+
     https://forums.whonix.org/t/license-change-to-agplv3/17455
 
 commit facb6f8ba1814e942a687448535ff3357c0b9015
@@ -1002,7 +1008,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Fri Oct 28 09:35:55 2022 -0400
 
     man page: document `--transport`
-    
+
     plain-tls, plain-tls-tor, onion or onion-tls
 
 commit 4fb9beedcc7ebfa211b9bba767ab208af9c18244
@@ -1076,7 +1082,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed May 25 10:54:34 2022 -0400
 
     default to plain-tls-tor
-    
+
     https://forums.whonix.org/t/tool-to-onionize-all-apt-sources/13367/28
 
 commit 87ee01124ef32dd6af475598a191fd4e80a2fb12
@@ -1121,7 +1127,7 @@ Author: nyxnor <nyxnor@protonmail.com>
 Date:   Mon Mar 28 18:48:17 2022 +0000
 
     whonix double repo parse
-    
+
     Signed-off-by: nyxnor <nyxnor@protonmail.com>
 
 commit 123fb6d6551ba41bff8db33a49c5b0c5c6cc25f4
@@ -1129,7 +1135,7 @@ Author: nyxnor <nyxnor@protonmail.com>
 Date:   Mon Mar 28 11:36:57 2022 +0000
 
     autodetect OS; block kicksecure from enabling whonix repo
-    
+
     Signed-off-by: nyxnor <nyxnor@protonmail.com>
 
 commit 0cf8bf721603d06cfb923526b3284c713032b687
@@ -1197,7 +1203,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Sep 11 17:37:49 2021 -0400
 
     legacy: upgrade existing `/etc/apt/sources.list.d/derivative.list`
-    
+
     to use `[signed-by=/usr/share/keyrings/derivative.asc]`
 
 commit 73ccff0d64314490703eda5c376e04129fd6170e
@@ -1242,7 +1248,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Sep 11 17:15:33 2021 -0400
 
     delete legacy `/etc/apt/trusted.gpg.d/derivative.asc`
-    
+
     because now using `signed-by` and `/usr/share/keyrings/derivative.asc`
 
 commit e3e2db96441401015c4fa61f423b43a240390b97
@@ -1256,7 +1262,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Sep 11 16:57:35 2021 -0400
 
     renamed: usr/share/repository-dist/derivative-distribution-signing-key.asc -> usr/share/keyrings/derivative-distribution-signing-key.asc (gpg)
-    
+
     renamed: usr/share/repository-dist/derivative-distribution-signify-key.pub -> usr/share/keyrings/derivative-distribution-signify-key.pub (signify)
 
 commit f113c374a5e36f25c98441d166d34863fdd9268a
@@ -1264,7 +1270,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Sep 11 16:56:11 2021 -0400
 
     use APT sources.list `signed-by`
-    
+
     https://forums.whonix.org/t/apt-repository-signing-keys-per-apt-sources-list-signed-by/12302
 
 commit 1fd8cd55237f95e6413c37c19cbff0471bab460a
@@ -1303,7 +1309,7 @@ Date:   Sat Aug 21 06:36:19 2021 -0400
 
     use ascii armored gpg key;
     code simplification
-    
+
     since APT folder `/etc/apt/trusted.gpg.d` support ascii armored gpg keys since
     Debian `bullseye`
 
@@ -1336,7 +1342,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed Aug 4 07:06:18 2021 -0400
 
     chmod -x usr/lib/python3/dist-packages/repository_dist_wizard/repository_dist_wizard.py
-    
+
     lintian FHS
 
 commit 68794ba0b1a9a532a92a5aa937aee6c8d981ddde
@@ -1392,9 +1398,9 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Fri May 7 05:34:16 2021 -0400
 
     reduce dependencies for CLI version
-    
+
     split dependencies into repository-dist (CLI) and repository-dist-wizard (GUI)
-    
+
     https://forums.whonix.org/t/kicksecure-minimal-version/11613
 
 commit e4fa263b49f73efbf176c1f5ff7e52a1a867597f
@@ -1438,7 +1444,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Thu Mar 18 10:24:25 2021 -0400
 
     rename variable sources_list_target_build_remote_derivative to sources_list_file_derivative
-    
+
     to avoid conflict with Whonix / Kicksecure build script
 
 commit 5ab47f680ca44504ad9fa00aff2c2c3fa1ca8549
@@ -1518,7 +1524,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Thu Mar 11 14:04:18 2021 -0500
 
     Revert "cleanup"
-    
+
     This reverts commit 16597522ae72d8cd2dbfbaf1591835c0998c7cc0.
 
 commit aebff4b084c343f136147d823da5b3a5305b7192
@@ -1586,7 +1592,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Thu Mar 11 13:43:17 2021 -0500
 
     stop using apt-key since deprecated
-    
+
     http://forums.whonix.org/t/apt-2-2-changes/11240/1
 
 commit 40d52e333d400b3247f4e7f995e3af7f50b6990c
@@ -1648,7 +1654,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Feb 3 11:46:55 2021 -0500
 
     migration whonix-repository -> repository-dist
-    
+
     mv --verbose /etc/apt/sources.list.d/whonix.list /etc/apt/sources.list.d/derivative.list
     mv --verbose /etc/apt/trusted.gpg.d/whonix.gpg /etc/apt/trusted.gpg.d/derivative.gpg
 
@@ -2222,9 +2228,9 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Mar 13 13:54:56 2019 +0000
 
     remove legacy handling of /etc/apt/trusted.gpg
-    
+
     apt does not allow that anymore anyhow
-    
+
     prevents a warning during upgrading
 
 commit 9b59a47065cf7bf868e5748880b0fca072780beb
@@ -2238,18 +2244,18 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Mar 1 14:32:44 2019 +0000
 
     add improved legal protections clauses
-    
+
     The license for software created by Whonix is the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version with additional terms applicable per GNU GPL version 3 section 7.
-    
+
     The additional terms are based on the Doom 3 license which is Debian refers to as `GPL-3+-with-id-software-additional-terms`, which is Debian DFSG [1] (The Debian Free Software Guidelines) approved and which is therefore suitable for Debian `main`. Whonix made applied minimal changes to it:
-    
+
     * Rewrite `The Doom 3 BFG Edition GPL Source Code` to the more common `this program` which is used throughout the GPL.
     * Added a "trump clause" [2], in other words, any conflicts or disputes between the additional terms and the GPLv3 shall be resolved in favor of the GPLv3 by adding `Notwithstanding any other provision of this License` (as mentioned in GPL FAQ [3]) at the beginning of the additional terms.
-    
+
     [1] https://www.debian.org/social_contract#guidelines
     [2] https://www.fsf.org/news/canonical-updated-licensing-terms
     [3] https://www.gnu.org/licenses/gpl-faq.html#v3Notwithstanding
-    
+
     For more considerations, see also:
     https://www.whonix.org/wiki/Dev/Licensing
 
@@ -2276,7 +2282,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Jan 20 06:13:02 2019 +0000
 
     enable https by default
-    
+
     https://phabricator.whonix.org/T721
 
 commit f04391c5ad438732c5a9ae886b926530e277e9cd
@@ -2284,7 +2290,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Jan 19 23:58:50 2019 -0500
 
     disable onions by default due to unreliability
-    
+
     https://forums.whonix.org/t/disable-onions-by-default-due-to-unreliability/6650
 
 commit f390451c65741318dea50c19d4edba560e3d77c4
@@ -2304,7 +2310,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Nov 17 13:00:28 2018 +0000
 
     silence warning: apt-key should not be used in scripts
-    
+
     https://forums.whonix.org/t/warning-apt-key-should-not-be-used-in-scripts/6342
 
 commit 4e22024e78562b3f8a8cc0328e78ed30c385ab08
@@ -2366,12 +2372,12 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Aug 8 10:24:22 2018 +0000
 
     code simplification, use apt-key rather than custom code for adding gpg key
-    
+
     from /usr/share/whonix-repository/whonix.asc
     to /etc/apt/trusted.gpg.d/whonix.gpg
-    
+
     by using
-    
+
     apt-key --keyring "$apt_target_key" add "$apt_source_key"
 
 commit 07d70e7a4395538b453a7264fbb0697309691a0c
@@ -2551,7 +2557,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Jan 12 15:31:41 2018 +0000
 
     renamed:    usr/share/applications/whonix_repository.desktop -> usr/share/applications/whonix-repository-wizard.desktop
-    
+
     to avoid package conflicts during Whonix 13 -> 14 upgrade
 
 commit 3a5ca900206ee9fa19495530b692a9135cc88f76
@@ -2565,7 +2571,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Jan 12 15:16:55 2018 +0000
 
     import usr/share/applications/whonix_repository.desktop
-    
+
     from whonix-setup-wizard
 
 commit ea3bba700035b9478835836699eeec181c101d04
@@ -2690,7 +2696,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Feb 10 15:47:56 2017 +0000
 
     remove faketime from Build-Depends:
-    
+
     since no longer used for reproducible builds
 
 commit bf4179bc136484438045a4ad00756925aedd130f
@@ -2734,7 +2740,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Jan 18 13:24:53 2017 +0000
 
     use tor+http / apt-transport-tor rather than Acquire::BlockDotOnion "false";
-    
+
     https://phabricator.whonix.org/T610
 
 commit 86d1e06c83b95045c2d761d7c49e2a0659c2784b
@@ -2772,11 +2778,11 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Jan 9 06:44:29 2017 +0000
 
     Migration from Whonix 13 jessie to stretch.
-    
+
     Removing legacy key entry 2EEACCDA from /etc/apt/trusted.gpg.
-    
+
     Readd as /etc/apt/trusted.gpg.d/whonix.gpg.
-    
+
     https://forums.whonix.org/t/updating-whonix-from-jessie-to-stretch-migration-to-gnome-shell-port-to-gnome-ish-applications
 
 commit 0be9e499d6308167de04bf7f89bc27d1753c7417
@@ -2801,7 +2807,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Jan 7 22:20:47 2017 +0000
 
     fail open in case gpg_tmp folder deletion fails
-    
+
     It fails in Debian stretch for a unknown reason.
     Failing open because deletion of that temp folder is not that important.
     (Will be deleted after reboot anyhow.)
@@ -2835,9 +2841,9 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Dec 31 16:46:38 2016 +0000
 
     show more useful error message when no option is given
-    
+
     Thanks to TNT_BOM_BOM for the suggestion!
-    
+
     https://forums.whonix.org/t/sudo-whonix-repository-doesnt-work
 
 commit 780a47d0a1356b28258fc98b92496f9bfc890124
@@ -2857,7 +2863,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Aug 19 00:24:24 2016 +0000
 
     additionally add Whonix onion deb repository
-    
+
     support multi lined WHONIX_APT_REPOSITORY_BASEURI
 
 commit 460757e78d0f3036d205b19b99a6f06ee40962cf
@@ -2865,7 +2871,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Jun 2 11:53:31 2016 +0000
 
     do not use tput if variable TERM is empty
-    
+
     https://phabricator.whonix.org/T505
 
 commit d8618a037be58e58dab7fe21b745bb22267aaf1f
@@ -2897,7 +2903,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Apr 18 21:25:55 2016 +0000
 
     update signing key during upgrading
-    
+
     postinst: removed extrartenous 'exit 0'
 
 commit d253d364332ca70a422d0aabbfe75caee865bcff
@@ -2923,7 +2929,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Mar 31 00:42:53 2016 +0000
 
     implemented stable-proposed-updates
-    
+
     https://phabricator.whonix.org/T200
 
 commit 44c23f1669ee447b99e873fa94dd970ff94baa47
@@ -2931,7 +2937,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Mar 21 13:52:52 2016 +0100
 
     move to whonix.org repository
-    
+
     https://phabricator.whonix.org/T475
 
 commit 1b5808dd9c0d1258e8d3f7a2bf5f3fdcfe93b3c6
