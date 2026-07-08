@@ -1,3 +1,44 @@
+commit 0acd3cf91d3d9cb8a4277bac5f6a848bbd6bf118
+Merge: 7e185a3 280fa41
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jul 8 14:05:10 2026 -0400
+
+    Merge remote-tracking branch 'refs/remotes/org-ai-assisted/master'
+
+commit 280fa4134f36bdd2a6b6f6ca6ef62a1bc89db5b7
+Merge: 7e185a3 6297185
+Author: assisted-by-ai (Bot Account) (Machine Account) <228987186+assisted-by-ai@users.noreply.github.com>
+Date:   Wed Jul 8 03:36:04 2026 -0400
+
+    Merge pull request #1 from org-ai-assisted/ai/sq-lint-nonfatal-qemu
+
+    postinst: keep the keyring lint non-fatal under qemu-user emulation
+
+commit 6297185d1ac7dd788452440abedaec78eab21f8e
+Author: claude (dev56 7c768585-e4f3-4e54-907f-be83affd0cb1) <noreply@anthropic.com>
+Date:   Wed Jul 8 03:28:37 2026 -0400
+
+    postinst: keep the keyring lint non-fatal (qemu-user aarch64 sq panic)
+
+    The 'sq cert lint' sanity test runs under 'set -e', so any non-zero exit
+    aborts package configuration. 'sq' panics ("capacity overflow") under
+    qemu-user aarch64 emulation, which breaks cross-building arm64 images on a
+    non-arm64 host, where this guest postinst runs under qemu-user during image
+    assembly. That is a qemu-user bug, fixed upstream in qemu >= 10.2.0 (Debian
+    trixie ships qemu 10.0.8), not an sq or repository-dist bug. A keyring lint
+    failure should not abort installing the repository configuration in any case,
+    so make it best-effort.
+
+    ## AI-Assisted
+
+    Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+
+commit 7e185a334f4c97e66908b5a818c95c0878646506
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed May 20 22:17:44 2026 +0000
+
+    bumped changelog version
+
 commit 1c24611c5db1478a97c1040a4684b98226784e41
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed May 20 16:57:06 2026 -0400
