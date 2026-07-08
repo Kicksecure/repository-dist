@@ -15,8 +15,13 @@ true "
 #####################################################################
 "
 
-## Sanity test.
-sq cert lint --cert-file "/usr/share/keyrings/derivative.asc" &>/dev/null
+## Sanity test (best-effort). "sq" panics ("capacity overflow") under qemu-user
+## aarch64 emulation, which breaks cross-building arm64 images on a non-arm64
+## host (the guest postinst runs under qemu-user during image assembly). That
+## is a qemu-user bug, fixed upstream in qemu >= 10.2.0 (Debian trixie ships
+## qemu 10.0.8). A keyring lint failure must not abort package configuration,
+## so keep it non-fatal.
+sq cert lint --cert-file "/usr/share/keyrings/derivative.asc" &>/dev/null || true
 
 true "INFO: debhelper beginning here."
 
