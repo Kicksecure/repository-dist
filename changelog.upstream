@@ -1,3 +1,40 @@
+commit 7d228e98703f16bf8c25824922fcd1d8bcb41147
+Merge: 88af83e b185f8a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Aug 1 04:23:16 2026 -0400
+
+    Merge remote-tracking branch 'refs/remotes/org-ai-assisted/master'
+
+commit b185f8a7b32062cc35959cc1dd98a470e2d7bc06
+Merge: 88af83e 2dd2baa
+Author: assisted-by-ai (Bot Account) (Machine Account) <228987186+assisted-by-ai@users.noreply.github.com>
+Date:   Fri Jul 31 15:51:49 2026 -0400
+
+    Merge pull request #2 from org-ai-assisted/ai
+
+    ci: add file-based CodeQL python lane
+
+commit 2dd2baaeb3c7245930dd0f76a6e5bca0144c46ce
+Author: claude (dev142 b93fb2c6-e15f-4d45-8566-f3ded893b70e) <noreply@anthropic.com>
+Date:   Fri Jul 31 15:05:56 2026 -0400
+
+    ci: add file-based CodeQL python lane
+
+    Propagate consumer-codeql-python.yml byte-identically from
+    developer-meta-files/consumer-templates. repository-dist ships real product Python (APT-sources wizard) that had no python CodeQL
+    analysis.
+
+    build-mode none; push/PR/workflow_dispatch triggers. No dm-consumer.yml
+    section required (reusable soft-skips an absent section).
+
+    Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>
+
+commit 88af83e14981d233eb7f08acef4bc20e4b97db7f
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jul 8 18:13:22 2026 +0000
+
+    bumped changelog version
+
 commit 0acd3cf91d3d9cb8a4277bac5f6a848bbd6bf118
 Merge: 7e185a3 280fa41
 Author: Patrick Schleizer <adrelanos@whonix.org>
