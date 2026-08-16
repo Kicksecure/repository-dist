@@ -1,3 +1,16 @@
+commit 8039e629fea4dc08d9e0e107d7d5bfe8df848d51
+Merge: ae8d3ea c578702
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Aug 15 12:50:57 2026 -0400
+
+    Merge remote-tracking branch 'org-ai-assisted/master'
+
+commit ae8d3eae904bdc69bd45f20c39ddd7932c6a659e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Aug 15 16:37:44 2026 +0000
+
+    bumped changelog version
+
 commit 80386edbfe16be6ff579b8470c94209197ae9300
 Merge: 01f8bde 3fe7a23
 Author: Patrick Schleizer <adrelanos@whonix.org>
@@ -18,6 +31,15 @@ Author: Aaron Rainbolt <arraybolt3@gmail.com>
 Date:   Fri Aug 7 00:55:19 2026 -0400
 
     Merge branch 'ai' into arraybolt3/trixie
+
+commit c5787024b5b642be4b7d51945bf1fd6a1962ef47
+Merge: 01f8bde 5252ede
+Author: assisted-by-ai (Bot Account) (Machine Account) <228987186+assisted-by-ai@users.noreply.github.com>
+Date:   Sat Aug 1 05:00:48 2026 -0400
+
+    Merge pull request #3 from org-ai-assisted/ai
+
+    CI: add bandit, codeql-actions, secrets-audit scanner workflows
 
 commit 01f8bdef728f8bbae66752b0bff7bd5954a0b3b5
 Author: Patrick Schleizer <adrelanos@whonix.org>
